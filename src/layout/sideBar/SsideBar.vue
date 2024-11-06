@@ -1,25 +1,28 @@
 <template>
-    <div class="rounded bg-cyan-200">
-        <div class="bg-cyan-600 p-2 border-b border-slate-400">
+    <div class="">
+        <div class="bg-cyan-600 p-2 border-b border-slate-400 rounded-t">
             <span>
                 Menu
             </span>
         </div>
         <div class="cursor-pointer p-2 border-b border-slate-800"
             :class="name == 'aboutMe' ? 'bg-cyan-500' : 'bg-cyan-200'" @click="toAboutMe">
-            <span class="ps-4">
+            <i class="fa fa-home"></i>
+            <span class="">
                 Home
             </span>
         </div>
         <div class="cursor-pointer p-2 border-b border-slate-800"
             :class="name == 'demo' ? 'bg-cyan-500' : 'bg-cyan-200'" @click="toDemo">
-            <span class="ps-4">
+            <i class="fa fa-laptop"></i>
+            <span class="">
                 Demo
             </span>
         </div>
-        <div class="cursor-pointer p-2 border-b border-slate-800"
+        <div class="cursor-pointer p-2 border-b border-slate-800 rounded-b"
             :class="name == 'analyze' ? 'bg-cyan-500' : 'bg-cyan-200'" @click="toAnalyze">
-            <span class="ps-4">
+            <i class="fa fa-pie-chart"></i>
+            <span class="">
                 Analyze
             </span>
         </div>
