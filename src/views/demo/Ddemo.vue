@@ -30,12 +30,13 @@
             </div>
             <div class="flex gap-3 mb-8">
                 <template v-for="(data, index) in displayDragDatas">
-                    <div class="grabbable border border-gray-400 rounded-md" @dragenter.prevent @dragover.prevent
-                        :draggable="true" @drop="onDropSelectedItem(dragDatas.findIndex(e => e == data))"
-                        @dragstart="startDragSelectedItem($event, dragDatas.findIndex(e => e == data))">
+                    <div class="grabbable border border-gray-400 rounded-md"
+                        :class="{ 'bg-blue-400': !data.isOriginal }" @dragenter.prevent @dragover.prevent
+                        :draggable="true" @drop="onDropSelectedItem(displayDragDatas.findIndex(e => e == data))"
+                        @dragstart="startDragSelectedItem($event, displayDragDatas.findIndex(e => e == data))">
                         <div class="p-3" data-bs-toggle="tab">
                             <span>{{ index + 1 }}. </span>
-                            <span>{{ data }}</span>
+                            <span>{{ data.name }}</span>
                         </div>
                     </div>
                 </template>
@@ -77,11 +78,20 @@ import { onMounted, ref } from 'vue';
 import { dragDatas } from './store';
 import _ from 'lodash';
 
-const displayDragDatas = ref<Array<string>>([])
+class SortDate {
+    name: string;
+    isOriginal: boolean;
+    constructor(name: string) {
+        this.name = name;
+        this.isOriginal = true;
+    }
+}
+
+const displayDragDatas = ref<Array<SortDate>>([])
 const dragItemIndex = ref<number>(0);
 
 onMounted(() => {
-    displayDragDatas.value = _.cloneDeep(dragDatas.value);
+    displayDragDatas.value = _.cloneDeep(dragDatas.value).map(e => new SortDate(e));
 })
 
 function startDragSelectedItem(event: any, itemIndex: number) {
@@ -93,16 +103,24 @@ function startDragSelectedItem(event: any, itemIndex: number) {
 function onDropSelectedItem(itemIndex: number) {
     if (dragItemIndex.value == itemIndex) return;
     const dragItem = displayDragDatas.value[dragItemIndex.value];
+    dragItem.isOriginal = false;
     displayDragDatas.value.splice(dragItemIndex.value, 1);
     displayDragDatas.value.splice(itemIndex, 0, dragItem);
 }
 
 function onClickReset() {
-    displayDragDatas.value = _.cloneDeep(dragDatas.value);
+    displayDragDatas.value = _.cloneDeep(dragDatas.value).map(e => new SortDate(e));
 }
 
 function onClickSave() {
-    dragDatas.value = displayDragDatas.value;
+    dragDatas.value = _.cloneDeep(displayDragDatas.value).map(e => e.name);
+    for (const data of displayDragDatas.value) data.isOriginal = true;
+    AlertService.okAlert({
+        icon: 'success',
+        title: 'Success',
+        text: 'Save Success',
+        confirmButtonText: 'confirm',
+    })
 }
 
 function onClickSuccessButton() {
