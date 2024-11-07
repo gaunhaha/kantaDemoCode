@@ -8,8 +8,8 @@
                 {{ getTime() }}
             </h1>
         </div>
-        <div class="flex justify-between mb-5">
-            <button class=" text-white font-bold py-2 px-4 rounded"
+        <div class="flex justify-between mb-5 gap-8">
+            <button class="h-16 text-white font-bold py-2 px-4 rounded"
                 :class="(isShowStartCount || gaming) ? 'bg-blue-300' : 'bg-blue-500 hover:bg-blue-700'"
                 @click="onClickStart" :disabled="isShowStartCount || gaming">
                 <span v-if="isShowStartCount">
@@ -34,7 +34,7 @@
         <template v-for="i in 4">
             <div class="flex justify-around mb-10">
                 <template v-for="j in 4">
-                    <button class="p-10 rounded-md"
+                    <button class="lg:p-16 md:p-10 p-7 rounded-md"
                         :class="(activeNumber == ((i - 1) * 4 + j)) && gaming ? 'bg-red-400 cursor-pointer' : 'bg-gray-400'"
                         :disabled="activeNumber != ((i - 1) * 4 + j) || !gaming" @click="gotIt">
                     </button>

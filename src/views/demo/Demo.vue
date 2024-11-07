@@ -31,7 +31,7 @@
                     </button>
                 </div>
             </div>
-            <div class="flex gap-3 mb-8">
+            <div class="flex gap-3 mb-8 flex-wrap">
                 <template v-for="(data, index) in displayDragDatas">
                     <div class="grabbable border border-gray-400 rounded-md"
                         :class="{ 'bg-blue-400': !data.isOriginal }" @dragenter.prevent @dragover.prevent
@@ -51,7 +51,7 @@
                 <div
                     class="relative items-center block max-w-sm p-6 bg-white border border-gray-100 rounded-lg shadow-md dark:bg-gray-700 dark:border-gray-700 dark:hover:bg-gray-700">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white opacity-20">
-                        ABCDEFGHIJKLMNOPQRS
+                        ABCDEFGHI JKLMNOPQRS
                     </h5>
                     <p class="font-normal text-gray-700 dark:text-gray-400 opacity-20">
                         abcde fghijklmno pqrstuvwxyz

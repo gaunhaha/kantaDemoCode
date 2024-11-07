@@ -13,13 +13,12 @@
         </div>
         <div class="" v-if="isShow">
             <div class="flex justify-center flex-wrap">
-                <div class="p-20 w-full max-w-screen-sm min-w-72">
-                    <PieChart class="" position="right" :data="getPieChartDatas()"
-                        :labels="getPieChartLabels()" canvasId="PieChartDatas" :labelAddPercentages="true"
-                        :max-quantity="12" :to-fixed-number="2" />
+                <div class="md:p-20 w-full max-w-screen-sm min-w-72">
+                    <PieChart class="" position="right" :data="getPieChartDatas()" :labels="getPieChartLabels()"
+                        canvasId="PieChartDatas" :labelAddPercentages="true" :max-quantity="12" :to-fixed-number="2" />
                 </div>
-                <div class="p-10 pb-20 w-full max-w-screen-sm min-w-72 content-end">
-                    <GroupBarChartKanta id="BarChart" :labels="getBarChartLabels()"
+                <div class="md:p-10 w-full max-w-screen-md min-w-96 content-end">
+                    <GroupBarChartKanta class="" id="BarChart" :labels="getBarChartLabels()"
                         :doneDatas="getBarChartData()" :limit="12" />
                 </div>
             </div>
