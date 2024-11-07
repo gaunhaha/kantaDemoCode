@@ -8,8 +8,8 @@
                 {{ getTime() }}
             </h1>
         </div>
-        <div class="flex justify-between mb-5 gap-8">
-            <button class="h-16 text-white font-bold py-2 px-4 rounded"
+        <div class="flex justify-between mb-5 gap-3 flex-wrap">
+            <button class="h-16 w-24 text-white font-bold rounded"
                 :class="(isShowStartCount || gaming) ? 'bg-blue-300' : 'bg-blue-500 hover:bg-blue-700'"
                 @click="onClickStart" :disabled="isShowStartCount || gaming">
                 <span v-if="isShowStartCount">
@@ -22,13 +22,13 @@
                     Start
                 </span>
             </button>
-            <div class="text-3xl font-bold">
-                <span v-if="maxPoint">
-                    highest point {{ maxPoint }} |
-                </span>
-                <span>
+            <div class="text-3xl font-bold text-end">
+                <div v-if="maxPoint" class="text-nowrap">
+                    highest {{ maxPoint }}
+                </div>
+                <div class="text-nowrap">
                     point {{ point }}
-                </span>
+                </div>
             </div>
         </div>
         <template v-for="i in 4">
