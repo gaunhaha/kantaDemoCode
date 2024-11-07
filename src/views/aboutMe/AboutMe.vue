@@ -7,8 +7,8 @@
         <div class="flex flex-col max-w-screen-lg">
             <div>
                 <span class="px-3"></span>
-                I possess a strong curiosity for new technologies and often take the initiative to self-study in my
-                spare time. I am optimistic and have high self-expectations, able to incorporate and unify my
+                I possess a strong curiosity about new technologies and often take the initiative to self-study in my
+                spare time. I am optimistic and have high self-expectations. I am also able to incorporate and unify my
                 colleagues' opinions while offering suggestions as needed. I enjoy teamwork, and I am proactive and
                 responsible in my work.
             </div>
@@ -16,11 +16,11 @@
             <div>
                 <span class="px-3"></span>
                 In my role as a software engineer, I believe my strengths lie in quickly understanding requirements and
-                swiftly formulating effective solutions. I excel at transforming complex logic or concepts into clear,
-                comprehensible text or visuals, which I then further break down into structured to-do lists. This
+                formulating effective solutions. I excel at transforming complex logic or concepts into clear,
+                comprehensible text or visuals, which I then break down further into structured to-do lists. This
                 approach helps me proceed with development in an organized manner, ensuring each step has clear
-                objectives and timelines, ultimately enabling me to complete projects efficiently and accurately to meet
-                requirements.
+                objectives and timelines, which ultimately enables me to complete projects efficiently and accurately,
+                meeting all requirements.
             </div>
         </div>
     </div>

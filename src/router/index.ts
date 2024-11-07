@@ -12,13 +12,13 @@ export const routes: Array<RouteRecordRaw> = [
                 path: "/",
                 name: "aboutMe",
                 component: () =>
-                    import("@/views/aboutMe/AaboutMe.vue"),
+                    import("@/views/aboutMe/AboutMe.vue"),
             },
             {
                 path: "/demo",
                 name: "demo",
                 component: () =>
-                    import("@/views/demo/Ddemo.vue"),
+                    import("@/views/demo/Demo.vue"),
             },
             {
                 path: "/analyze",

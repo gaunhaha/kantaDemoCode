@@ -1,5 +1,8 @@
 <template>
     <div>
+        <div class="mb-8">
+            This is a SPA website built with Vite, the Vue framework, TailwindCSS, and Kanta.
+        </div>
         <div class="flex gap-5 mb-12">
             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                 @click="onClickSuccessButton">
@@ -11,7 +14,7 @@
             </button>
         </div>
         <div>
-            <div class="flex justify-between gap-3">
+            <div class="flex justify-between gap-3 mb-3">
                 <div class="text-xl mb-3">
                     Drag and Sort
                 </div>
@@ -41,9 +44,9 @@
                     </div>
                 </template>
             </div>
-            <div>
+            <div class="mb-8">
                 <div class="text-xl mb-3">
-                    Loading
+                    Loading Mask
                 </div>
                 <div
                     class="relative items-center block max-w-sm p-6 bg-white border border-gray-100 rounded-lg shadow-md dark:bg-gray-700 dark:border-gray-700 dark:hover:bg-gray-700">
@@ -69,6 +72,9 @@
                     </div>
                 </div>
             </div>
+            <div>
+                <WwhackAMole />
+            </div>
         </div>
     </div>
 </template>
@@ -77,7 +83,7 @@ import { AlertService } from '@/core/services/AlertService';
 import { onMounted, ref } from 'vue';
 import { dragDatas } from './store';
 import _ from 'lodash';
-
+import WwhackAMole from '@/views/demo/whack-a-mole/WwhackAMole.vue'
 class SortDate {
     name: string;
     isOriginal: boolean;
