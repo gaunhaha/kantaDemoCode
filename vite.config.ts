@@ -14,6 +14,12 @@ export default defineConfig({
   build: {
     outDir: '../kantaDemo_dist/dist',
     emptyOutDir: true,
-  }
-  
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        silenceDeprecations: ["legacy-js-api"],
+      },
+    },
+  },
 })

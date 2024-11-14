@@ -1,5 +1,5 @@
 <template>
-    <div class="h-16 bg-cyan-600 border-bottom flex items-center p-3 ps-8 justify-between static">
+    <div class="h-16 bg-theme border-bottom flex items-center p-3 ps-8 justify-between static">
         <div class="flex items-center">
             <div class="me-3">
                 <img class="h-10 rounded-full" id="profile-pic"
@@ -24,7 +24,7 @@
     <template v-if="isShow && width <= 750">
         <div class="absolute top-16 right-0 mt-3 z-50">
             <div class="w-60">
-                <SsideBar />
+                <SideBar />
             </div>
         </div>
     </template>
@@ -32,7 +32,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { useWindowSize } from '@vueuse/core'
-import SsideBar from "@/layout/sideBar/SsideBar.vue";
+import SideBar from "@/layout/sideBar/SideBar.vue";
 
 const { width } = useWindowSize()
 const isShow = ref<boolean>(false);

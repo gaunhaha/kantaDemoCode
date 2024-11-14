@@ -2,11 +2,9 @@ import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
 import router from "./router";
-// import VueTailwindDatepicker from "vue-tailwind-datepicker";
+import { createPinia } from 'pinia';
 
 const app = createApp(App);
-// createApp(App).mount('#app')
-
+app.use(createPinia());
 app.use(router);
-// app.use(VueTailwindDatepicker);
 app.mount("#app");

@@ -10,7 +10,7 @@
         </div>
         <div class="flex justify-between mb-5 gap-3 flex-wrap">
             <button class="h-16 w-24 text-white font-bold rounded"
-                :class="(isShowStartCount || gaming) ? 'bg-blue-300' : 'bg-blue-500 hover:bg-blue-700'"
+                :class="(isShowStartCount || gaming) ? 'bg-primary-light-active' : 'bg-primary hover:bg-primary-active'"
                 @click="onClickStart" :disabled="isShowStartCount || gaming">
                 <span v-if="isShowStartCount">
                     {{ startCount }}

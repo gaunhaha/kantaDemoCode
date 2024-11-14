@@ -26,17 +26,12 @@ export const routes: Array<RouteRecordRaw> = [
                 component: () =>
                     import("@/views/analyze/Analyze.vue"),
             },
-
-            // {
-            //     path: "/password-reset",
-            //     name: "password-reset",
-            //     component: () =>
-            //         import("@/views/crafted/authentication/basic-flow/PasswordReset.vue"),
-            // },
-            // {
-            //     path: "/",
-            //     redirect: "/sign-in"
-            // },
+            {
+                path: "/whack-a-mole",
+                name: "whackAMole",
+                component: () =>
+                    import("@/views/whack-a-mole/WhackAMole.vue"),
+            },
         ]
     },
 ];
