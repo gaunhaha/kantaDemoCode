@@ -1,0 +1,67 @@
+{
+    "AboutMe": {
+        "text1": "我對新技術充滿好奇，經常利用空餘時間自我進修，自學能力強。個性開朗樂觀，對自我的要求高，擅長在討論中傾聽並整合同事的意見，並適時提出建議。我喜歡團隊合作，做事積極且認真負責。",
+        "text2": "在軟體工程師的工作中我覺得我的優勢在於能快速理解需求，並迅速制定有效的解決方案。我擅長將複雜的邏輯或概念轉化為清晰易懂的文字或圖像，並進一步將這些內容轉化為條列式的待辦事項清單。這樣的清單能幫助我按照計劃有條不紊地進行開發，確保每個步驟都有明確的目標和時間表，最終高效且準確地完成項目並滿足需求。"
+    },
+    "Language": {
+        "en": "English",
+        "zh_tw": "繁體中文"
+    },
+    "Header": {
+        "darkMode": "深色模式",
+        "language": "語言",
+        "menu": "選單"
+    },
+    "Menu": {
+        "home": "首頁",
+        "demo": "展示",
+        "analysis": "分析",
+        "whackAMole": "打地鼠"
+    },
+    "Demo": {
+        "text1": "這是一個由 Vite、Vue、TailwindCSS、Kanta 建立的 SPA 網站。"
+    },
+    "AlertService": {
+        "title": "彈跳視窗",
+        "button1": "請點我",
+        "button2": "不要點我",
+        "successTitle": "成功",
+        "errorTitle": "錯誤",
+        "confirmButtonText1": "做得好",
+        "confirmButtonText2": "再試一次",
+        "errorText": "喔不！不要點我"
+    },
+    "DragAndSort": {
+        "title": "拖曳排序",
+        "resetButton": "復原",
+        "saveButton": "儲存",
+        "DataName": {
+            "apple": "蘋果",
+            "banana": "香蕉",
+            "orange": "橘子",
+            "peach": "桃子"
+        }
+    },
+    "LoadingMask": {
+        "title": "動畫"
+    },
+    "Analysis": {
+        "title": "分析我吃了什麼水果",
+        "searchButton": "搜尋",
+        "DataName": {
+            "apples": "蘋果",
+            "bananas": "香蕉",
+            "oranges": "橘子",
+            "peaches": "桃子"
+        }
+    },
+    "WhackAMole": {
+        "go": "加油 !",
+        "start": "開始",
+        "highest": "最高",
+        "score": "分數"
+    },
+    "Footer": {
+        "contactMe": "聯絡我"
+    }
+}

@@ -1,6 +1,6 @@
 <template>
-    <div class="text-xl mb-3">
-        Loading Mask
+    <div class="text-xl mb-3 text-primary">
+        {{ t('LoadingMask.title') }}
     </div>
     <div
         class="relative items-center block max-w-sm p-6 bg-white border border-gray-100 rounded-lg shadow-md dark:bg-gray-700 dark:border-gray-700 dark:hover:bg-gray-700">
@@ -25,3 +25,8 @@
         </div>
     </div>
 </template>
+<script setup lang="ts">
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
+</script>

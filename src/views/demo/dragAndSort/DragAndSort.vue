@@ -1,20 +1,20 @@
 <template>
     <div class="flex justify-between gap-3 mb-3">
-        <div class="text-xl mb-3">
-            Drag and Sort
+        <div class="text-xl mb-3 text-primary">
+            {{ t('DragAndSort.title') }}
         </div>
         <div class="flex gap-3">
             <button class="btn" @click="onClickReset">
                 <i class="fa fa-refresh me-1"></i>
-                reset
+                {{ t('DragAndSort.resetButton') }}
             </button>
             <button class="btn" @click="onClickSave">
                 <i class="fa fa-save me-1"></i>
-                save
+                {{ t('DragAndSort.saveButton') }}
             </button>
         </div>
     </div>
-    <div class="flex gap-3 flex-wrap">
+    <div class="flex gap-3 flex-wrap text-primary">
         <template v-for="(data, index) in displayDragDatas">
             <div class="grabbable border border-gray-400 rounded-md"
                 :class="{ 'bg-primary-light-active': !data.isOriginal }" @dragenter.prevent @dragover.prevent
@@ -23,7 +23,7 @@
                 @touchend="onDropSelectedItem(index)">
                 <div class="p-3" data-bs-toggle="tab">
                     <span>{{ index + 1 }}. </span>
-                    <span>{{ data.name }}</span>
+                    <span>{{ t('DragAndSort.DataName.' + data.name) }}</span>
                 </div>
             </div>
         </template>
@@ -35,6 +35,9 @@ import { onMounted, ref } from 'vue';
 import { AlertService } from '@/core/services/utils/AlertService';
 import { DisplaySortData } from '@/core/services/sortService/displaySortData';
 import { getDisplaySortData, updateSortData } from '@/core/services/sortService/sortService';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const displayDragDatas = ref<Array<DisplaySortData>>([])
 const dragItemIndex = ref<number>(0);

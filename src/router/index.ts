@@ -21,10 +21,10 @@ export const routes: Array<RouteRecordRaw> = [
                     import("@/views/demo/Demo.vue"),
             },
             {
-                path: "/analyze",
-                name: "analyze",
+                path: "/analysis",
+                name: "analysis",
                 component: () =>
-                    import("@/views/analyze/Analyze.vue"),
+                    import("@/views/analysis/Analysis.vue"),
             },
             {
                 path: "/whack-a-mole",

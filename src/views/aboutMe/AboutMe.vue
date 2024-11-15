@@ -4,27 +4,20 @@
             <img class="max-h-96 rounded-md" id="profile-pic"
                 src="https://lh3.google.com/u/0/d/1ZAaG72nGnrSSwBxqFSuNwysih3xAHZuE=w1920-h953-iv1" alt="pic">
         </div>
-        <div class="flex flex-col max-w-screen-lg">
+        <div class="flex flex-col max-w-screen-lg text-primary">
             <div>
                 <span class="px-3"></span>
-                I possess a strong curiosity about new technologies and often take the initiative to self-study in my
-                spare time. I am optimistic and have high self-expectations. I am also able to incorporate and unify my
-                colleagues' opinions while offering suggestions as needed. I enjoy teamwork, and I am proactive and
-                responsible in my work.
+                {{ t('AboutMe.text1') }}
             </div>
             <br>
             <div>
                 <span class="px-3"></span>
-                In my role as a software engineer, I believe my strengths lie in quickly understanding requirements and
-                formulating effective solutions. I excel at transforming complex logic or concepts into clear,
-                comprehensible text or visuals, which I then break down further into structured to-do lists. This
-                approach helps me proceed with development in an organized manner, ensuring each step has clear
-                objectives and timelines, which ultimately enables me to complete projects efficiently and accurately,
-                meeting all requirements.
+                {{ t('AboutMe.text2') }}
             </div>
         </div>
     </div>
 </template>
 <script setup lang="ts">
-
+import i18n from "@/core/plugins/i18n/i18n.ts";
+const { t } = i18n.global;
 </script>

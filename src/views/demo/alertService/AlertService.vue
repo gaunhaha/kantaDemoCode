@@ -1,35 +1,38 @@
 <template>
-    <div class="text-xl mb-3">
-        Alert Service
+    <div class="text-xl mb-3 text-primary">
+        {{ t('AlertService.title') }}
     </div>
     <div class="flex gap-5">
         <button class="btn" @click="onClickSuccessButton">
-            Please Click Me
+            {{ t('AlertService.button1') }}
         </button>
         <button class="btn" @click="onClickErrorButton">
-            Don't Click Me
+            {{ t('AlertService.button2') }}
         </button>
     </div>
 </template>
 
 <script setup lang="ts">
 import { AlertService } from '@/core/services/utils/AlertService';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 function onClickSuccessButton() {
     AlertService.okAlert({
         icon: 'success',
-        title: 'Success',
+        title: t('AlertService.successTitle'),
         text: 'hello world',
-        confirmButtonText: 'Good job',
+        confirmButtonText: t('AlertService.confirmButtonText1'),
     })
 }
 
 function onClickErrorButton() {
     AlertService.okAlert({
         icon: 'error',
-        title: 'error',
-        text: "oh no ! Don't click me",
-        confirmButtonText: 'try again',
+        title: t('AlertService.errorTitle'),
+        text: t('AlertService.errorText'),
+        confirmButtonText: t('AlertService.confirmButtonText2'),
     })
 }
 </script>

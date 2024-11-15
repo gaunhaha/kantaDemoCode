@@ -1,0 +1,67 @@
+{
+    "AboutMe": {
+        "text1": "I possess a strong curiosity about new technologies and often take the initiative to self-study in myspare time. I am optimistic and have high self-expectations. I am also able to incorporate and unify mycolleagues' opinions while offering suggestions as needed. I enjoy teamwork, and I am proactive andresponsible in my work.",
+        "text2": "In my role as a software engineer, I believe my strengths lie in quickly understanding requirements andformulating effective solutions. I excel at transforming complex logic or concepts into clear,comprehensible text or visuals, which I then break down further into structured to-do lists. Thisapproach helps me proceed with development in an organized manner, ensuring each step has clearobjectives and timelines, which ultimately enables me to complete projects efficiently and accurately,meeting all requirements."
+    },
+    "Language": {
+        "en": "English",
+        "zh_tw": "繁體中文"
+    },
+    "Header": {
+        "darkMode": "Dark Mode",
+        "language": "Language",
+        "menu": "Menu"
+    },
+    "Menu": {
+        "home": "Home",
+        "demo": "Demo",
+        "analysis": "Analysis",
+        "whackAMole": "Whack A Mole"
+    },
+    "Demo": {
+        "text1": "This is a SPA website built with Vite、Vue framework、TailwindCSS、Kanta."
+    },
+    "AlertService": {
+        "title": "Alert Service",
+        "button1": "Please Click Me",
+        "button2": "Don't Click Me",
+        "successTitle": "Success",
+        "errorTitle": "Error",
+        "confirmButtonText1": "Good job",
+        "confirmButtonText2": "try again",
+        "errorText": "oh no ! Don't click me"
+    },
+    "DragAndSort": {
+        "title": "Drag and Sort",
+        "resetButton": "Reset",
+        "saveButton": "Save",
+        "DataName": {
+            "apple": "Apple",
+            "banana": "Banana",
+            "orange": "Orange",
+            "peach": "Peach"
+        }
+    },
+    "LoadingMask": {
+        "title": "Animation"
+    },
+    "Analysis": {
+        "title": "Analyze What Fruits I Ate",
+        "searchButton": "Search",
+        "DataName": {
+            "apples": "Apples",
+            "bananas": "Bananas",
+            "oranges": "Oranges",
+            "peaches": "Peaches"
+        }
+    },
+    "WhackAMole": {
+        "go": "Go !",
+        "start": "Start",
+        "highest": "Highest",
+        "score": "Score"
+    },
+    "Footer": {
+        "contactMe": "Contact Me"
+    }
+}

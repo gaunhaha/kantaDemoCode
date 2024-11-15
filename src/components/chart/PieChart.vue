@@ -7,8 +7,15 @@ import Chart, { type ChartConfiguration, type ChartItem, type LayoutPosition } f
 import { onMounted, ref, watch } from "vue";
 import { colors, colors_6 } from '@/core/utils/chart';
 import _ from "lodash";
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 const props = defineProps({
+    i18nString: {
+        type: String,
+        default: 'Analysis.DataName.'
+    },
     labels: {
         type: Array<string>,
         default: [
@@ -312,7 +319,7 @@ function getInRangeLabels() {
     //         inRangeLabels[i] += ` (${percentages[i]}%)`;
     //     }
     // }
-    return inRangeLabels;
+    return inRangeLabels.map(e => t(props.i18nString + e));
 }
 
 const setData = () => {

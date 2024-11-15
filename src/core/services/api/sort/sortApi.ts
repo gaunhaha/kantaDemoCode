@@ -29,5 +29,5 @@ const sortDatas = ref<Array<SortData>>([
     new SortData("apple"),
     new SortData("banana"),
     new SortData("orange"),
-    new SortData("peache"),
+    new SortData("peach"),
 ]);

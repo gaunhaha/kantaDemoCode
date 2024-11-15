@@ -1,0 +1,73 @@
+@use "./root.scss";
+
+// theme
+$theme: #5aaec4;
+
+.bg-theme {
+    background: $theme;
+}
+
+.bg-theme-light {
+    background: var(--theme-light);
+}
+
+// primary
+$primary: #48c1e3;
+$primary-light: #b3eaf5;
+$primary-active: #3a8ba0;
+$primary-light-active: #8fd7e4;
+
+.bg-primary {
+    background: $primary;
+}
+
+.bg-primary-light {
+    background: $primary-light;
+}
+
+.bg-primary-active {
+    background: $primary-active;
+}
+
+.bg-primary-light-active {
+    background: $primary-light-active;
+}
+
+.text-primary {
+    color: var(--text-primary);
+}
+
+.text-primary-light {
+    color: $primary-light;
+}
+
+.text-primary-active {
+    color: $primary-active;
+}
+
+.text-primary-light-active {
+    color: $primary-light-active;
+}
+
+a {
+    &:hover {
+        color: $primary-light;
+    }
+}
+
+// 使用混合
+@mixin button-styles {
+    @apply bg-primary text-primary font-bold rounded py-2 px-4 text-nowrap;
+}
+
+.btn {
+    @include button-styles;
+
+    &:hover {
+        background: $primary-active;
+    }
+
+    &:disabled {
+        background: $primary-light-active;
+    }
+}

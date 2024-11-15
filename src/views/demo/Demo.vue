@@ -1,8 +1,8 @@
 <template>
     <div>
         <div class="mb-20 pt-5">
-            <span class="text-xl font-bold">
-                This is a SPA website built with Vite、Vue framework、TailwindCSS、Kanta.
+            <span class="text-xl font-bold text-primary">
+                {{ t('Demo.text1') }}
             </span>
         </div>
         <div class="p-5">
@@ -23,4 +23,7 @@ import _ from 'lodash';
 import AlertServiceVue from './alertService/AlertService.vue';
 import DragAndSort from './dragAndSort/DragAndSort.vue';
 import LoadingMask from './loadingMask/LoadingMask.vue';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 </script>

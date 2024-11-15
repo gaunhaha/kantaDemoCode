@@ -7,6 +7,9 @@ import { colors, colors_6, transparentize } from "@/core/utils/chart";
 import Chart, { type ChartConfiguration, type ChartItem } from "chart.js/auto";
 import { onMounted, ref, watch } from "vue";
 import type { BarChartData } from "./getFixRatio";
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 interface Datasets {
     label: string,
@@ -16,6 +19,10 @@ interface Datasets {
 }
 
 const props = defineProps({
+    i18nString: {
+        type: String,
+        default: 'Analysis.DataName.'
+    },
     id: {
         type: String,
         default: "chart",
@@ -136,11 +143,11 @@ const getDatasets = () => {
     else if (props.doneDatas.length <= 6) _colors = colors_6;
     else _colors = colors;
 
-    config.value.data.labels = props.labels;
+    config.value.data.labels = props.labels
     const datasets: Datasets[] = [];
     for (const [index, data] of props.doneDatas.entries()) {
         datasets.push({
-            label: `${data.label} ${props.doneLabel}`,
+            label: `${t(props.i18nString + data.label)} ${props.doneLabel}`,
             data: data.data,
             backgroundColor: _colors[index % (_colors.length)],
             stack: index.toString()

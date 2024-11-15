@@ -1,12 +1,12 @@
 <template>
-    <div class="">
+    <div class="text-primary">
         <div class="ps-2 mb-2">
-            <h2 class="text-xl">Analyze What Fruits I Ate</h2>
+            <h2 class="text-xl">{{ t('Analysis.title') }}</h2>
         </div>
         <div class="w-full flex gap-3">
             <vue-tailwind-datepicker :formatter="formatter" v-model="dateValue" readonly />
             <button class="btn" :disabled="isDisabled()" @click="onClickSearch">
-                search
+                {{ t('Analysis.searchButton') }}
             </button>
         </div>
         <div class="" v-if="isShow">
@@ -41,7 +41,7 @@
                                 <template v-for="label in getPieChartLabelsByDisplayAnalyzeData(daysAgoToDate)">
                                     <tr>
                                         <td class="p-3 border border-black">
-                                            {{ label }}
+                                            {{ t('Analysis.DataName.' + label) }}
                                         </td>
                                         <template
                                             v-for="data in getBarChartDataByDisplayAnalyzeData(daysAgoToDate).find(e => e.label == label)?.data ?? []">
@@ -73,6 +73,9 @@ import {
     getBarChartLabelsByDisplayAnalyzeData,
     getBarChartDataByDisplayAnalyzeData
 } from '@/core/services/analyzeDatasService/analyzeDatasService';
+import { useI18n } from 'vue-i18n';
+
+const { t } = useI18n();
 
 // const minDate = new Date("1998/06/02")
 const dateValue = ref<string | [Date, Date] | { start: string | Date; end: string | Date; } | { startDate: string | Date; endDate: string | Date; }>(`${moment(new Date()).format('YYYY-MM-DD')} ~ ${moment(new Date()).format('YYYY-MM-DD')}`);

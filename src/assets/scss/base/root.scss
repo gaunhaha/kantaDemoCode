@@ -1,0 +1,15 @@
+:root {
+    --theme-light: #e4f2f4;
+    --background-color: #90c5dc;
+    --text-color: #172029;
+    --text-primary: #1d2d3e;
+
+    background: var(--background-color);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] {
+    --theme-light: #2c3e50;
+    --background-color: #507191;
+    --text-primary: #ffffff;
+}
