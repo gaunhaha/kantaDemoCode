@@ -120,6 +120,7 @@ function toggleTheme() {
 function changeLanguage(lang: 'en' | 'zh_tw') {
     locale.value = lang;
     localStorage.setItem("lang", lang);
+    document.documentElement.setAttribute("lang", lang);
     isShowLanguage.value = false;
 }
 </script>
