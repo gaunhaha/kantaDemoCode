@@ -1,9 +1,9 @@
-import { defineStore } from "pinia";
 import { ref } from "vue";
-import { getSortDataByApi, updateSortData } from "@/core/services/api/sort/sortApi";
+import { defineStore } from "pinia";
 import { SortData } from "@/core/services/api/sort/sortData";
+import { getSortDataByApi, updateSortData } from "@/core/services/api/sort/sortApi";
 
-export const useSortStore = defineStore("sortStore", () => {
+export const useSortDataStore = defineStore("sortDataStore", () => {
     const storeData = ref<Array<SortData>>([]);
 
     async function getData() {

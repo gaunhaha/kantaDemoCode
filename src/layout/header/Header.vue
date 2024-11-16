@@ -64,11 +64,11 @@
                     </div>
                     <div class="w-32 flex flex-col gap-2">
                         <button class="text-sm bg-sky-600 px-3 py-1 rounded-md text-white"
-                            @click="changeLanguage('en')">
+                            @click="changeLanguage(Language.en)">
                             {{ t('Language.en') }}
                         </button>
                         <button class="text-sm bg-sky-600 px-3 py-1 rounded-md text-white"
-                            @click="changeLanguage('zh_tw')">
+                            @click="changeLanguage(Language.zh_tw)">
                             {{ t('Language.zh_tw') }}
                         </button>
                     </div>
@@ -81,10 +81,10 @@
     <template v-if="isShowLanguage && width > 750">
         <div class="absolute top-12 right-0 mt-3 z-50">
             <div class="w-40 bg-white rounded-md shadow-md p-3 flex flex-col gap-2">
-                <button class="text-sm bg-sky-600 px-3 py-1 rounded-md text-white" @click="changeLanguage('en')">
+                <button class="text-sm bg-sky-600 px-3 py-1 rounded-md text-white" @click="changeLanguage(Language.en)">
                     {{ t('Language.en') }}
                 </button>
-                <button class="text-sm bg-sky-600 px-3 py-1 rounded-md text-white" @click="changeLanguage('zh_tw')">
+                <button class="text-sm bg-sky-600 px-3 py-1 rounded-md text-white" @click="changeLanguage(Language.zh_tw)">
                     {{ t('Language.zh_tw') }}
                 </button>
             </div>
@@ -95,7 +95,7 @@
 import { onMounted, ref } from "vue";
 import { useWindowSize } from '@vueuse/core'
 import SideBar from "@/layout/sideBar/SideBar.vue";
-import i18n from "@/core/plugins/i18n/i18n.ts";
+import i18n, { Language } from "@/core/plugins/i18n/i18n.ts";
 const { t, locale } = i18n.global;
 const { width } = useWindowSize()
 const isShowMenu = ref<boolean>(false);
@@ -117,10 +117,10 @@ function toggleTheme() {
     localStorage.setItem("theme_mode_value", isLight.value ? 'light' : 'dark');
 }
 
-function changeLanguage(lang: 'en' | 'zh_tw') {
-    locale.value = lang;
-    localStorage.setItem("lang", lang);
-    document.documentElement.setAttribute("lang", lang);
+function changeLanguage(language: Language) {
+    locale.value = language;
+    localStorage.setItem("lang", language);
+    document.documentElement.setAttribute("lang", language);
     isShowLanguage.value = false;
 }
 </script>

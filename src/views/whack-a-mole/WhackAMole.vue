@@ -42,7 +42,7 @@
 </template>
 <script setup lang="ts">
 import moment, { Moment } from 'moment';
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
@@ -53,8 +53,12 @@ const remainingTime = ref<Moment>(moment().startOf('day').add(20, 's'));
 const isGameActive = ref<boolean>(false);
 const highestScore = ref<number>(0);
 const currentScore = ref<number>(0);
-const currentActiveMole = ref<number>(Math.floor(Math.random() * 16) + 1);
+const currentActiveMole = ref<number>(0);
 const slowReactionTimeoutId = ref<NodeJS.Timeout | null>(null);
+
+onMounted(() => {
+    randomMole();
+});
 
 function formatTime() {
     return remainingTime.value.format('ss : SS');
@@ -95,23 +99,26 @@ function startTimer() {
     }
 }
 
-function hitMole() {
-    const audio = new Audio('./gotPointSoundEffect.wav');
-    audio.play();
-    currentScore.value++;
+function randomMole() {
     currentActiveMole.value = Math.floor(Math.random() * 16) + 1;
-    if (slowReactionTimeoutId.value) clearTimeout(slowReactionTimeoutId.value);
-    slowReactionTimeoutId.value = initiateSlowReaction();
+}
+
+function hitMole() {
+    new Audio('./gotPointSoundEffect.wav').play();
+    currentScore.value++;
+    randomMole();
+    resetSlowReaction();
 }
 
 function initiateSlowReaction() {
     return setTimeout(() => {
-        if (isGameActive.value) {
-            currentActiveMole.value = Math.floor(Math.random() * 16) + 1;
-            slowReactionTimeoutId.value = initiateSlowReaction();
-        } else if (slowReactionTimeoutId.value) {
-            clearTimeout(slowReactionTimeoutId.value);
-        }
+        randomMole();
+        slowReactionTimeoutId.value = initiateSlowReaction();
     }, (Math.random() * (2000 - 500) + 500));
+}
+
+function resetSlowReaction() {
+    if (slowReactionTimeoutId.value) clearTimeout(slowReactionTimeoutId.value);
+    slowReactionTimeoutId.value = initiateSlowReaction();
 }
 </script>

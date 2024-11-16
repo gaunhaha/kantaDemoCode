@@ -33,8 +33,8 @@
 import _ from 'lodash';
 import { onMounted, ref } from 'vue';
 import { AlertService } from '@/core/services/utils/AlertService';
-import { DisplaySortData } from '@/core/services/sortService/displaySortData';
-import { getDisplaySortData, updateSortData } from '@/core/services/sortService/sortService';
+import { DisplaySortData } from '@/core/services/sortDataService/displaySortData';
+import { getDisplaySortData, updateSortData } from '@/core/services/sortDataService/sortDataService';
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();

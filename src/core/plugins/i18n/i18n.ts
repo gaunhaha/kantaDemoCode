@@ -2,6 +2,11 @@ import { createI18n } from "vue-i18n";
 import en from "@/core/plugins/i18n/en.json";
 import zh_tw from "@/core/plugins/i18n/zh_tw.json";
 
+export enum Language {
+  en = "en",
+  zh_tw = "zh_tw",
+}
+
 const messages = {
   en: en,
   zh_tw: zh_tw,
