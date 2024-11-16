@@ -25,8 +25,8 @@ export interface CustomImgOkOption {
   imageHeight: number,
 }
 
-const confirmButtonClass = "btn";
-const denyButtonClass = "btn";
+const confirmButtonClass = "btn-light";
+const denyButtonClass = "btn-light";
 
 export class AlertService {
 

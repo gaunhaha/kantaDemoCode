@@ -6,7 +6,7 @@
             </h1>
         </div>
         <div class="flex justify-between items-center mb-5 gap-3 flex-wrap">
-            <button class="btn h-12 w-20 ms-4"
+            <button class="btn-light h-12 w-20 ms-4"
                 :class="(isCountingDown || isGameActive) ? 'bg-primary-light-active' : 'bg-primary hover:bg-primary-active'"
                 @click="startGame" :disabled="isCountingDown || isGameActive">
                 <span v-if="isCountingDown">

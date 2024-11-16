@@ -3,10 +3,10 @@
         {{ t('AlertService.title') }}
     </div>
     <div class="flex gap-5">
-        <button class="btn" @click="onClickSuccessButton">
+        <button class="btn-light" @click="onClickSuccessButton">
             {{ t('AlertService.button1') }}
         </button>
-        <button class="btn" @click="onClickErrorButton">
+        <button class="btn-light" @click="onClickErrorButton">
             {{ t('AlertService.button2') }}
         </button>
     </div>

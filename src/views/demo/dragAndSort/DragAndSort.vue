@@ -4,11 +4,11 @@
             {{ t('DragAndSort.title') }}
         </div>
         <div class="flex gap-3">
-            <button class="btn" @click="onClickReset">
+            <button class="btn-light" @click="onClickReset">
                 <i class="fa fa-refresh me-1"></i>
                 {{ t('DragAndSort.resetButton') }}
             </button>
-            <button class="btn" @click="onClickSave">
+            <button class="btn-light" @click="onClickSave">
                 <i class="fa fa-save me-1"></i>
                 {{ t('DragAndSort.saveButton') }}
             </button>

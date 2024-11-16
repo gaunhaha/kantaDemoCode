@@ -23,7 +23,7 @@
                     </label>
                 </div>
                 <div>
-                    <button class="text-sm bg-sky-600 px-3 py-1 rounded-md text-white"
+                    <button class="btn"
                         @click="isShowLanguage = !isShowLanguage">
                         {{ locale == 'en' ? t('Language.en') : t('Language.zh_tw') }}
                     </button>
@@ -63,11 +63,11 @@
                         {{ t('Header.language') }}
                     </div>
                     <div class="w-32 flex flex-col gap-2">
-                        <button class="text-sm bg-sky-600 px-3 py-1 rounded-md text-white"
+                        <button class="btn"
                             @click="changeLanguage(Language.en)">
                             {{ t('Language.en') }}
                         </button>
-                        <button class="text-sm bg-sky-600 px-3 py-1 rounded-md text-white"
+                        <button class="btn"
                             @click="changeLanguage(Language.zh_tw)">
                             {{ t('Language.zh_tw') }}
                         </button>
@@ -81,10 +81,10 @@
     <template v-if="isShowLanguage && width > 750">
         <div class="absolute top-12 right-0 mt-3 z-50">
             <div class="w-40 bg-white rounded-md shadow-md p-3 flex flex-col gap-2">
-                <button class="text-sm bg-sky-600 px-3 py-1 rounded-md text-white" @click="changeLanguage(Language.en)">
+                <button class="btn" @click="changeLanguage(Language.en)">
                     {{ t('Language.en') }}
                 </button>
-                <button class="text-sm bg-sky-600 px-3 py-1 rounded-md text-white" @click="changeLanguage(Language.zh_tw)">
+                <button class="btn" @click="changeLanguage(Language.zh_tw)">
                     {{ t('Language.zh_tw') }}
                 </button>
             </div>

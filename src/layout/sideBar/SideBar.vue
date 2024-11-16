@@ -6,7 +6,7 @@
             </span>
         </div>
         <template v-for="menu in sideBarMenus">
-            <div class="cursor-pointer p-2 border-b border-slate-800"
+            <div class="cursor-pointer p-2 border-b border-slate-800 hover:bg-sky-300"
                 :class="name == menu.name ? 'bg-primary-light-active' : 'bg-primary-light'"
                 @click="router.push({ path: menu.path }); isShow = false">
                 <i :class="menu.icon"></i>
