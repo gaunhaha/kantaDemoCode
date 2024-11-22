@@ -11,9 +11,9 @@ app.use(router);
 app.mount("#app");
 
 if (document.documentElement) {
-    var themeMode = localStorage.getItem("theme_mode_value");
-    if (!themeMode) {
-        themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    var themeColor = localStorage.getItem("theme_color");
+    if (!themeColor) {
+        themeColor = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     }
-    document.documentElement.setAttribute("data-theme", themeMode);
+    document.documentElement.setAttribute("themeColor", themeColor);
 }

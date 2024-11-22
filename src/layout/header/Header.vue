@@ -15,7 +15,7 @@
                 <div>
                     <label class="inline-flex items-center cursor-pointer gap-3">
                         <i class="fas fa-moon"></i>
-                        <input type="checkbox" v-model="isLight" class="sr-only peer" @change="toggleTheme">
+                        <input type="checkbox" v-model="isLight" class="sr-only peer" @change="toggleThemeColor()">
                         <div
                             class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-sky-600">
                         </div>
@@ -50,7 +50,7 @@
                     </div>
                     <label class="inline-flex items-center cursor-pointer gap-3">
                         <i class="fas fa-moon"></i>
-                        <input type="checkbox" v-model="isLight" class="sr-only peer" @change="toggleTheme()">
+                        <input type="checkbox" v-model="isLight" class="sr-only peer" @change="toggleThemeColor()">
                         <div
                             class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-sky-600">
                         </div>
@@ -100,21 +100,21 @@ const { t, locale } = i18n.global;
 const { width } = useWindowSize()
 const isShowMenu = ref<boolean>(false);
 const isShowLanguage = ref<boolean>(false);
-const isLight = ref<boolean>(document.documentElement.getAttribute('data-theme') == 'light');
+const isLight = ref<boolean>(document.documentElement.getAttribute('themeColor') == 'light');
 
 onMounted(() => {
-    var themeMode = localStorage.getItem("theme_mode_value");
-    if (!themeMode) {
-        themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    var themeColor = localStorage.getItem("theme_color");
+    if (!themeColor) {
+        themeColor = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     }
-    document.documentElement.setAttribute("data-theme", themeMode);
-    isLight.value = themeMode == 'light';
+    document.documentElement.setAttribute("themeColor", themeColor);
+    isLight.value = themeColor == 'light';
 })
 
-function toggleTheme() {
-    if (isLight.value) document.documentElement.setAttribute('data-theme', 'light');
-    else document.documentElement.setAttribute('data-theme', 'dark');
-    localStorage.setItem("theme_mode_value", isLight.value ? 'light' : 'dark');
+function toggleThemeColor() {
+    if (isLight.value) document.documentElement.setAttribute('themeColor', 'light');
+    else document.documentElement.setAttribute('themeColor', 'dark');
+    localStorage.setItem("theme_color", isLight.value ? 'light' : 'dark');
 }
 
 function changeLanguage(language: Language) {
