@@ -1,7 +1,9 @@
 {
     "AboutMe": {
-        "text1": "I possess a strong curiosity about new technologies and often take the initiative to self-study in myspare time. I am optimistic and have high self-expectations. I am also able to incorporate and unify mycolleagues' opinions while offering suggestions as needed. I enjoy teamwork, and I am proactive andresponsible in my work.",
-        "text2": "In my role as a software engineer, I believe my strengths lie in quickly understanding requirements andformulating effective solutions. I excel at transforming complex logic or concepts into clear,comprehensible text or visuals, which I then break down further into structured to-do lists. Thisapproach helps me proceed with development in an organized manner, ensuring each step has clearobjectives and timelines, which ultimately enables me to complete projects efficiently and accurately,meeting all requirements."
+        "title": "About Me",
+        "text1": "Hello, I’m Kanta, a graduate of the Mechanical Engineering department. During my time at university, I was introduced to programming, with C++ being a required course. I also learned about automation and IoT technologies. Compared to the fields of mechanical and electronic engineering, I have a deep passion for programming.I enjoy the process of building a complete system from scratch, step by step, and the sense of accomplishment it brings. As Hayao Miyazaki once said, \"The important things in life are often troublesome. If we lived in a world without troubles, even 'troubles' would become enviable.\"For me, programming feels like solving puzzles and unraveling mysteries, full of challenges and excitement.",
+        "text2": "I possess a strong curiosity about new technologies and often take the initiative to self-study in myspare time. I am optimistic and have high self-expectations. I am also able to incorporate and unify mycolleagues' opinions while offering suggestions as needed. I enjoy teamwork, and I am proactive andresponsible in my work.",
+        "text3": "In my role as a software engineer, I believe my strengths lie in quickly understanding requirements andformulating effective solutions. I excel at transforming complex logic or concepts into clear,comprehensible text or visuals, which I then break down further into structured to-do lists. Thisapproach helps me proceed with development in an organized manner, ensuring each step has clearobjectives and timelines, which ultimately enables me to complete projects efficiently and accurately,meeting all requirements."
     },
     "Language": {
         "en": "English",
@@ -16,7 +18,8 @@
         "home": "Home",
         "demo": "Demo",
         "analysis": "Analysis",
-        "whackAMole": "Whack A Mole"
+        "whackAMole": "Whack A Mole",
+        "mazeGame": "Maze Game"
     },
     "Demo": {
         "text1": "This is a SPA website built with Vite、Vue framework、TailwindCSS、Kanta."
@@ -60,6 +63,13 @@
         "start": "Start",
         "highest": "Highest",
         "score": "Score"
+    },
+    "MazeGame": {
+        "title": "Maze Game",
+        "instruction": "Please use the direction keys to move",
+        "startButton": "Start",
+        "spendTime": "Spend Time",
+        "completionCount": "Completion Count"
     },
     "Footer": {
         "contactMe": "Contact Me"

@@ -32,6 +32,11 @@ export const routes: Array<RouteRecordRaw> = [
                 component: () =>
                     import("@/views/whack-a-mole/WhackAMole.vue"),
             },
+            {
+                path: "/maze-game",
+                name: "mazeGame",
+                component: () => import("@/views/mazeGame/mazeGame.vue"),
+            },
         ]
     },
 ];

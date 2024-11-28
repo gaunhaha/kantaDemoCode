@@ -1,18 +1,19 @@
 <template>
-    <div class="grid justify-items-center">
-        <div class="p-10">
-            <img class="max-h-96 rounded-md" id="profile-pic"
-                src="https://lh3.google.com/u/0/d/1ZAaG72nGnrSSwBxqFSuNwysih3xAHZuE=w1920-h953-iv1" alt="pic">
-        </div>
-        <div class="flex flex-col max-w-screen-lg text-primary">
-            <div>
-                <span class="px-3"></span>
-                {{ t('AboutMe.text1') }}
-            </div>
-            <br>
-            <div>
-                <span class="px-3"></span>
-                {{ t('AboutMe.text2') }}
+    <div class="grid justify-items-center p-6">
+        <div class="w-full max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl rounded overflow-hidden shadow-lg bg-white">
+            <img class="w-full" src="https://lh3.google.com/u/0/d/1ZAaG72nGnrSSwBxqFSuNwysih3xAHZuE=w1920-h953-iv1"
+                alt="Profile Picture">
+            <div class="px-6 py-4">
+                <div class="font-bold text-xl mb-2">{{ t('AboutMe.title') }}</div>
+                <p class="text-gray-700 text-base">
+                    {{ t('AboutMe.text1') }}
+                </p>
+                <p class="text-gray-700 text-base mt-4">
+                    {{ t('AboutMe.text2') }}
+                </p>
+                <p class="text-gray-700 text-base mt-4">
+                    {{ t('AboutMe.text3') }}
+                </p>
             </div>
         </div>
     </div>

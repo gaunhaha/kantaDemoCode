@@ -23,8 +23,7 @@
                     </label>
                 </div>
                 <div>
-                    <button class="btn"
-                        @click="isShowLanguage = !isShowLanguage">
+                    <button class="btn" @click="isShowLanguage = !isShowLanguage">
                         {{ locale == 'en' ? t('Language.en') : t('Language.zh_tw') }}
                     </button>
                 </div>
@@ -63,12 +62,10 @@
                         {{ t('Header.language') }}
                     </div>
                     <div class="w-32 flex flex-col gap-2">
-                        <button class="btn"
-                            @click="changeLanguage(Language.en)">
+                        <button class="btn" @click="changeLanguage(Language.en)">
                             {{ t('Language.en') }}
                         </button>
-                        <button class="btn"
-                            @click="changeLanguage(Language.zh_tw)">
+                        <button class="btn" @click="changeLanguage(Language.zh_tw)">
                             {{ t('Language.zh_tw') }}
                         </button>
                     </div>

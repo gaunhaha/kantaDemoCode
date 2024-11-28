@@ -16,4 +16,5 @@ export const sideBarMenus = [
     new SideBarMenu("demo", "demo", "fa fa-laptop", "/demo"),
     new SideBarMenu("analysis", "analysis", "fa fa-pie-chart", "/analysis"),
     new SideBarMenu("whackAMole", "whackAMole", "fa fa-gamepad", "/whack-a-mole"),
+    new SideBarMenu("mazeGame", "mazeGame", "fa fa-star", "/maze-game"),
 ]
