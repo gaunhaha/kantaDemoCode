@@ -12,6 +12,9 @@
         <div>
             <OtherExperience />
         </div>
+        <div>
+            <University />
+        </div>
     </div>
 </template>
 <script setup lang="ts">
@@ -20,5 +23,6 @@ import WorkExperience from "./workExperience/WorkExperience.vue";
 import SideProject from "./sideProject/SideProject.vue";
 import SkillList from "./skillList/skillList.vue";
 import OtherExperience from "./otherExperience/OtherExperience.vue";
+import University from "./university/University.vue";
 const { t } = i18n.global;
 </script>

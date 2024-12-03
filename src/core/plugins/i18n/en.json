@@ -145,6 +145,21 @@
                 "text2": "Lifeguard : 2016/7 - 2019/7",
                 "text3": "Stationed at the Dayaosan Patrol Station to ensure the safety of swimmers"
             }
+        },
+        "University": {
+            "title": "University Experience",
+            "1": {
+                "title": "Wanbao Scholarship"
+            },
+            "2": {
+                "title": "Second Place in University Institution Competition"
+            },
+            "3": {
+                "title": "Second Place in University Graduation Project Competition"
+            },
+            "4": {
+                "title": "First Place in University Internal Presentation Competition"
+            }
         }
     },
     "AlertService": {

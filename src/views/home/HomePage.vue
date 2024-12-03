@@ -1,10 +1,8 @@
 <template>
-    <div class="grid justify-items-center p-6 gap-4">
+    <div class="grid justify-items-center p-6 gap-10">
         <div @click="toggleText()"
             class="card w-full max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl rounded overflow-hidden shadow-lg bg-white">
-            <img class="w-full h-48 object-cover"
-                src="https://lh3.google.com/u/0/d/1ZAaG72nGnrSSwBxqFSuNwysih3xAHZuE=w1920-h953-iv1"
-                alt="Profile Picture">
+            <img class="w-full h-48 object-cover" src="@/assets/images/about me.jpg" alt="Kanta Picture">
             <div class="px-6 py-4">
                 <div class="font-bold text-xl mb-2">{{ t('Home.AboutMe.title') }}</div>
                 <p class="text-gray-700 text-base">

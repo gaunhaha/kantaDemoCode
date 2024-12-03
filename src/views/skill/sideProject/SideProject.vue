@@ -8,9 +8,7 @@
                     class="mySwiper rounded-lg bg-white">
                     <swiper-slide>
                         <div class="">
-                            <img class="w-full object-cover"
-                                src="https://lh3.google.com/u/0/d/119zW-zwAyvk1BByDDXmBHOscvd1LK_zl=w969-h945-iv1"
-                                alt="IoT Picture">
+                            <img class="w-full object-cover" src="@/assets/images/iot.webp" alt="IoT Picture">
                             <div class="px-6 py-4">
                                 <div class="font-bold text-xl mb-2">{{ t('Skill.SideProject.1.title') }}</div>
                                 <p class="text-gray-700 text-base">
@@ -27,8 +25,7 @@
                     </swiper-slide>
                     <swiper-slide>
                         <div>
-                            <img class="w-full object-cover"
-                                src="https://lh3.google.com/u/0/d/1zm5E88ldPs5IleuOGaeXUeYy34yewPzq=w969-h945-iv1"
+                            <img class="w-full object-cover" src="@/assets/images/Raspberry Pi.webp"
                                 alt="Backend Picture">
                             <div class="px-6 py-4">
                                 <div class="font-bold text-xl mb-2">{{ t('Skill.SideProject.2.title') }}</div>
@@ -46,9 +43,7 @@
                     </swiper-slide>
                     <swiper-slide>
                         <div>
-                            <img class="w-full object-cover"
-                                src="https://lh3.google.com/u/0/d/1JhpNAq7e8FQZ9NPTLCaZwaGIC5QKy_YM=w958-h952-iv1"
-                                alt="Database Picture">
+                            <img class="w-full object-cover" src="@/assets/images/mysql.webp" alt="Database Picture">
                             <div class="px-6 py-4">
                                 <div class="font-bold text-xl mb-2">{{ t('Skill.SideProject.3.title') }}</div>
                                 <p class="text-gray-700 text-base">
@@ -65,9 +60,7 @@
                     </swiper-slide>
                     <swiper-slide>
                         <div>
-                            <img class="w-full object-cover"
-                                src="https://lh3.google.com/u/0/d/13wiEQFkrvPmXzv38NDlFv0GysUroEteP=w958-h952-iv1"
-                                alt="Frontend Picture">
+                            <img class="w-full object-cover" src="@/assets/images/frontend.webp" alt="Frontend Picture">
                             <div class="px-6 py-4">
                                 <div class="font-bold text-xl mb-2">{{ t('Skill.SideProject.4.title') }}</div>
                                 <p class="text-gray-700 text-base">
@@ -84,8 +77,7 @@
                     </swiper-slide>
                     <swiper-slide>
                         <div>
-                            <img class="w-full object-cover"
-                                src="https://lh3.google.com/u/0/d/1gOADawvz180UN58PJExwut_0iTPqMRqm=w958-h952-iv1"
+                            <img class="w-full object-cover" src="@/assets/images/Line Notify.webp"
                                 alt="Line Notify Picture">
                             <div class="px-6 py-4">
                                 <div class="font-bold text-xl mb-2">{{ t('Skill.SideProject.5.title') }}</div>
@@ -103,9 +95,8 @@
                     </swiper-slide>
                     <swiper-slide>
                         <div>
-                            <img class="w-full object-cover"
-                                src="https://lh3.google.com/u/0/d/1eAI10iGEyGWojJsF6ij5bAB-yY3dKYXu=w958-h952-iv1"
-                                alt="Frontend Picture">
+                            <img class="w-full object-cover" src="@/assets/images/android app.webp"
+                                alt="Android App Picture">
                             <div class="px-6 py-4">
                                 <div class="font-bold text-xl mb-2">{{ t('Skill.SideProject.6.title') }}</div>
                                 <p class="text-gray-700 text-base">
@@ -124,8 +115,7 @@
             </div>
         </div>
         <div class="card cursor-pointer rounded shadow-lg" @click="openPPT">
-            <img class="w-full object-cover"
-                src="https://lh3.google.com/u/0/d/1Uz2wae_OIRVD6-AGSp4-0go1RPJLfS3O=w958-h952-iv1" alt="IoT Picture">
+            <img class="w-full object-cover" src="@/assets/images/ppt.png" alt="IoT PTT Picture">
         </div>
     </div>
 </template>

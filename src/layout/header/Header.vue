@@ -2,9 +2,7 @@
     <div class="h-16 bg-theme border-bottom flex items-center p-3 ps-8 justify-between static">
         <div class="flex items-center">
             <div class="me-3">
-                <img class="h-10 rounded-full" id="profile-pic"
-                    src="https://lh3.google.com/u/0/d/1jNCxRzTQ-f0tU8YMt8F_VqwENvVyRqz3=w1920-h953-iv1"
-                    alt="profile-pic">
+                <img class="h-10 rounded-full" id="profile-pic" src="@/assets/images/selfie.jpg" alt="profile-pic">
             </div>
             <span class="">
                 Kanta
