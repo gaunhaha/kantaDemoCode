@@ -73,7 +73,7 @@
             },
             "3": {
                 "position": "前端工程師",
-                "company": "SYSTEX",
+                "company": "精誠資訊科技股份有限公司",
                 "Achievement1": {
                     "title": "證券系統",
                     "text": "參與維護和開發各大證券商的前端應用，使用 C++ 撰寫 MFC 應用於 Windows 平台，並使用 HTML5 和 jQuery 開發網頁應用，提升用戶操作體驗。並利用原生 CSS 進行切版和視覺美化，確保應用界面的整體美感與可用性。"
@@ -113,7 +113,7 @@
                 "title": "串接Line notify",
                 "text1": "透過串接line notify API將補貨需求通知傳送給廠商",
                 "text2": "方便監控商品庫存數量",
-                "text3": "@串接第三方API"
+                "text3": "串接第三方API"
             },
             "6": {
                 "title": "Android App 小費計算機",

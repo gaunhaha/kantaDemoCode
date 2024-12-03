@@ -27,26 +27,26 @@
             class="card w-full max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl rounded overflow-hidden shadow-lg bg-white">
             <div class="px-6 py-4">
                 <div class="font-bold text-xl mb-2">{{ t('Home.Stack.title') }}</div>
-                <p class="text-gray-700 text-base">
+                <div class="text-gray-700 text-base">
                     {{ t('Home.Stack.text') }}
-                <ul>
-                    <li>- Vue.js</li>
-                    <li>- TypeScript</li>
-                    <li>- Vue Router</li>
-                    <li>- Pinia</li>
-                    <li>- i18n</li>
-                    <li>- Axios</li>
-                    <li>- Vite</li>
-                    <li>- Tailwind CSS</li>
-                </ul>
-                </p>
+                    <ul>
+                        <li>- Vue.js</li>
+                        <li>- TypeScript</li>
+                        <li>- Vue Router</li>
+                        <li>- Pinia</li>
+                        <li>- i18n</li>
+                        <li>- Axios</li>
+                        <li>- Vite</li>
+                        <li>- Tailwind CSS</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 </template>
 <script setup lang="ts">
 import i18n from "@/core/plugins/i18n/i18n.ts";
-import { computed, ref } from "vue";
+import { ref } from "vue";
 const { t } = i18n.global;
 
 const isExpanded = ref(false);

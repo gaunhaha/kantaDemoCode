@@ -4,6 +4,8 @@ import {
     type RouteRecordRaw,
 } from "vue-router";
 
+import HomePage from "@/views/home/HomePage.vue";
+
 export const routes: Array<RouteRecordRaw> = [
     {
         path: "/",
@@ -11,8 +13,7 @@ export const routes: Array<RouteRecordRaw> = [
             {
                 path: "/",
                 name: "home",
-                component: () =>
-                    import("@/views/home/Home.vue"),
+                component: HomePage,
             },
             {
                 path: "/skill",

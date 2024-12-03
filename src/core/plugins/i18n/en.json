@@ -73,7 +73,7 @@
             },
             "3": {
                 "position": "Frontend Engineer",
-                "company": "Giant Information",
+                "company": "SYSTEX",
                 "Achievement1": {
                     "title": "Stock System",
                     "text": "Participate in the maintenance and development of the front-end applications of major securities companies, use C++ to write MFC applications for the Windows platform, and use HTML5 and jQuery to develop web applications, improving the user's operation experience. And use native CSS for layout and visual beautification, ensuring the overall aesthetics and usability of the application interface."
@@ -113,7 +113,7 @@
                 "title": "Connect Line notify",
                 "text1": "Use the line notify API to notify the manufacturer of the replenishment needs",
                 "text2": "Conveniently monitor the inventory quantity",
-                "text3": "@Connect third-party API"
+                "text3": "Connect third-party API"
             },
             "6": {
                 "title": "Android App",

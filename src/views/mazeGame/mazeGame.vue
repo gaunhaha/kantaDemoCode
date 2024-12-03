@@ -120,8 +120,6 @@ function generateRandomMaze() {
         }
     }
 
-    carvePath(0, 0); // 從起點開始挖掘
-
     function isPathAvailable(maze: number[][], start: { x: number, y: number }, end: { x: number, y: number }) {
         const visited = Array.from({ length: maze.length }, () => Array(maze[0].length).fill(false));
         const queue = [start];
@@ -144,8 +142,8 @@ function generateRandomMaze() {
 
     do {
         maze = Array.from({ length: size }, () => Array(size).fill(1)); // 初始化迷宮為牆壁
-        carvePath(0, 0); // 從起點開始挖掘
-        maze[size - 1][size - 1] = 0; // 確保終點是通路
+        carvePath(14, 14); // 從起點開始挖掘
+        maze[0][0] = 0; // 確保終點是通路
     } while (!isPathAvailable(maze, { x: 0, y: 0 }, { x: size - 1, y: size - 1 }));
     return maze;
 }
