@@ -40,6 +40,18 @@
                 </div>
             </div>
         </div>
+        <div
+            class="flex justify-center gap-4 w-full max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl rounded overflow-hidden shadow-lg bg-white p-4   ">
+            <button class="card bg-gray-800 text-white px-4 py-2 rounded-md" @click="goToGitHub">
+                <i class="fa-brands fa-github"></i>
+            </button>
+            <button class="card bg-blue-500 text-white px-4 py-2 rounded-md" @click="goToLinkedIn">
+                <i class="fa-brands fa-linkedin"></i>
+            </button>
+            <button class="card bg-red-500 text-white px-4 py-2 rounded-md" @click="goToEmail">
+                <i class="fa-solid fa-envelope"></i>
+            </button>
+        </div>
     </div>
 </template>
 <script setup lang="ts">
@@ -53,6 +65,17 @@ function toggleText() {
     isExpanded.value = true;
 }
 
+function goToGitHub() {
+    window.open("https://github.com/gaunhaha", "_blank");
+}
+
+function goToLinkedIn() {
+    window.open("https://www.linkedin.com/in/%E5%86%A0%E6%97%97-%E9%99%B3-34b48825b/", "_blank");
+}
+
+function goToEmail() {
+    window.location.href = "mailto:gaunhaha@gmail.com";
+}
 </script>
 <style scoped>
 .card {

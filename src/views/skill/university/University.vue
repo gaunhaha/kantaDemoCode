@@ -1,6 +1,6 @@
 <template>
     <div class="flex justify-center mb-10">
-        <p class="text-2xl font-bold">{{ t('Skill.University.title') }}</p>
+        <p class="text-2xl font-bold text-primary">{{ t('Skill.University.title') }}</p>
     </div>
     <div class="flex flex-wrap gap-10 justify-center items-center">
         <div class="card">
