@@ -10,15 +10,15 @@ export const routes: Array<RouteRecordRaw> = [
         children: [
             {
                 path: "/",
-                name: "aboutMe",
+                name: "home",
                 component: () =>
-                    import("@/views/aboutMe/AboutMe.vue"),
+                    import("@/views/home/Home.vue"),
             },
             {
-                path: "/demo",
-                name: "demo",
+                path: "/skill",
+                name: "skill",
                 component: () =>
-                    import("@/views/demo/Demo.vue"),
+                    import("@/views/skill/Skill.vue"),
             },
             {
                 path: "/analysis",

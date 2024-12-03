@@ -1,9 +1,15 @@
 {
-    "AboutMe": {
-        "title": "About Me",
-        "text1": "Hello, I’m Kanta, a graduate of the Mechanical Engineering department. During my time at university, I was introduced to programming, with C++ being a required course. I also learned about automation and IoT technologies. Compared to the fields of mechanical and electronic engineering, I have a deep passion for programming.I enjoy the process of building a complete system from scratch, step by step, and the sense of accomplishment it brings. As Hayao Miyazaki once said, \"The important things in life are often troublesome. If we lived in a world without troubles, even 'troubles' would become enviable.\"For me, programming feels like solving puzzles and unraveling mysteries, full of challenges and excitement.",
-        "text2": "I possess a strong curiosity about new technologies and often take the initiative to self-study in myspare time. I am optimistic and have high self-expectations. I am also able to incorporate and unify mycolleagues' opinions while offering suggestions as needed. I enjoy teamwork, and I am proactive andresponsible in my work.",
-        "text3": "In my role as a software engineer, I believe my strengths lie in quickly understanding requirements andformulating effective solutions. I excel at transforming complex logic or concepts into clear,comprehensible text or visuals, which I then break down further into structured to-do lists. Thisapproach helps me proceed with development in an organized manner, ensuring each step has clearobjectives and timelines, which ultimately enables me to complete projects efficiently and accurately,meeting all requirements."
+    "Home": {
+        "Stack": {
+            "title": "Stack",
+            "text": "This is a website built with the following technologies:"
+        },
+        "AboutMe": {
+            "title": "About Me",
+            "text1": "Hello, I’m Kanta, a graduate of the Mechanical Engineering department. During my time at university, I was introduced to programming, with C++ being a required course. I also learned about automation and IoT technologies. Compared to the fields of mechanical and electronic engineering, I have a deep passion for programming.I enjoy the process of building a complete system from scratch, step by step, and the sense of accomplishment it brings. As Hayao Miyazaki once said, \"The important things in life are often troublesome. If we lived in a world without troubles, even 'troubles' would become enviable.\"For me, programming feels like solving puzzles and unraveling mysteries, full of challenges and excitement.",
+            "text2": "I possess a strong curiosity about new technologies and often take the initiative to self-study in myspare time. I am optimistic and have high self-expectations. I am also able to incorporate and unify mycolleagues' opinions while offering suggestions as needed. I enjoy teamwork, and I am proactive andresponsible in my work.",
+            "text3": "In my role as a software engineer, I believe my strengths lie in quickly understanding requirements andformulating effective solutions. I excel at transforming complex logic or concepts into clear,comprehensible text or visuals, which I then break down further into structured to-do lists. Thisapproach helps me proceed with development in an organized manner, ensuring each step has clearobjectives and timelines, which ultimately enables me to complete projects efficiently and accurately,meeting all requirements."
+        }
     },
     "Language": {
         "en": "English",
@@ -16,13 +22,130 @@
     },
     "Menu": {
         "home": "Home",
-        "demo": "Demo",
+        "skill": "Skill",
         "analysis": "Analysis",
         "whackAMole": "Whack A Mole",
         "mazeGame": "Maze Game"
     },
-    "Demo": {
-        "text1": "This is a SPA website built with Vite、Vue framework、TailwindCSS、Kanta."
+    "Skill": {
+        "WorkExperience": {
+            "title": "Work Experience",
+            "1": {
+                "position": "Full Stack Engineer",
+                "company": "Viainno Corporation",
+                "Responsibilities": {
+                    "1": "Responsible for full-stack development, focusing on the front-end (Vue 3, Tailwind CSS, Bootstrap 5) and back-end (.NET 8.0), adopting a front-end and back-end separated Web API design.",
+                    "2": "Design, build, and write databases using MS-SQL Server to ensure efficient data storage and querying, while maintaining database integrity and security.",
+                    "3": "Work closely with business, UI/UX designers, and project managers to deeply understand requirements, evaluate work hours and costs, and effectively delegate tasks to two junior team members (recent graduates and current students).",
+                    "4": "Collaborate cross-departmentally with app engineers to conduct integration testing and communicate requirements, responsible for creating and managing APIs to ensure seamless system integration.",
+                    "5": "Guide junior engineers, share known technologies to enhance their skill levels, and continuously track new technologies, willingly sharing learning resources and experiences.",
+                    "6": "Work closely with business, UI/UX designers, and project managers to deeply understand requirements, evaluate work hours and costs, and effectively delegate tasks to two junior team members (recent graduates and current students)."
+                },
+                "achievementTitle": "Project Achievements",
+                "Achievement1": {
+                    "title": "Financial ERP System",
+                    "text": "Users can follow standard processes to apply for spending/income, invoice, and approve, after integrating financial data into the system, financial assets and liability statements, profit and loss statements, cash flow statements, and other financial standard reports can be generated. Additionally, data can be aggregated or analyzed, and visualized in the form of charts, such as the annual growth chart of income/expenses and the future budget forecast table. This system can automate the generation of accounting reports, simplify the work of accountants, and reduce the possibility of human errors."
+                },
+                "Achievement2": {
+                    "title": "Task Assignment System",
+                    "text": "Design a system that allows users to use it on the Web or APP, similar to the Line chat function. Users can add groups and manage group members, chat, assign tasks, and upload files. Managers can set todo lists in tasks to easily track and manage task progress. Additionally, hyperlinks can be added to pages to remind staff of pending tasks, allowing staff to quickly focus on tasks that are not yet completed after seeing the assigned tasks."
+                },
+                "Achievement3": {
+                    "title": "Voting Function",
+                    "text": "Similar to the Survey Cake function, users can create questions (including single-choice, multiple-choice, and questions), determine the answer process (whether it is mandatory to fill in, such as filling in option A and jumping to the second question), and decide the object or time for filling in. Special analysis and statistical functions are provided for the results of filling in, and the results can be visualized in the form of data, providing professional analysis such as the results of specific objects and the results of filling in at specific times. Additionally, there is a mobile APP that can be filled in on the APP, and the results can be viewed."
+                },
+                "Achievement4": {
+                    "title": "Visitor Registration Function",
+                    "text": "Customers can edit and obtain a unique visitor registration QR code on the backend system, and visitors can enter the visitor registration page by scanning the QR code on their mobile phones, fill in the form, and complete the visitor registration. The backend system can view the visitor's data and analyze the visitor category, time, etc. It can implement the management of personnel entry and exit, enhancing security."
+                }
+            },
+            "2": {
+                "position": "Full Stack Engineer",
+                "company": "sundialts",
+                "Achievement1": {
+                    "title": "Fubon Travel Insurance",
+                    "text": "Use Eclipse and Spring Tool Suite for backend development, refactor the traditional SpringMVC architecture into a microservices architecture, improving the scalability and maintainability of the system. Design and implement a web application that can be embedded in a mobile APP, using Vue 2 as the front-end technology, and ensuring its effective integration with the backend Spring Boot."
+                },
+                "Achievement2": {
+                    "title": "Project",
+                    "text": "Participate in the design and development of the company's internal website, use React technology to implement attendance, leave, and workflow management functions, which not only improve the employee's satisfaction and work efficiency, but also allow managers to more conveniently manage the daily affairs of employees."
+                }
+            },
+            "3": {
+                "position": "Frontend Engineer",
+                "company": "Giant Information",
+                "Achievement1": {
+                    "title": "Stock System",
+                    "text": "Participate in the maintenance and development of the front-end applications of major securities companies, use C++ to write MFC applications for the Windows platform, and use HTML5 and jQuery to develop web applications, improving the user's operation experience. And use native CSS for layout and visual beautification, ensuring the overall aesthetics and usability of the application interface."
+                }
+            },
+            "4": {
+                "position": "Software Programmer",
+                "company": "ULVAC",
+                "Responsibilities": {
+                    "1": "PLC programming and development for photoelectric and semiconductor equipment machines",
+                    "2": "Communicate with Japanese headquarters using Japanese, understand requirements and develop"
+                }
+            }
+        },
+        "SideProject": {
+            "1": {
+                "title": "IoT Automatic Vending Machine",
+                "text1": "Use ESP32 development",
+                "text2": "Implement the function of the vending machine and communicate with the server using MQTT"
+            },
+            "2": {
+                "title": "Set up and manage the backend of the vending machine",
+                "text1": "Set up a server on Raspberry Pi (linux environment)",
+                "text2": "Communicate with the vending machine and mobile APP"
+            },
+            "3": {
+                "title": "Create a purchase record database",
+                "text1": "Create a MySQL database on Raspberry Pi",
+                "text2": "Store product information and customer purchase habits"
+            },
+            "4": {
+                "title": "Set up the frontend website",
+                "text1": "Can be queried online by customers",
+                "text2": "Statistically analyze customer consumption habits and produce reports to display on the webpage for manufacturers to track"
+            },
+            "5": {
+                "title": "Connect Line notify",
+                "text1": "Use the line notify API to notify the manufacturer of the replenishment needs",
+                "text2": "Conveniently monitor the inventory quantity",
+                "text3": "@Connect third-party API"
+            },
+            "6": {
+                "title": "Android App",
+                "text1": "Create an Android App",
+                "text2": "Can be used to calculate tips"
+            }
+        },
+        "SkillList": {
+            "title": "Skill",
+            "backend": "Backend",
+            "frontend": "Frontend",
+            "database": "Database",
+            "versionControl": "Version Control",
+            "ciCd": "CI/CD",
+            "other": "Other",
+            "languageAbility": "Language Ability",
+            "languageAbilityText": "Chinese (Native), English (Intermediate), Japanese (N2)"
+        },
+        "OtherExperience": {
+            "1": {
+                "title": "Summer Exchange Student",
+                "text1": "Osaka Institute of Technology",
+                "text2": "コース1: ビール作り方法",
+                "text3": "コース2: 小麦粉を加熱したときの化学反応"
+            },
+            "2": {
+                "title": "Volunteer Experience",
+                "text1": "Chinese Red Cross Association - Lifesaving Team",
+                "text2": "Lifeguard : 2016/7 - 2019/7",
+                "text3": "Stationed at the Dayaosan Patrol Station to ensure the safety of swimmers"
+            }
+        }
     },
     "AlertService": {
         "title": "Alert Service",

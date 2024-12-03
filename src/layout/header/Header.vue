@@ -7,7 +7,7 @@
                     alt="profile-pic">
             </div>
             <span class="">
-                Kanta {{ t('Menu.demo') }}
+                Kanta
             </span>
         </div>
         <div class="flex justify-end items-center gap-3">

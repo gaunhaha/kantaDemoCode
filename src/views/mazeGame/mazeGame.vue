@@ -67,6 +67,10 @@ const timeoutId = ref<NodeJS.Timeout | null>(null);
 
 onMounted(() => {
     window.addEventListener('keydown', handleKeyPress);
+    const metaViewport = document.querySelector('meta[name=viewport]');
+    if (metaViewport) {
+        metaViewport.setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=no');
+    }
 });
 
 function startGame() {
