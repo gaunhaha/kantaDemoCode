@@ -25,7 +25,7 @@
                                     backgroundColor:
                                         playerPosition.x === colIndex && playerPosition.y === rowIndex
                                             ? 'red'
-                                            : cell === 1
+                                            : cell === 0
                                                 ? 'black'
                                                 : 'white'
                                 }">
@@ -86,7 +86,7 @@ function startGame() {
 
 function generateRandomMaze() {
     const size = 15;
-    let maze = Array.from({ length: size }, () => Array(size).fill(1)); // 初始化迷宮為牆壁
+    let maze = Array.from({ length: size }, () => Array(size).fill(0)); // 初始化迷宮為牆壁
     const directions = [
         { x: 0, y: -1 }, // 上
         { x: 0, y: 1 },  // 下
@@ -106,45 +106,37 @@ function generateRandomMaze() {
     }
 
     function carvePath(x: number, y: number) {
-        maze[y][x] = 0; // 將當前位置設為通路
+        maze[y][x] = 1; // 將當前位置設為通路
         shuffle(directions); // 隨機打亂方向
 
         for (const { x: dx, y: dy } of directions) {
             const nx = x + dx * 2;
             const ny = y + dy * 2;
 
-            if (isValid(nx, ny) && maze[ny][nx] === 1) {
-                maze[y + dy][x + dx] = 0; // 打通牆壁
+            if (isValid(nx, ny) && maze[ny][nx] === 0) {
+                maze[y + dy][x + dx] = 1; // 打通牆壁
                 carvePath(nx, ny); // 遞迴探索
             }
         }
     }
 
-    function isPathAvailable(maze: number[][], start: { x: number, y: number }, end: { x: number, y: number }) {
-        const visited = Array.from({ length: maze.length }, () => Array(maze[0].length).fill(false));
-        const queue = [start];
-
-        while (queue.length > 0) {
-            const { x, y } = queue.shift()!;
-            if (x === end.x && y === end.y) return true;
-
-            for (const { x: dx, y: dy } of directions) {
-                const nx = x + dx;
-                const ny = y + dy;
-                if (isValid(nx, ny) && maze[ny][nx] === 0 && !visited[ny][nx]) {
-                    visited[ny][nx] = true;
-                    queue.push({ x: nx, y: ny });
+    //驗證迷宮是否有2*2的牆壁
+    function check2x2Wall(maze: number[][]) {
+        for (let i = 0; i < maze.length - 1; i++) {
+            for (let j = 0; j < maze[i].length - 1; j++) {
+                if (maze[i][j] === 0 && maze[i + 1][j] === 0 && maze[i][j + 1] === 0 && maze[i + 1][j + 1] === 0) {
+                    return false;
                 }
             }
         }
-        return false;
+        return true;
     }
 
     do {
-        maze = Array.from({ length: size }, () => Array(size).fill(1)); // 初始化迷宮為牆壁
+        maze = Array.from({ length: size }, () => Array(size).fill(0)); // 初始化迷宮為牆壁
         carvePath(14, 14); // 從起點開始挖掘
-        maze[0][0] = 0; // 確保終點是通路
-    } while (!isPathAvailable(maze, { x: 0, y: 0 }, { x: size - 1, y: size - 1 }));
+        maze[0][0] = 1; // 確保終點是通路
+    } while (!check2x2Wall(maze));
     return maze;
 }
 
@@ -153,22 +145,22 @@ function handleKeyPress(event: KeyboardEvent | { key: string }) {
     if (checkCompletion()) return;
     switch (event.key) {
         case 'ArrowUp':
-            if (playerPosition.value.y > 0 && maze.value[playerPosition.value.y - 1][playerPosition.value.x] === 0) {
+            if (playerPosition.value.y > 0 && maze.value[playerPosition.value.y - 1][playerPosition.value.x] === 1) {
                 playerPosition.value.y--;
             }
             break;
         case 'ArrowDown':
-            if (playerPosition.value.y < maze.value.length - 1 && maze.value[playerPosition.value.y + 1][playerPosition.value.x] === 0) {
+            if (playerPosition.value.y < maze.value.length - 1 && maze.value[playerPosition.value.y + 1][playerPosition.value.x] === 1) {
                 playerPosition.value.y++;
             }
             break;
         case 'ArrowLeft':
-            if (playerPosition.value.x > 0 && maze.value[playerPosition.value.y][playerPosition.value.x - 1] === 0) {
+            if (playerPosition.value.x > 0 && maze.value[playerPosition.value.y][playerPosition.value.x - 1] === 1) {
                 playerPosition.value.x--;
             }
             break;
         case 'ArrowRight':
-            if (playerPosition.value.x < maze.value[0].length - 1 && maze.value[playerPosition.value.y][playerPosition.value.x + 1] === 0) {
+            if (playerPosition.value.x < maze.value[0].length - 1 && maze.value[playerPosition.value.y][playerPosition.value.x + 1] === 1) {
                 playerPosition.value.x++;
             }
             break;
