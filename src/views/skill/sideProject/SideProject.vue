@@ -114,8 +114,15 @@
                 </swiper>
             </div>
         </div>
-        <div class="card cursor-pointer rounded shadow-lg" @click="openPPT">
-            <img class="w-full object-cover" src="@/assets/images/ppt.png" alt="IoT PTT Picture">
+        <div class="flex flex-col items-center gap-10">
+            <div class="card cursor-pointer rounded shadow-lg" @click="openPPT">
+                <img class="w-full object-cover" src="@/assets/images/ppt.png" alt="IoT PTT Picture">
+            </div>
+            <div class="text-center">
+                <a href="https://www.youtube.com/shorts/QSvdzqYWQKo" target="_blank" class="text-blue-500 hover:text-blue-700">
+                    {{ t('Skill.SideProject.videoLink') }}
+                </a>
+            </div>
         </div>
     </div>
 </template>

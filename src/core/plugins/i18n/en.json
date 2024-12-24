@@ -89,6 +89,7 @@
             }
         },
         "SideProject": {
+            "videoLink": "Video Link",
             "1": {
                 "title": "IoT Automatic Vending Machine",
                 "text1": "Use ESP32 development",

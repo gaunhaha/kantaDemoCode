@@ -89,6 +89,7 @@
             }
         },
         "SideProject": {
+            "videoLink": "影片連結",
             "1": {
                 "title": "物聯網自動販賣機",
                 "text1": "使用ESP32開發",
