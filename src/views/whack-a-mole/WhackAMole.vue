@@ -1,4 +1,15 @@
 <template>
+    <div v-show="showInstruction" class="text-black bg-gray-100 p-4 mb-10 rounded-md shadow-md relative">
+        <button class="absolute top-2 right-2 text-gray-500 hover:text-gray-700" @click="showInstruction = false">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+        <h2 class="font-bold text-lg">{{ t('WhackAMole.title') }}</h2>
+        <p class="mb-3">{{ t('WhackAMole.instruction') }}</p>
+        <p>{{ t('WhackAMole.instructionDetail') }}</p>
+    </div>
     <div class="text-primary">
         <div class="flex justify-center mb-3">
             <h1 class="text-3xl font-bold">
@@ -55,9 +66,12 @@ const highestScore = ref<number>(0);
 const currentScore = ref<number>(0);
 const currentActiveMole = ref<number>(0);
 const slowReactionTimeoutId = ref<NodeJS.Timeout | null>(null);
+const pointSound = ref<HTMLAudioElement>(new Audio('./gotPointSoundEffect.mp3'));
+const showInstruction = ref<boolean>(true);
 
 onMounted(() => {
     randomMole();
+    pointSound.value.load();
 });
 
 function formatTime() {
@@ -104,7 +118,8 @@ function randomMole() {
 }
 
 function hitMole() {
-    new Audio('./gotPointSoundEffect.wav').play();
+    pointSound.value.currentTime = 0; // 重置音效時間
+    pointSound.value.play();
     currentScore.value++;
     randomMole();
     resetSlowReaction();

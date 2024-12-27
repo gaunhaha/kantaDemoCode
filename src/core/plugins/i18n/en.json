@@ -189,6 +189,8 @@
     },
     "Analysis": {
         "title": "Analyze What Fruits I Ate",
+        "instruction": "Please select a date and click the search button to view the fruits I ate.",
+        "instructionDetail": "On this page, I demonstrate how to retrieve data from the backend, transform it through the service layer, and then pass it to the presentation layer, using Chart.js for visualization.",
         "searchButton": "Search",
         "DataName": {
             "apples": "Apples",
@@ -198,6 +200,9 @@
         }
     },
     "WhackAMole": {
+        "title": "Whack A Mole Game",
+        "instruction": "Click the moles with your mouse",
+        "instructionDetail": "In this game, I used a recursive approach to set setTimeout, allowing the moles to continuously appear randomly. After hitting a mole, the setTimeout is reset to solve the issue of continuous mole movement.",
         "go": "Go !",
         "start": "Start",
         "highest": "Highest",
@@ -206,6 +211,7 @@
     "MazeGame": {
         "title": "Maze Game",
         "instruction": "Please use the direction keys to move",
+        "instructionDetail": "I used the Depth-First Search (DFS) algorithm to generate the maze. Starting from the star, it continuously delves along a path until it can no longer proceed, then backtracks to the nearest branching point to continue generating other paths. This method effectively creates a random and solvable maze.",
         "startButton": "Start",
         "spendTime": "Spend Time",
         "completionCount": "Completion Count"

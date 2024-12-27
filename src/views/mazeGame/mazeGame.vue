@@ -1,11 +1,15 @@
 <template>
     <div class="w-full h-full text-primary">
-        <div class="flex items-center justify-between mb-1">
-            <div class="font-bold text-xl">{{ t('MazeGame.title') }}</div>
+        <div v-show="showInstruction" class="text-black bg-gray-100 p-4 mb-4 rounded-md shadow-md relative">
+            <button class="absolute top-2 right-2 text-gray-500 hover:text-gray-700" @click="showInstruction = false">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <h2 class="font-bold text-lg">{{ t('MazeGame.title') }}</h2>
+            <p class="mb-3">{{ t('MazeGame.instruction') }}</p>
+            <p>{{ t('MazeGame.instructionDetail') }}</p>
         </div>
-        <p class="mb-3 text-sm">
-            {{ t('MazeGame.instruction') }}
-        </p>
         <p class="mb-5">
             {{ t('MazeGame.completionCount') }} : {{ completionCount }} ,
             {{ t('MazeGame.spendTime') }}: {{ spendTime.diff(moment().startOf('day'), 'seconds') }}s
@@ -64,6 +68,8 @@ const playerPosition = ref<{ x: number, y: number }>({ x: 0, y: 0 }); // 紅點�
 const goalPosition = ref<{ x: number, y: number }>({ x: 14, y: 14 }); // 星星記號的位置
 const completionCount = ref<number>(0);
 const timeoutId = ref<NodeJS.Timeout | null>(null);
+const pointSound = ref<HTMLAudioElement>(new Audio('./gotPointSoundEffect.mp3'));
+const showInstruction = ref<boolean>(true);
 
 onMounted(() => {
     window.addEventListener('keydown', handleKeyPress);
@@ -71,6 +77,7 @@ onMounted(() => {
     if (metaViewport) {
         metaViewport.setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=no');
     }
+    pointSound.value.load();
 });
 
 function startGame() {
@@ -174,7 +181,8 @@ function handleMoved() {
         if (timeoutId.value !== null) {
             clearInterval(timeoutId.value); // 停止計時
         }
-        new Audio('./gotPointSoundEffect.wav').play();
+        pointSound.value.currentTime = 0; // 重置音效時間
+        pointSound.value.play();
         showFireworks(); // 顯示煙火特效
     }
 }
