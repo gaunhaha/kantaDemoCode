@@ -34,26 +34,30 @@
                                 @click="handleCardClick"
                             >
                                 <div class="px-6 py-4 relative">
-                                    <div class="font-bold text-xl mb-2">{{ t('Home.Stack.title') }}</div>
-                                    <div class="text-gray-700 text-base">
-                                        {{ t('Home.Stack.text') }}
-                                        <ul>
-                                            <li class="py-1">• Vue.js</li>
-                                            <li class="py-1">• TypeScript</li>
-                                            <li class="py-1">• Vue Router</li>
-                                            <li class="py-1">• Pinia</li>
-                                            <li class="py-1">• i18n</li>
-                                            <li class="py-1">• Axios</li>
-                                            <li class="py-1">• Vite</li>
-                                            <li class="py-1">• Tailwind CSS</li>
-                                        </ul>
-                                    </div>
-                                    <div class="absolute bottom-4 right-4">
-                                        <img 
-                                            src="@/assets/images/bookcase.png" 
-                                            alt="Bookcase" 
-                                            class="w-48 sm:w-56 md:w-64 lg:w-80 h-auto opacity-80"
-                                        >
+                                    <div class="flex flex-col h-full">
+                                        <div class="flex-grow">
+                                            <div class="font-bold text-xl mb-2">{{ t('Home.Stack.title') }}</div>
+                                            <div class="text-gray-700 text-base">
+                                                {{ t('Home.Stack.text') }}
+                                                <ul>
+                                                    <li class="py-1">• Vue.js</li>
+                                                    <li class="py-1">• TypeScript</li>
+                                                    <li class="py-1">• Vue Router</li>
+                                                    <li class="py-1">• Pinia</li>
+                                                    <li class="py-1">• i18n</li>
+                                                    <li class="py-1">• Axios</li>
+                                                    <li class="py-1">• Vite</li>
+                                                    <li class="py-1">• Tailwind CSS</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="mt-4">
+                                            <img 
+                                                src="@/assets/images/bookcase.png" 
+                                                alt="Bookcase" 
+                                                class="w-48 sm:w-56 md:w-64 lg:w-80 h-auto opacity-80 ml-auto"
+                                            >
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -67,19 +71,23 @@
                                 @click="handleCardClick"
                             >
                                 <div class="px-6 py-4 relative">
-                                    <div class="font-bold text-xl mb-2">{{ t('Home.AboutMe.title') }} - {{ t('Home.AboutMe.more') }}</div>
-                                    <p class="text-gray-700 text-base mt-4">
-                                        {{ t('Home.AboutMe.text2') }}
-                                    </p>
-                                    <p class="text-gray-700 text-base mt-4">
-                                        {{ t('Home.AboutMe.text3') }}
-                                    </p>
-                                    <div class="absolute bottom-4 right-4">
-                                        <img 
-                                            src="@/assets/images/good.png" 
-                                            alt="Thumbs up" 
-                                            class="w-20 sm:w-48 md:w-56 lg:w-64 h-auto opacity-80"
-                                        >
+                                    <div class="flex flex-col h-full">
+                                        <div class="flex-grow">
+                                            <div class="font-bold text-xl mb-2">{{ t('Home.AboutMe.title') }} - {{ t('Home.AboutMe.more') }}</div>
+                                            <p class="text-gray-700 text-base mt-4">
+                                                {{ t('Home.AboutMe.text2') }}
+                                            </p>
+                                            <p class="text-gray-700 text-base mt-4">
+                                                {{ t('Home.AboutMe.text3') }}
+                                            </p>
+                                        </div>
+                                        <div class="mt-4">
+                                            <img 
+                                                src="@/assets/images/good.png" 
+                                                alt="Thumbs up" 
+                                                class="w-20 sm:w-48 md:w-56 lg:w-64 h-auto opacity-80 ml-auto"
+                                            >
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -161,8 +169,9 @@ function goToEmail() {
     width: 100%;
     max-width: 600px;
     min-height: 500px;
+    max-height: 500px;
     transition: all 0.5s ease;
-    overflow: visible;
+    overflow: hidden;
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -172,6 +181,13 @@ function goToEmail() {
     flex: 1;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 .card .px-6 {
