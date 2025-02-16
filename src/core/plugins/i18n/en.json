@@ -26,12 +26,20 @@
         "skill": "Skill",
         "analysis": "Analysis",
         "whackAMole": "Whack A Mole",
-        "mazeGame": "Maze Game"
+        "mazeGame": "Maze Game",
+        "games": "Games"
     },
     "Skill": {
         "WorkExperience": {
             "title": "Work Experience",
             "1": {
+                "position": "Web Frontend Engineer",
+                "company": "Create AI Technology Co., Ltd.",
+                "Responsibilities": {
+                    "1": "Responsible for the complete frontend workflow, including layout design with Tailwind CSS/Element Plus, architecture planning, Vue3 TypeScript development, testing and deployment. Implemented SEO optimization using Nuxt.js and built simple applications with Firebase."
+                }
+            },
+            "2": {
                 "position": "Full Stack Engineer",
                 "company": "Viainno Corporation",
                 "Responsibilities": {
@@ -60,7 +68,7 @@
                     "text": "Customers can edit and obtain a unique visitor registration QR code on the backend system, and visitors can enter the visitor registration page by scanning the QR code on their mobile phones, fill in the form, and complete the visitor registration. The backend system can view the visitor's data and analyze the visitor category, time, etc. It can implement the management of personnel entry and exit, enhancing security."
                 }
             },
-            "2": {
+            "3": {
                 "position": "Full Stack Engineer",
                 "company": "sundialts",
                 "Achievement1": {
@@ -68,11 +76,15 @@
                     "text": "Use Eclipse and Spring Tool Suite for backend development, refactor the traditional SpringMVC architecture into a microservices architecture, improving the scalability and maintainability of the system. Design and implement a web application that can be embedded in a mobile APP, using Vue 2 as the front-end technology, and ensuring its effective integration with the backend Spring Boot."
                 },
                 "Achievement2": {
+                    "title": "Fubon Common Transfer Account",
+                    "text": "Use angular to refactor the old common transfer account management system, rewrite the original system, cut the version, add new functions, and write unit tests."
+                },
+                "Achievement3": {
                     "title": "Project",
-                    "text": "Participate in the design and development of the company's internal website, use React technology to implement attendance, leave, and workflow management functions, which not only improve the employee's satisfaction and work efficiency, but also allow managers to more conveniently manage the daily affairs of employees."
+                    "text": "Design and develop the company's internal website, use React technology to implement attendance, leave, and workflow management functions, which not only improve the employee's satisfaction and work efficiency, but also allow managers to more conveniently manage the daily affairs of employees."
                 }
             },
-            "3": {
+            "4": {
                 "position": "Frontend Engineer",
                 "company": "SYSTEX",
                 "Achievement1": {
@@ -80,7 +92,7 @@
                     "text": "Participate in the maintenance and development of the front-end applications of major securities companies, use C++ to write MFC applications for the Windows platform, and use HTML5 and jQuery to develop web applications, improving the user's operation experience. And use native CSS for layout and visual beautification, ensuring the overall aesthetics and usability of the application interface."
                 }
             },
-            "4": {
+            "5": {
                 "position": "Software Programmer",
                 "company": "ULVAC",
                 "Responsibilities": {

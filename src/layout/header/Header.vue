@@ -1,5 +1,5 @@
 <template>
-    <div class="h-16 bg-theme border-bottom flex items-center p-3 ps-8 justify-between static">
+    <header class="flex justify-between items-center p-4 px-8 bg-white shadow-md">
         <div class="flex items-center">
             <div class="me-3">
                 <img class="h-10 rounded-full" id="profile-pic" src="@/assets/images/selfie.jpg" alt="profile-pic">
@@ -8,114 +8,192 @@
                 Kanta
             </span>
         </div>
-        <div class="flex justify-end items-center gap-3">
-            <template v-if="width > 750">
-                <div>
-                    <label class="inline-flex items-center cursor-pointer gap-3">
-                        <i class="fas fa-moon"></i>
-                        <input type="checkbox" v-model="isLight" class="sr-only peer" @change="toggleThemeColor()">
-                        <div
-                            class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-sky-600">
-                        </div>
-                        <i class="material-icons" style="font-size:20px">wb_sunny</i>
-                    </label>
-                </div>
-                <div>
-                    <button class="btn" @click="isShowLanguage = !isShowLanguage">
-                        {{ locale == 'en' ? t('Language.en') : t('Language.zh_tw') }}
-                    </button>
-                </div>
-            </template>
-            <template v-else>
-                <div class="cursor-pointer" @click="isShowMenu = !isShowMenu">
-                    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path clip-rule="evenodd" fill-rule="evenodd"
-                            d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
-                        </path>
-                    </svg>
-                </div>
-            </template>
-        </div>
-    </div>
-    <template v-if="isShowMenu && width <= 750">
-        <div class="absolute top-16 right-0 mt-3 z-50">
-            <div class="w-60 bg-theme rounded-md shadow-md flex flex-col">
-                <div class="flex justify-between p-3 pb-2">
-                    <div>
-                        {{ t('Header.darkMode') }}
-                    </div>
-                    <label class="inline-flex items-center cursor-pointer gap-3">
-                        <i class="fas fa-moon"></i>
-                        <input type="checkbox" v-model="isLight" class="sr-only peer" @change="toggleThemeColor()">
-                        <div
-                            class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-sky-600">
-                        </div>
-                        <i class="material-icons" style="font-size:20px">wb_sunny</i>
-                    </label>
-                </div>
-                <hr class="border-t border-gray-200">
-                <div class="flex justify-between p-3">
-                    <div>
-                        {{ t('Header.language') }}
-                    </div>
-                    <div class="w-32 flex flex-col gap-2">
-                        <button class="btn" @click="changeLanguage(Language.en)">
+        <!-- 桌面版選單 -->
+        <div class="hidden md:flex items-center gap-4">
+            <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" :ellipsis="false"
+                @select="handleSelect">
+                <el-menu-item index="/">
+                    <template #title>
+                        <span class="text-lg">{{ t('Menu.home') }}</span>
+                    </template>
+                </el-menu-item>
+                <el-menu-item index="/skill">
+                    <template #title>
+                        <span class="text-lg">{{ t('Menu.skill') }}</span>
+                    </template>
+                </el-menu-item>
+                <el-menu-item index="/analysis">
+                    <template #title>
+                        <span class="text-lg">{{ t('Menu.analysis') }}</span>
+                    </template>
+                </el-menu-item>
+                <el-sub-menu index="games">
+                    <template #title>{{ t('Menu.games') }}</template>
+                    <el-menu-item index="/whack-a-mole">{{ t('Menu.whackAMole') }}</el-menu-item>
+                    <el-menu-item index="/maze-game">{{ t('Menu.mazeGame') }}</el-menu-item>
+                </el-sub-menu>
+            </el-menu>
+
+            <button @click="toggleThemeColor()" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
+                <i class="fas" :class="isLight ? 'fa-sun' : 'fa-moon'"></i>
+            </button>
+            <el-dropdown>
+                <span class="el-dropdown-link">
+                    <i class="fas fa-globe text-xl cursor-pointer"></i>
+                </span>
+                <template #dropdown>
+                    <el-dropdown-menu>
+                        <el-dropdown-item @click="changeLanguage('en')">
                             {{ t('Language.en') }}
-                        </button>
-                        <button class="btn" @click="changeLanguage(Language.zh_tw)">
+                        </el-dropdown-item>
+                        <el-dropdown-item @click="changeLanguage('zh_tw')">
                             {{ t('Language.zh_tw') }}
-                        </button>
+                        </el-dropdown-item>
+                    </el-dropdown-menu>
+                </template>
+            </el-dropdown>
+        </div>
+
+        <!-- 手機版漢堡選單 -->
+        <div class="md:hidden">
+            <button @click="isMenuOpen = !isMenuOpen" class="p-2">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+
+            <!-- 手機版選單內容 -->
+            <Transition name="slide-fade">
+                <div v-if="isMenuOpen" 
+                    class="fixed inset-0 z-50">
+                    <div class="absolute inset-0 bg-black bg-opacity-50"
+                         @click="isMenuOpen = false">
+                    </div>
+                    <div class="absolute right-0 top-0 h-full w-[80%] max-w-[300px] bg-theme-light text-primary 
+                              transform transition-transform duration-300">
+                        <div class="flex justify-end p-4">
+                            <button @click="isMenuOpen = false" class="p-2">
+                                <i class="fas fa-times text-xl"></i>
+                            </button>
+                        </div>
+                        <div class="px-4 pr-20">
+                            <div class="flex flex-col space-y-4">
+                                <a @click="handleMobileNav('/')" class="py-2">{{ t('Menu.home') }}</a>
+                                <a @click="handleMobileNav('/skill')" class="py-2">{{ t('Menu.skill') }}</a>
+                                <a @click="handleMobileNav('/analysis')" class="py-2">{{ t('Menu.analysis') }}</a>
+                                <div class="py-2">
+                                    <div @click="isGamesOpen = !isGamesOpen" class="flex justify-between items-center">
+                                        <span>{{ t('Menu.games') }}</span>
+                                        <i class="fas" :class="isGamesOpen ? 'fa-chevron-up' : 'fa-chevron-down'"></i>
+                                    </div>
+                                    <div v-if="isGamesOpen" class="pl-4 mt-2 space-y-2">
+                                        <a @click="handleMobileNav('/whack-a-mole')" class="block py-1">{{ t('Menu.whackAMole') }}</a>
+                                        <a @click="handleMobileNav('/maze-game')" class="block py-1">{{ t('Menu.mazeGame') }}</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4 py-2">
+                                    <button @click="toggleThemeColor()" class="p-2 rounded-full">
+                                        <i class="fas" :class="isLight ? 'fa-sun' : 'fa-moon'"></i>
+                                    </button>
+                                    <el-dropdown>
+                                        <span class="el-dropdown-link">
+                                            <i class="fas fa-globe text-xl cursor-pointer text-primary"></i>
+                                        </span>
+                                        <template #dropdown>
+                                            <el-dropdown-menu>
+                                                <el-dropdown-item @click="changeLanguage('en')">
+                                                    {{ t('Language.en') }}
+                                                </el-dropdown-item>
+                                                <el-dropdown-item @click="changeLanguage('zh_tw')">
+                                                    {{ t('Language.zh_tw') }}
+                                                </el-dropdown-item>
+                                            </el-dropdown-menu>
+                                        </template>
+                                    </el-dropdown>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <hr class="border-t border-gray-200">
-                <SideBar v-model:isShow="isShowMenu" />
-            </div>
+            </Transition>
         </div>
-    </template>
-    <template v-if="isShowLanguage && width > 750">
-        <div class="absolute top-12 right-0 mt-3 z-50">
-            <div class="w-40 bg-white rounded-md shadow-md p-3 flex flex-col gap-2">
-                <button class="btn" @click="changeLanguage(Language.en)">
-                    {{ t('Language.en') }}
-                </button>
-                <button class="btn" @click="changeLanguage(Language.zh_tw)">
-                    {{ t('Language.zh_tw') }}
-                </button>
-            </div>
-        </div>
-    </template>
+    </header>
 </template>
+
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
-import { useWindowSize } from '@vueuse/core'
-import SideBar from "@/layout/sideBar/SideBar.vue";
-import i18n, { Language } from "@/core/plugins/i18n/i18n.ts";
-const { t, locale } = i18n.global;
-const { width } = useWindowSize()
-const isShowMenu = ref<boolean>(false);
-const isShowLanguage = ref<boolean>(false);
+import { ref, computed } from 'vue';
+import { useRouter } from 'vue-router';
+import i18n from "@/core/plugins/i18n/i18n";
+
+const router = useRouter();
+const { t } = i18n.global;
 const isLight = ref<boolean>(document.documentElement.getAttribute('themeColor') == 'light');
 
-onMounted(() => {
-    var themeColor = localStorage.getItem("theme_color");
-    if (!themeColor) {
-        themeColor = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-    }
-    document.documentElement.setAttribute("themeColor", themeColor);
-    isLight.value = themeColor == 'light';
-})
+const activeIndex = computed(() => {
+    const fullPath = router.currentRoute.value.fullPath;
+    return fullPath.replace(/^.*#/, '');
+});
+
+const isMenuOpen = ref(false);
+const isGamesOpen = ref(false);
+
+const handleSelect = (key: string) => {
+    router.push(key);
+};
 
 function toggleThemeColor() {
+    isLight.value = !isLight.value;
     if (isLight.value) document.documentElement.setAttribute('themeColor', 'light');
     else document.documentElement.setAttribute('themeColor', 'dark');
     localStorage.setItem("theme_color", isLight.value ? 'light' : 'dark');
 }
 
-function changeLanguage(language: Language) {
-    locale.value = language;
-    localStorage.setItem("lang", language);
-    document.documentElement.setAttribute("lang", language);
-    isShowLanguage.value = false;
+function changeLanguage(lang: 'en' | 'zh_tw') {
+    i18n.global.locale.value = lang;
+    localStorage.setItem('language', lang);
 }
+
+const handleMobileNav = (path: string) => {
+    router.push(path);
+    isMenuOpen.value = false;
+};
 </script>
+
+<style scoped>
+.el-menu {
+    border-bottom: none;
+}
+
+.el-menu-demo {
+    padding-right: 20px;
+}
+
+:deep(.el-sub-menu__title) {
+    font-size: 1.125rem;
+}
+
+/* 手機版選單樣式 */
+.mobile-menu-item {
+    @apply py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer;
+}
+
+/* 滑動動畫 */
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+    transition: all 0.3s ease;
+}
+
+.slide-fade-enter-from {
+    opacity: 0;
+}
+
+.slide-fade-enter-from .transform {
+    transform: translateX(100%);
+}
+
+.slide-fade-leave-to {
+    opacity: 0;
+}
+
+.slide-fade-leave-to .transform {
+    transform: translateX(100%);
+}
+</style>

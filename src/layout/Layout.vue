@@ -5,11 +5,11 @@
                 <Header></Header>
             </div>
             <div class="w-screen flex grow mt-20">
-                <template v-if="width > 750">
+                <!-- <template v-if="width > 750">
                     <div class="h-fit w-60 me-5" style="position: sticky; top: 75px;">
                         <SideBar />
                     </div>
-                </template>
+                </template> -->
                 <div class="w-full bg-theme-light rounded p-8 mb-6" :class="{ 'me-6': width > 750 }">
                     <RouterView />
                     <button v-show="showScrollButton" @click="scrollToTop"

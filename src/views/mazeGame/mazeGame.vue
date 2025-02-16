@@ -2,7 +2,8 @@
     <div class="w-full h-full text-primary">
         <div v-show="showInstruction" class="text-black bg-gray-100 p-4 mb-4 rounded-md shadow-md relative">
             <button class="absolute top-2 right-2 text-gray-500 hover:text-gray-700" @click="showInstruction = false">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
@@ -10,55 +11,89 @@
             <p class="mb-3">{{ t('MazeGame.instruction') }}</p>
             <p>{{ t('MazeGame.instructionDetail') }}</p>
         </div>
-        <p class="mb-5">
-            {{ t('MazeGame.completionCount') }} : {{ completionCount }} ,
-            {{ t('MazeGame.spendTime') }}: {{ spendTime.diff(moment().startOf('day'), 'seconds') }}s
-        </p>
-        <button class="btn mb-5 w-20 h-10" @click="startGame">
-            {{ t('MazeGame.startButton') }}
-        </button>
-        <template v-if="maze.length > 0">
-            <div class="mx-auto w-fit mb-10">
-                <div class="border-2 border-gray-500 p-2 shadow-lg bg-black rounded-md">
-                    <template v-for="(row, rowIndex) in maze">
-                        <div class="flex flex-wrap">
-                            <template v-for="(cell, colIndex) in row">
-                                <div :style="{
-                                    width: '20px',
-                                    height: '20px',
-                                    backgroundColor:
-                                        playerPosition.x === colIndex && playerPosition.y === rowIndex
-                                            ? 'red'
-                                            : cell === 0
-                                                ? 'black'
-                                                : 'white'
-                                }">
-                                    <template v-if="rowIndex === 14 && colIndex === 14">
-                                        ⭐
-                                    </template>
-                                </div>
-                            </template>
-                        </div>
-                    </template>
+        <div class="w-fit mx-auto pt-10">
+            <p class="mb-5">
+                {{ t('MazeGame.completionCount') }} : {{ completionCount }} ,
+                {{ t('MazeGame.spendTime') }}: {{ spendTime.diff(moment().startOf('day'), 'seconds') }}s
+            </p>
+            <button class="btn mb-5 w-20 h-10" @click="startGame">
+                {{ t('MazeGame.startButton') }}
+            </button>
+            <template v-if="maze.length > 0">
+                <div class="mx-auto w-fit mb-10">
+                    <div class="border-2 border-gray-500 p-2 shadow-lg bg-black rounded-md">
+                        <template v-for="(row, rowIndex) in maze">
+                            <div class="flex flex-nowrap">
+                                <template v-for="(cell, colIndex) in row">
+                                    <div :style="{
+                                        width: '20px',
+                                        height: '20px',
+                                        backgroundColor:
+                                            playerPosition.x === colIndex && playerPosition.y === rowIndex
+                                                ? 'red'
+                                                : cell === 0
+                                                    ? 'black'
+                                                    : 'white'
+                                    }">
+                                        <template v-if="rowIndex === 14 && colIndex === 14">
+                                            ⭐
+                                        </template>
+                                    </div>
+                                </template>
+                            </div>
+                        </template>
+                    </div>
                 </div>
-            </div>
-            <div class="flex flex-col items-center font-bold  md:hidden">
-                <button class="btn mb-2 w-10 h-10" @click="handleKeyPress({ key: 'ArrowUp' })">⬆</button>
-                <div class="flex gap-14">
-                    <button class="btn w-10 h-10" @click="handleKeyPress({ key: 'ArrowLeft' })">⬅</button>
-                    <button class="btn w-10 h-10" @click="handleKeyPress({ key: 'ArrowRight' })">⮕</button>
+                <div class="flex flex-col items-center font-bold md:hidden">
+                    <button class="btn mb-2 w-10 h-10" 
+                        @mousedown="startContinuousMove('ArrowUp')"
+                        @mouseup="stopContinuousMove"
+                        @mouseleave="stopContinuousMove"
+                        @touchstart.prevent="startContinuousMove('ArrowUp')"
+                        @touchend="stopContinuousMove">
+                        <i class="fas fa-arrow-up"></i>
+                    </button>
+                    <div class="flex gap-14">
+                        <button class="btn w-10 h-10"
+                            @mousedown="startContinuousMove('ArrowLeft')"
+                            @mouseup="stopContinuousMove"
+                            @mouseleave="stopContinuousMove"
+                            @touchstart.prevent="startContinuousMove('ArrowLeft')"
+                            @touchend="stopContinuousMove">
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                        <button class="btn w-10 h-10"
+                            @mousedown="startContinuousMove('ArrowRight')"
+                            @mouseup="stopContinuousMove"
+                            @mouseleave="stopContinuousMove"
+                            @touchstart.prevent="startContinuousMove('ArrowRight')"
+                            @touchend="stopContinuousMove">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <button class="btn mt-2 w-10 h-10"
+                        @mousedown="startContinuousMove('ArrowDown')"
+                        @mouseup="stopContinuousMove"
+                        @mouseleave="stopContinuousMove"
+                        @touchstart.prevent="startContinuousMove('ArrowDown')"
+                        @touchend="stopContinuousMove">
+                        <i class="fas fa-arrow-down"></i>
+                    </button>
                 </div>
-                <button class="btn mt-2 w-10 h-10" @click="handleKeyPress({ key: 'ArrowDown' })">⬇</button>
-            </div>
-        </template>
+            </template>
+            <template v-else>
+                <div class="p-[159px]">
+                </div>
+            </template>
+        </div>
     </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import i18n from "@/core/plugins/i18n/i18n.ts";
 import moment, { Moment } from 'moment';
-import { Fireworks } from 'fireworks-js'; // 引入煙火特效
+import confetti from 'canvas-confetti';
 
 const { t } = i18n.global;
 
@@ -70,6 +105,7 @@ const completionCount = ref<number>(0);
 const timeoutId = ref<NodeJS.Timeout | null>(null);
 const pointSound = ref<HTMLAudioElement>(new Audio('./gotPointSoundEffect.mp3'));
 const showInstruction = ref<boolean>(true);
+const moveInterval = ref<ReturnType<typeof setInterval> | null>(null);
 
 onMounted(() => {
     window.addEventListener('keydown', handleKeyPress);
@@ -147,7 +183,6 @@ function generateRandomMaze() {
     return maze;
 }
 
-
 function handleKeyPress(event: KeyboardEvent | { key: string }) {
     if (checkCompletion()) return;
     switch (event.key) {
@@ -179,11 +214,11 @@ function handleMoved() {
     if (checkCompletion()) {
         completionCount.value++;
         if (timeoutId.value !== null) {
-            clearInterval(timeoutId.value); // 停止計時
+            clearInterval(timeoutId.value);
         }
-        pointSound.value.currentTime = 0; // 重置音效時間
+        pointSound.value.currentTime = 0;
         pointSound.value.play();
-        showFireworks(); // 顯示煙火特效
+        showConfetti(); // 改為使用彩帶效果
     }
 }
 
@@ -191,70 +226,68 @@ function checkCompletion() {
     return playerPosition.value.x === goalPosition.value.x && playerPosition.value.y === goalPosition.value.y;
 }
 
-function showFireworks() {
-    const container = document.createElement('div');
-    container.style.position = 'fixed';
-    container.style.top = '0';
-    container.style.left = '0';
-    container.style.width = '100%';
-    container.style.height = '100%';
-    container.style.zIndex = '9999';
-    document.body.appendChild(container);
+function showConfetti() {
+    const count = 200;
+    const defaults = {
+        origin: { y: 0.7 },
+        zIndex: 9999
+    } as const;
 
-    const fireworks = new Fireworks(container, {
-        autoresize: true,
-        opacity: 0.5,
-        acceleration: 1.05,
-        friction: 0.97,
-        gravity: 1.5,
-        particles: 50,
-        // trace: 3,
-        explosion: 5,
-        intensity: 30,
-        flickering: 50,
-        lineStyle: 'round',
-        hue: {
-            min: 0,
-            max: 360
-        },
-        delay: {
-            min: 15,
-            max: 30
-        },
-        rocketsPoint: {
-            min: 50,
-            max: 50
-        },
-        lineWidth: {
-            explosion: {
-                min: 1,
-                max: 3
-            },
-            trace: {
-                min: 1,
-                max: 2
-            }
-        },
-        brightness: {
-            min: 50,
-            max: 80
-        },
-        decay: {
-            min: 0.015,
-            max: 0.03
-        },
-        mouse: {
-            click: false,
-            move: false,
-            max: 1
-        }
+    function fire(particleRatio: number, opts: { [key: string]: any }) {
+        confetti({
+            ...defaults,
+            ...opts,
+            particleCount: Math.floor(count * particleRatio)
+        });
+    }
+
+    fire(0.25, {
+        spread: 26,
+        startVelocity: 55,
     });
 
-    fireworks.start();
+    fire(0.2, {
+        spread: 60,
+    });
 
-    setTimeout(() => {
-        fireworks.stop();
-        document.body.removeChild(container);
-    }, 5000); // 煙火持續 5 秒
+    fire(0.35, {
+        spread: 100,
+        decay: 0.91,
+        scalar: 0.8,
+    });
+
+    fire(0.1, {
+        spread: 120,
+        startVelocity: 25,
+        decay: 0.92,
+        scalar: 1.2,
+    });
+
+    fire(0.1, {
+        spread: 120,
+        startVelocity: 45,
+    });
 }
+
+function startContinuousMove(direction: string) {
+    // 立即執行一次
+    handleKeyPress({ key: direction });
+    
+    // 設置連續移動的間隔
+    moveInterval.value = setInterval(() => {
+        handleKeyPress({ key: direction });
+    }, 100);
+}
+
+function stopContinuousMove() {
+    if (moveInterval.value) {
+        clearInterval(moveInterval.value);
+        moveInterval.value = null;
+    }
+}
+
+// 在組件卸載時清理
+onUnmounted(() => {
+    stopContinuousMove();
+});
 </script>

@@ -13,7 +13,7 @@
         </div>
 
         <div class="relative z-10">
-            <div class="grid justify-items-center p-6 gap-10">
+            <div class="grid justify-items-center  gap-10">
                 <div>
                     <WorkExperience />
                 </div>

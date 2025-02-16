@@ -37,33 +37,28 @@
             <br>
             <div class="">
                 <div class="pb-3 overflow-x-auto">
-                    <div class="w-20">
-                        <table class="text-nowrap">
-                            <tbody>
-                                <tr>
-                                    <td class="border border-black w-32"></td>
-                                    <template v-for="label in getBarChartLabelsByDisplayAnalyzeData(daysAgoToDate)">
-                                        <td class="p-3 border border-black text-end">
-                                            {{ label }}
-                                        </td>
-                                    </template>
-                                </tr>
-                                <template v-for="label in getPieChartLabelsByDisplayAnalyzeData(daysAgoToDate)">
-                                    <tr>
-                                        <td class="p-3 border border-black">
-                                            {{ t('Analysis.DataName.' + label) }}
-                                        </td>
-                                        <template
-                                            v-for="data in getBarChartDataByDisplayAnalyzeData(daysAgoToDate).find(e => e.label == label)?.data ?? []">
-                                            <td class="p-3 border border-black text-end">
-                                                {{ data.toLocaleString() }}
-                                            </td>
-                                        </template>
-                                    </tr>
-                                </template>
-                            </tbody>
-                        </table>
-                    </div>
+                    <el-table 
+                        :data="tableData" 
+                        border 
+                        class="w-full custom-table"
+                    >
+                        <!-- 日期欄位 -->
+                        <el-table-column 
+                            prop="date" 
+                            :label="''" 
+                            width="120" 
+                            fixed="left"
+                        />
+                        
+                        <!-- 動態生成的日期欄位 -->
+                        <template v-for="label in getBarChartLabelsByDisplayAnalyzeData(daysAgoToDate)" :key="label">
+                            <el-table-column 
+                                :prop="label"
+                                :label="label"
+                                align="right"
+                            />
+                        </template>
+                    </el-table>
                 </div>
             </div>
         </div>
@@ -71,7 +66,7 @@
 </template>
 <script setup lang="ts">
 import moment from 'moment';
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, computed } from 'vue';
 import VueTailwindDatepicker from "vue-tailwind-datepicker";
 import PieChart from "@/components/chart/PieChart.vue";
 import GroupBarChartKanta from "@/components/chart/GroupBarChartKanta.vue";
@@ -113,4 +108,47 @@ function isDisabled() {
     if (resArr.length == 2 && moment(resArr[0]).isValid() && moment(resArr[1]).isValid()) return false
     else return true
 }
+
+// 處理表格資料
+const tableData = computed(() => {
+    const labels = getPieChartLabelsByDisplayAnalyzeData(daysAgoToDate.value);
+    return labels.map(label => {
+        const rowData: Record<string, any> = {
+            date: t('Analysis.DataName.' + label)
+        };
+        
+        // 獲取該水果的所有日期數據
+        const fruitData = getBarChartDataByDisplayAnalyzeData(daysAgoToDate.value)
+            .find(e => e.label == label)?.data ?? [];
+            
+        // 將數據與日期對應
+        getBarChartLabelsByDisplayAnalyzeData(daysAgoToDate.value)
+            .forEach((dateLabel, index) => {
+                rowData[dateLabel] = fruitData[index]?.toLocaleString() ?? '0';
+            });
+            
+        return rowData;
+    });
+});
 </script>
+
+<style scoped>
+.custom-table {
+    --el-table-bg-color: #1e3544;
+    --el-table-tr-bg-color: #3f6277;
+    --el-table-header-bg-color: #262626;
+    --el-table-border-color: #4a4a4a;
+    --el-table-text-color: #070707;
+    --el-table-header-text-color: #070707;
+}
+
+.custom-table :deep(th.el-table__cell),
+.custom-table :deep(td.el-table__cell) {
+    background-color: #90d4df;
+}
+
+/* 懸停效果 */
+.custom-table :deep(tr:hover > td.el-table__cell) {
+    background-color: #1e388d !important;
+}
+</style>

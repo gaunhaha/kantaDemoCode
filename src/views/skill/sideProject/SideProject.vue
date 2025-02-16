@@ -1,7 +1,8 @@
 <template>
-    <div class="flex flex-wrap gap-10 justify-center items-center">
-        <div class="mySwiper mb-10">
-            <p class="text-2xl font-bold mb-4 text-primary">Side Project</p>
+    <p class="text-2xl font-bold mb-4 text-primary">Side Project</p>
+    <div class="flex flex-wrap justify-center items-start gap-10">
+        <!-- 輪播圖區塊 -->
+        <div class="flex-shrink-0">
             <div class="shadow-md">
                 <swiper :loop="true" :modules="[Autoplay, Pagination]" :pagination="{ clickable: true }"
                     :slides-per-view="1" :space-between="10" :autoplay="{ delay: 5000, disableOnInteraction: false }"
@@ -114,14 +115,25 @@
                 </swiper>
             </div>
         </div>
-        <div class="flex flex-col items-center gap-10">
+
+        <!-- PPT 區塊 -->
+        <div class="flex-shrink-0">
             <div class="card cursor-pointer rounded shadow-lg" @click="openPPT">
                 <img class="w-full object-cover" src="@/assets/images/ppt.png" alt="IoT PTT Picture">
             </div>
-            <div class="text-center">
-                <a href="https://www.youtube.com/shorts/QSvdzqYWQKo" target="_blank" class="text-blue-500 hover:text-blue-700">
-                    {{ t('Skill.SideProject.videoLink') }}
-                </a>
+        </div>
+
+        <!-- 影片區塊 -->
+        <div class="flex-shrink-0">
+            <div class="video-container">
+                <iframe
+                    src="https://www.youtube.com/embed/QSvdzqYWQKo"
+                    title="Side Project Demo"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    class="rounded-lg shadow-lg"
+                ></iframe>
             </div>
         </div>
     </div>
@@ -139,12 +151,12 @@ function openPPT() {
 </script>
 <style scoped>
 .mySwiper {
-    width: 500px;
+    width: 400px;
     height: 450px;
 }
 
 .card {
-    width: 500px;
+    width: 400px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -153,15 +165,45 @@ function openPPT() {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
+.video-container {
+    width: 400px;
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 /* 手機畫面調整 */
-@media (max-width: 768px) {
-    .mySwiper {
+@media (max-width: 1280px) {
+    .mySwiper,
+    .card,
+    .video-container {
         width: 300px;
-        /* 調整寬度 */
+    }
+    
+    .mySwiper {
+        height: 400px;
     }
 
-    .card {
-        width: 300px;
+    .video-container {
+        padding-bottom: 75%; /* 調整影片容器比例 */
+    }
+}
+
+/* 更小螢幕的調整 */
+@media (max-width: 640px) {
+    .video-container {
+        width: 280px;
+        padding-bottom: 65%; /* 進一步調整影片容器比例 */
     }
 }
 </style>

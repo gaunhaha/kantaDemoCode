@@ -1,5 +1,5 @@
 <template>
-    <div class="relative min-h-screen overflow-hidden">
+    <div class="relative overflow-hidden">
         <div class="relative z-10">
             <div class="flex justify-center items-center p-6">
                 <div class="carousel-container relative w-full max-w-2xl mx-auto">

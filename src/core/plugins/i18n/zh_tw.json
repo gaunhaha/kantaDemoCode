@@ -26,12 +26,20 @@
         "skill": "技術",
         "analysis": "分析",
         "whackAMole": "打地鼠",
-        "mazeGame": "走迷宮"
+        "mazeGame": "走迷宮",
+        "games": "遊戲"
     },
     "Skill": {
         "WorkExperience": {
             "title": "工作經驗",
             "1": {
+                "position": "網頁前端工程師",
+                "company": "創造智能科技股份有限公司",
+                "Responsibilities": {
+                    "1": "負責完整的前端工作流程，包含使用tailwind css/element plus 切版、架構規劃、vue3 typescript 撰寫、測試與部署，並使用nuxt.js 進行SEO 最佳化，另有使用firebase 搭建簡單應用。"
+                }
+            },
+            "2": {
                 "position": "全端工程師",
                 "company": "勤禾科技服務股份有限公司",
                 "Responsibilities": {
@@ -60,7 +68,7 @@
                     "text": "客戶能在後台系統編輯並取得專有的訪客登記 QRcode、訪客能經由手機上的掃描條碼進入訪客登記畫面，填答表單，完成訪客來訪登記。後台系統能供查看訪客的資料，並對訪客類別、時間等等進行分析。可落實出入人員的管理，加強安全性。"
                 }
             },
-            "2": {
+            "3": {
                 "position": "全端工程師",
                 "company": "日晷科技股份有限公司",
                 "Achievement1": {
@@ -68,11 +76,15 @@
                     "text": "使用 Eclipse 和 Spring Tool Suite 進行後端開發，將傳統的 SpringMVC 架構重構為微服務架構，提升系統的可擴展性和維護性。設計並實作可嵌入手機 APP 的網頁應用，使用 Vue 2 作為前端技術，並確保其與後端 Spring Boot 的有效整合。"
                 },
                 "Achievement2": {
+                    "title": "富邦常用轉帳帳號",
+                    "text": "使用angular 重構舊的常用轉帳帳號管理系統，將原有的系統進行翻寫，重新切版、加入新功能，並撰寫單元測試。"
+                },
+                "Achievement3": {
                     "title": "專案",
-                    "text": "參與公司內部網站的設計開發，使用 React 技術實現打卡、請假和工作流程管理功能，這些功能不僅提升了員工的使用滿意度和工作效率，也使管理者能夠更便捷地管理員工的日常事務。"
+                    "text": "設計開發公司人事網站，使用 React 建構打卡、請假和工作流程管理系統。包含設計權限、角色群組機制，另有開發行事曆功能。"
                 }
             },
-            "3": {
+            "4": {
                 "position": "前端工程師",
                 "company": "精誠資訊科技股份有限公司",
                 "Achievement1": {
@@ -80,7 +92,7 @@
                     "text": "參與維護和開發各大證券商的前端應用，使用 C++ 撰寫 MFC 應用於 Windows 平台，並使用 HTML5 和 jQuery 開發網頁應用，提升用戶操作體驗。並利用原生 CSS 進行切版和視覺美化，確保應用界面的整體美感與可用性。"
                 }
             },
-            "4": {
+            "5": {
                 "position": "軟體程式設計師",
                 "company": "優貝克軟體研發股份有限公司",
                 "Responsibilities": {

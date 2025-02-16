@@ -4,27 +4,23 @@
         <div class="skills-section">
             <div class="skill-category">
                 <h2 class="section-title">{{ t('Skill.SkillList.backend') }}</h2>
-                <p>.NET、Spring Boot、Node.js</p>
+                <p>ASP.NET Core、C#、Spring Boot、Java、Node.js、C++</p>
             </div>
             <div class="skill-category">
                 <h2 class="section-title">{{ t('Skill.SkillList.frontend') }}</h2>
-                <p>HTML、CSS、Sass、jQuery、Vue.js、React、Angular、Bootstrap 5、Tailwind CSS</p>
+                <p>jQuery、Vue.js、React、Angular、Bootstrap 5、Tailwind CSS、element-plus</p>
             </div>
             <div class="skill-category">
                 <h2 class="section-title">{{ t('Skill.SkillList.database') }}</h2>
-                <p>SQL Server、MS SQL</p>
+                <p>SQL Server、MS SQL、Firebase、MySQL</p>
             </div>
             <div class="skill-category">
                 <h2 class="section-title">{{ t('Skill.SkillList.versionControl') }}</h2>
-                <p>Git、GitHub</p>
-            </div>
-            <div class="skill-category">
-                <h2 class="section-title">{{ t('Skill.SkillList.ciCd') }}</h2>
-                <p>Git Actions</p>
+                <p>Git、GitHub、GitLab</p>
             </div>
             <div class="skill-category">
                 <h2 class="section-title">{{ t('Skill.SkillList.other') }}</h2>
-                <p>Docker</p>
+                <p>Git Actions、Docker、PM2</p>
             </div>
             <div class="skill-category">
                 <h2 class="section-title">{{ t('Skill.SkillList.languageAbility') }}</h2>

@@ -5,59 +5,51 @@
             <h3 class="position">{{ t('Skill.WorkExperience.1.position') }}</h3>
             <p class="company">{{ t('Skill.WorkExperience.1.company') }}</p>
             <ul class="responsibilities">
-                <li>{{ t('Skill.WorkExperience.1.Responsibilities.1') }}</li>
-                <li>{{ t('Skill.WorkExperience.1.Responsibilities.2') }}</li>
-                <li>{{ t('Skill.WorkExperience.1.Responsibilities.3') }}</li>
-                <li>{{ t('Skill.WorkExperience.1.Responsibilities.4') }}</li>
-                <li>{{ t('Skill.WorkExperience.1.Responsibilities.5') }}</li>
-                <li>{{ t('Skill.WorkExperience.1.Responsibilities.6') }}</li>
-            </ul>
-        </div>
-        <div class="achievements">
-            <h3 class="section-title">{{ t('Skill.WorkExperience.1.achievementTitle') }}</h3>
-            <ul>
                 <li>
-                    <strong>{{ t('Skill.WorkExperience.1.Achievement1.title') }}</strong>
-                    <p>
-                        {{ t('Skill.WorkExperience.1.Achievement1.text') }}
-                    </p>
-                </li>
-                <li>
-                    <strong>{{ t('Skill.WorkExperience.1.Achievement2.title') }}</strong>
-                    <p>
-                        {{ t('Skill.WorkExperience.1.Achievement2.text') }}
-                    </p>
-                </li>
-                <li>
-                    <strong>{{ t('Skill.WorkExperience.1.Achievement3.title') }}</strong>
-                    <p>
-                        {{ t('Skill.WorkExperience.1.Achievement3.text') }}
-                    </p>
-                </li>
-                <li>
-                    <strong>{{ t('Skill.WorkExperience.1.Achievement4.title') }}</strong>
-                    <p>
-                        {{ t('Skill.WorkExperience.1.Achievement4.text') }}
-                    </p>
+                    {{ t('Skill.WorkExperience.1.Responsibilities.1') }}
                 </li>
             </ul>
         </div>
-        <br />
         <div class="experience">
             <h3 class="position">{{ t('Skill.WorkExperience.2.position') }}</h3>
             <p class="company">{{ t('Skill.WorkExperience.2.company') }}</p>
-            <div class="achievements">
-                <ul>
-                    <li>
-                        <strong>{{ t('Skill.WorkExperience.2.Achievement1.title') }}</strong>
-                        <p>{{ t('Skill.WorkExperience.2.Achievement1.text') }}</p>
-                    </li>
-                    <li>
-                        <strong>{{ t('Skill.WorkExperience.2.Achievement2.title') }}</strong>
-                        <p>{{ t('Skill.WorkExperience.2.Achievement2.text') }}</p>
-                    </li>
-                </ul>
-            </div>
+            <ul class="responsibilities">
+                <li>{{ t('Skill.WorkExperience.2.Responsibilities.1') }}</li>
+                <li>{{ t('Skill.WorkExperience.2.Responsibilities.2') }}</li>
+                <li>{{ t('Skill.WorkExperience.2.Responsibilities.3') }}</li>
+                <li>{{ t('Skill.WorkExperience.2.Responsibilities.4') }}</li>
+                <li>{{ t('Skill.WorkExperience.2.Responsibilities.5') }}</li>
+                <li>{{ t('Skill.WorkExperience.2.Responsibilities.6') }}</li>
+            </ul>
+        </div>
+        <div class="achievements">
+            <h3 class="section-title">{{ t('Skill.WorkExperience.2.achievementTitle') }}</h3>
+            <ul>
+                <li>
+                    <strong>{{ t('Skill.WorkExperience.2.Achievement1.title') }}</strong>
+                    <p>
+                        {{ t('Skill.WorkExperience.2.Achievement1.text') }}
+                    </p>
+                </li>
+                <li>
+                    <strong>{{ t('Skill.WorkExperience.2.Achievement2.title') }}</strong>
+                    <p>
+                        {{ t('Skill.WorkExperience.2.Achievement2.text') }}
+                    </p>
+                </li>
+                <li>
+                    <strong>{{ t('Skill.WorkExperience.2.Achievement3.title') }}</strong>
+                    <p>
+                        {{ t('Skill.WorkExperience.2.Achievement3.text') }}
+                    </p>
+                </li>
+                <li>
+                    <strong>{{ t('Skill.WorkExperience.2.Achievement4.title') }}</strong>
+                    <p>
+                        {{ t('Skill.WorkExperience.2.Achievement4.text') }}
+                    </p>
+                </li>
+            </ul>
         </div>
         <br />
         <div class="experience">
@@ -69,6 +61,14 @@
                         <strong>{{ t('Skill.WorkExperience.3.Achievement1.title') }}</strong>
                         <p>{{ t('Skill.WorkExperience.3.Achievement1.text') }}</p>
                     </li>
+                    <li>
+                        <strong>{{ t('Skill.WorkExperience.3.Achievement2.title') }}</strong>
+                        <p>{{ t('Skill.WorkExperience.3.Achievement2.text') }}</p>
+                    </li>
+                    <li>
+                        <strong>{{ t('Skill.WorkExperience.3.Achievement3.title') }}</strong>
+                        <p>{{ t('Skill.WorkExperience.3.Achievement3.text') }}</p>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -76,16 +76,29 @@
         <div class="experience">
             <h3 class="position">{{ t('Skill.WorkExperience.4.position') }}</h3>
             <p class="company">{{ t('Skill.WorkExperience.4.company') }}</p>
+            <div class="achievements">
+                <ul>
+                    <li>
+                        <strong>{{ t('Skill.WorkExperience.4.Achievement1.title') }}</strong>
+                        <p>{{ t('Skill.WorkExperience.4.Achievement1.text') }}</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <br />
+        <div class="experience">
+            <h3 class="position">{{ t('Skill.WorkExperience.5.position') }}</h3>
+            <p class="company">{{ t('Skill.WorkExperience.5.company') }}</p>
             <ul class="responsibilities">
-                <li>{{ t('Skill.WorkExperience.4.Responsibilities.1') }}</li>
-                <li>{{ t('Skill.WorkExperience.4.Responsibilities.2') }}</li>
+                <li>{{ t('Skill.WorkExperience.5.Responsibilities.1') }}</li>
+                <li>{{ t('Skill.WorkExperience.5.Responsibilities.2') }}</li>
             </ul>
         </div>
     </div>
 </template>
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n';
-const { t } = useI18n();
+import i18n from "@/core/plugins/i18n/i18n";
+const { t } = i18n.global;
 </script>
 <style scoped>
 .work-experience-container {

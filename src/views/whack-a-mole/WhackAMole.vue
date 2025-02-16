@@ -11,44 +11,47 @@
         <p>{{ t('WhackAMole.instructionDetail') }}</p>
     </div>
     <div class="text-primary">
-        <div class="flex justify-center mb-3">
+        <div class="text-center mb-3">
             <h1 class="text-3xl font-bold">
                 {{ formatTime() }}
             </h1>
         </div>
-        <div class="flex justify-between items-center mb-5 gap-3 flex-wrap">
-            <button class="btn-light h-12 w-20 ms-4"
-                :class="(isCountingDown || isGameActive) ? 'bg-primary-light-active' : 'bg-primary hover:bg-primary-active'"
-                @click="startGame" :disabled="isCountingDown || isGameActive">
-                <span v-if="isCountingDown">
-                    {{ countdownValue }}
-                </span>
-                <span v-else-if="isGameActive">
-                    {{ t('WhackAMole.go') }}
-                </span>
-                <span v-else>
-                    {{ t('WhackAMole.start') }}
-                </span>
-            </button>
-            <div class="text-3xl font-bold text-end me-4">
-                <div v-if="highestScore" class="text-nowrap">
-                    {{ t('WhackAMole.highest') }} {{ highestScore }}
-                </div>
-                <div class="text-nowrap">
-                    {{ t('WhackAMole.score') }} {{ currentScore }}
+        <div class="w-fit mx-auto">
+            <div class="flex justify-between mb-5">
+                <button class="btn-light h-12 w-20"
+                    :class="(isCountingDown || isGameActive) ? 'bg-primary-light-active' : 'bg-primary hover:bg-primary-active'"
+                    @click="startGame" :disabled="isCountingDown || isGameActive">
+                    <span v-if="isCountingDown">
+                        {{ countdownValue }}
+                    </span>
+                    <span v-else-if="isGameActive">
+                        {{ t('WhackAMole.go') }}
+                    </span>
+                    <span v-else>
+                        {{ t('WhackAMole.start') }}
+                    </span>
+                </button>
+                <div class="text-3xl font-bold">
+                    <div v-if="highestScore" class="text-nowrap">
+                        {{ t('WhackAMole.highest') }} {{ highestScore }}
+                    </div>
+                    <div class="text-nowrap">
+                        {{ t('WhackAMole.score') }} {{ currentScore }}
+                    </div>
                 </div>
             </div>
+            <template v-for="i in 4">
+                <div class="flex mb-3 gap-3">
+                    <template v-for="j in 4">
+                        <button class="lg:p-16 md:p-10 p-7 rounded-md"
+                            :class="(currentActiveMole == ((i - 1) * 4 + j)) && isGameActive ? 'bg-red-400 cursor-pointer' : 'bg-gray-400'"
+                            :disabled="currentActiveMole != ((i - 1) * 4 + j) || !isGameActive" 
+                            @click="hitMole">
+                        </button>
+                    </template>
+                </div>
+            </template>
         </div>
-        <template v-for="i in 4">
-            <div class="flex justify-around mb-10 gap-3">
-                <template v-for="j in 4">
-                    <button class="lg:p-16 md:p-10 p-7 rounded-md"
-                        :class="(currentActiveMole == ((i - 1) * 4 + j)) && isGameActive ? 'bg-red-400 cursor-pointer' : 'bg-gray-400'"
-                        :disabled="currentActiveMole != ((i - 1) * 4 + j) || !isGameActive" @click="hitMole">
-                    </button>
-                </template>
-            </div>
-        </template>
     </div>
 </template>
 <script setup lang="ts">
