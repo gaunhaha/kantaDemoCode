@@ -1,90 +1,92 @@
 <template>
-    <div class="w-full h-full text-primary">
-        <div v-show="showInstruction" class="text-black bg-gray-100 p-4 mb-4 rounded-md shadow-md relative">
-            <button class="absolute top-2 right-2 text-gray-500 hover:text-gray-700" @click="showInstruction = false">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-            <h2 class="font-bold text-lg">{{ t('MazeGame.title') }}</h2>
-            <p class="mb-3">{{ t('MazeGame.instruction') }}</p>
-            <p>{{ t('MazeGame.instructionDetail') }}</p>
-        </div>
-        <div class="w-fit mx-auto pt-10">
-            <p class="mb-5">
-                {{ t('MazeGame.completionCount') }} : {{ completionCount }} ,
-                {{ t('MazeGame.spendTime') }}: {{ spendTime.diff(moment().startOf('day'), 'seconds') }}s
-            </p>
-            <button class="btn mb-5 w-20 h-10" @click="startGame">
-                {{ t('MazeGame.startButton') }}
-            </button>
-            <template v-if="maze.length > 0">
-                <div class="mx-auto w-fit mb-10">
-                    <div class="border-2 border-gray-500 p-2 shadow-lg bg-black rounded-md">
-                        <template v-for="(row, rowIndex) in maze">
-                            <div class="flex flex-nowrap">
-                                <template v-for="(cell, colIndex) in row">
-                                    <div :style="{
-                                        width: '20px',
-                                        height: '20px',
-                                        backgroundColor:
-                                            playerPosition.x === colIndex && playerPosition.y === rowIndex
-                                                ? 'red'
-                                                : cell === 0
-                                                    ? 'black'
-                                                    : 'white'
-                                    }">
-                                        <template v-if="rowIndex === 14 && colIndex === 14">
-                                            ⭐
-                                        </template>
-                                    </div>
-                                </template>
-                            </div>
-                        </template>
+    <div class="max-w-4xl mx-auto">
+        <div class="w-full h-full text-primary">
+            <div v-show="showInstruction" class="text-black bg-gray-100 p-4 mb-4 rounded-md shadow-md relative">
+                <button class="absolute top-2 right-2 text-gray-500 hover:text-gray-700" @click="showInstruction = false">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                <h2 class="font-bold text-lg">{{ t('MazeGame.title') }}</h2>
+                <p class="mb-3">{{ t('MazeGame.instruction') }}</p>
+                <p>{{ t('MazeGame.instructionDetail') }}</p>
+            </div>
+            <div class="w-fit mx-auto pt-10">
+                <p class="mb-5">
+                    {{ t('MazeGame.completionCount') }} : {{ completionCount }} ,
+                    {{ t('MazeGame.spendTime') }}: {{ spendTime.diff(moment().startOf('day'), 'seconds') }}s
+                </p>
+                <button class="btn mb-5 w-20 h-10" @click="startGame">
+                    {{ t('MazeGame.startButton') }}
+                </button>
+                <template v-if="maze.length > 0">
+                    <div class="mx-auto w-fit mb-10">
+                        <div class="border-2 border-gray-500 p-2 shadow-lg bg-black rounded-md">
+                            <template v-for="(row, rowIndex) in maze">
+                                <div class="flex flex-nowrap">
+                                    <template v-for="(cell, colIndex) in row">
+                                        <div :style="{
+                                            width: '20px',
+                                            height: '20px',
+                                            backgroundColor:
+                                                playerPosition.x === colIndex && playerPosition.y === rowIndex
+                                                    ? 'red'
+                                                    : cell === 0
+                                                        ? 'black'
+                                                        : 'white'
+                                        }">
+                                            <template v-if="rowIndex === 14 && colIndex === 14">
+                                                ⭐
+                                            </template>
+                                        </div>
+                                    </template>
+                                </div>
+                            </template>
+                        </div>
                     </div>
-                </div>
-                <div class="flex flex-col items-center font-bold md:hidden">
-                    <button class="btn mb-2 w-10 h-10" 
-                        @mousedown="startContinuousMove('ArrowUp')"
-                        @mouseup="stopContinuousMove"
-                        @mouseleave="stopContinuousMove"
-                        @touchstart.prevent="startContinuousMove('ArrowUp')"
-                        @touchend="stopContinuousMove">
-                        <i class="fas fa-arrow-up"></i>
-                    </button>
-                    <div class="flex gap-14">
-                        <button class="btn w-10 h-10"
-                            @mousedown="startContinuousMove('ArrowLeft')"
+                    <div class="flex flex-col items-center font-bold md:hidden">
+                        <button class="btn mb-2 w-10 h-10" 
+                            @mousedown="startContinuousMove('ArrowUp')"
                             @mouseup="stopContinuousMove"
                             @mouseleave="stopContinuousMove"
-                            @touchstart.prevent="startContinuousMove('ArrowLeft')"
+                            @touchstart.prevent="startContinuousMove('ArrowUp')"
                             @touchend="stopContinuousMove">
-                            <i class="fas fa-arrow-left"></i>
+                            <i class="fas fa-arrow-up"></i>
                         </button>
-                        <button class="btn w-10 h-10"
-                            @mousedown="startContinuousMove('ArrowRight')"
+                        <div class="flex gap-14">
+                            <button class="btn w-10 h-10"
+                                @mousedown="startContinuousMove('ArrowLeft')"
+                                @mouseup="stopContinuousMove"
+                                @mouseleave="stopContinuousMove"
+                                @touchstart.prevent="startContinuousMove('ArrowLeft')"
+                                @touchend="stopContinuousMove">
+                                <i class="fas fa-arrow-left"></i>
+                            </button>
+                            <button class="btn w-10 h-10"
+                                @mousedown="startContinuousMove('ArrowRight')"
+                                @mouseup="stopContinuousMove"
+                                @mouseleave="stopContinuousMove"
+                                @touchstart.prevent="startContinuousMove('ArrowRight')"
+                                @touchend="stopContinuousMove">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <button class="btn mt-2 w-10 h-10"
+                            @mousedown="startContinuousMove('ArrowDown')"
                             @mouseup="stopContinuousMove"
                             @mouseleave="stopContinuousMove"
-                            @touchstart.prevent="startContinuousMove('ArrowRight')"
+                            @touchstart.prevent="startContinuousMove('ArrowDown')"
                             @touchend="stopContinuousMove">
-                            <i class="fas fa-arrow-right"></i>
+                            <i class="fas fa-arrow-down"></i>
                         </button>
                     </div>
-                    <button class="btn mt-2 w-10 h-10"
-                        @mousedown="startContinuousMove('ArrowDown')"
-                        @mouseup="stopContinuousMove"
-                        @mouseleave="stopContinuousMove"
-                        @touchstart.prevent="startContinuousMove('ArrowDown')"
-                        @touchend="stopContinuousMove">
-                        <i class="fas fa-arrow-down"></i>
-                    </button>
-                </div>
-            </template>
-            <template v-else>
-                <div class="p-[159px]">
-                </div>
-            </template>
+                </template>
+                <template v-else>
+                    <div class="p-[159px]">
+                    </div>
+                </template>
+            </div>
         </div>
     </div>
 </template>

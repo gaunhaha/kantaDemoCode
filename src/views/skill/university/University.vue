@@ -3,28 +3,50 @@
         <p class="text-2xl font-bold text-primary">{{ t('Skill.University.title') }}</p>
     </div>
     <div class="flex flex-wrap gap-10 justify-center items-center">
-        <div class="card">
-            <p class="text-2xl font-bold mb-4">{{ t('Skill.University.1.title') }}</p>
-            <div class="border-b-2 border-gray-200 mb-4">
-                <img class="w-full h-28 object-cover" src="@/assets/images/Wanbao.png" alt="Wanbao Picture">
+        <div
+            class="bg-gradient-to-br from-violet-500 via-purple-500 to-indigo-500 rounded-lg p-1 mb-8 transition-all duration-300 max-w-4xl mx-auto">
+            <div class="bg-gray-50 w-full rounded-lg">
+                <div class="card">
+                    <p class="text-2xl font-bold mb-4">{{ t('Skill.University.1.title') }}</p>
+                    <div class="border-b-2 border-gray-200 mb-4">
+                        <img class="w-full h-28 object-cover" src="@/assets/images/Wanbao.png" alt="Wanbao Picture">
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="card">
-            <p class="text-2xl font-bold mb-4">{{ t('Skill.University.2.title') }}</p>
-            <div class="border-b-2 border-gray-200 mb-4">
-                <img class="w-full h-28 object-cover" src="@/assets/images/institution.jpg" alt="Institution Picture">
+        <div
+            class="bg-gradient-to-br from-indigo-500 via-blue-500 to-cyan-500 rounded-lg p-1 mb-8 transition-all duration-300 max-w-4xl mx-auto">
+            <div class="bg-gray-50 w-full rounded-lg">
+                <div class="card">
+                    <p class="text-2xl font-bold mb-4">{{ t('Skill.University.2.title') }}</p>
+                    <div class="border-b-2 border-gray-200 mb-4">
+                        <img class="w-full h-28 object-cover" src="@/assets/images/institution.jpg"
+                            alt="Institution Picture">
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="card upTransition cursor-pointer" @click="openYoutube">
-            <p class="text-2xl font-bold mb-4">{{ t('Skill.University.3.title') }}</p>
-            <div class="border-b-2 border-gray-200 mb-4">
-                <img class="w-full h-28 object-cover" src="@/assets/images/Graduation.png" alt="Graduation Picture">
+        <div
+            class="bg-gradient-to-br from-cyan-500 via-teal-500 to-green-500 rounded-lg p-1 mb-8 transition-all duration-300 max-w-4xl mx-auto upTransition">
+            <div class="bg-gray-50 w-full rounded-lg cursor-pointer" @click="openYoutube">
+                <div class="card">
+                    <p class="text-2xl font-bold mb-4">{{ t('Skill.University.3.title') }}</p>
+                    <div class="border-b-2 border-gray-200 mb-4">
+                        <img class="w-full h-28 object-cover" src="@/assets/images/Graduation.png" alt="Graduation Picture">
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="card">
-            <p class="text-2xl font-bold mb-4">{{ t('Skill.University.4.title') }}</p>
-            <div class="border-b-2 border-gray-200 mb-4">
-                <img class="w-full h-28 object-cover" src="@/assets/images/presentation.png" alt="Presentation Picture">
+        <div
+            class="bg-gradient-to-br from-green-500 via-lime-500 to-yellow-500 rounded-lg p-1 mb-8 transition-all duration-300 max-w-4xl mx-auto">
+            <div class="bg-gray-50 w-full rounded-lg">
+                <div class="card">
+                    <p class="text-2xl font-bold mb-4">{{ t('Skill.University.4.title') }}</p>
+                    <div class="border-b-2 border-gray-200 mb-4">
+                        <img class="w-full h-28 object-cover" src="@/assets/images/presentation.png"
+                            alt="Presentation Picture">
+                    </div>
+                </div>
             </div>
         </div>
     </div>

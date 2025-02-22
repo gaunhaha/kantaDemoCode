@@ -36,7 +36,20 @@
                 "position": "Web Frontend Engineer",
                 "company": "Create AI Technology Co., Ltd.",
                 "Responsibilities": {
-                    "1": "Responsible for the complete frontend workflow, including layout design with Tailwind CSS/Element Plus, architecture planning, Vue3 TypeScript development, testing and deployment. Implemented SEO optimization using Nuxt.js and built simple applications with Firebase."
+                    "frontend": {
+                        "title": "Frontend Development Workflow",
+                        "item1": "Layout design using Tailwind CSS / Element Plus",
+                        "item2": "Frontend architecture planning",
+                        "item3": "Development with Vue 3 + TypeScript",
+                        "item4": "Unit testing and deployment",
+                        "item5": "SEO optimization using Nuxt.js",
+                        "item6": "Building applications with Firebase"
+                    },
+                    "devops": {
+                        "title": "Deployment & Operations",
+                        "item1": "Application deployment and management using PM2",
+                        "item2": "Nginx configuration for reverse proxy and load balancing"
+                    }
                 }
             },
             "2": {

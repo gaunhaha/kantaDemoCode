@@ -1,56 +1,57 @@
 <template>
-    <div v-show="showInstruction" class="text-black bg-gray-100 p-4 mb-10 rounded-md shadow-md relative">
-        <button class="absolute top-2 right-2 text-gray-500 hover:text-gray-700" @click="showInstruction = false">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
-        <h2 class="font-bold text-lg">{{ t('WhackAMole.title') }}</h2>
-        <p class="mb-3">{{ t('WhackAMole.instruction') }}</p>
-        <p>{{ t('WhackAMole.instructionDetail') }}</p>
-    </div>
-    <div class="text-primary">
-        <div class="text-center mb-3">
-            <h1 class="text-3xl font-bold">
-                {{ formatTime() }}
-            </h1>
+    <div class="max-w-4xl mx-auto">
+        <div v-show="showInstruction" class="text-black bg-gray-100 p-4 mb-10 rounded-md shadow-md relative">
+            <button class="absolute top-2 right-2 text-gray-500 hover:text-gray-700" @click="showInstruction = false">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <h2 class="font-bold text-lg">{{ t('WhackAMole.title') }}</h2>
+            <p class="mb-3">{{ t('WhackAMole.instruction') }}</p>
+            <p>{{ t('WhackAMole.instructionDetail') }}</p>
         </div>
-        <div class="w-fit mx-auto">
-            <div class="flex justify-between mb-5">
-                <button class="btn-light h-12 w-20"
-                    :class="(isCountingDown || isGameActive) ? 'bg-primary-light-active' : 'bg-primary hover:bg-primary-active'"
-                    @click="startGame" :disabled="isCountingDown || isGameActive">
-                    <span v-if="isCountingDown">
-                        {{ countdownValue }}
-                    </span>
-                    <span v-else-if="isGameActive">
-                        {{ t('WhackAMole.go') }}
-                    </span>
-                    <span v-else>
-                        {{ t('WhackAMole.start') }}
-                    </span>
-                </button>
-                <div class="text-3xl font-bold">
-                    <div v-if="highestScore" class="text-nowrap">
-                        {{ t('WhackAMole.highest') }} {{ highestScore }}
-                    </div>
-                    <div class="text-nowrap">
-                        {{ t('WhackAMole.score') }} {{ currentScore }}
-                    </div>
-                </div>
+        <div class="text-primary">
+            <div class="text-center mb-3">
+                <h1 class="text-3xl font-bold">
+                    {{ formatTime() }}
+                </h1>
             </div>
-            <template v-for="i in 4">
-                <div class="flex mb-3 gap-3">
-                    <template v-for="j in 4">
-                        <button class="lg:p-16 md:p-10 p-7 rounded-md"
-                            :class="(currentActiveMole == ((i - 1) * 4 + j)) && isGameActive ? 'bg-red-400 cursor-pointer' : 'bg-gray-400'"
-                            :disabled="currentActiveMole != ((i - 1) * 4 + j) || !isGameActive" 
-                            @click="hitMole">
-                        </button>
-                    </template>
+            <div class="w-fit mx-auto">
+                <div class="flex justify-between mb-5">
+                    <button class="btn-light h-12 w-20"
+                        :class="(isCountingDown || isGameActive) ? 'bg-primary-light-active' : 'bg-primary hover:bg-primary-active'"
+                        @click="startGame" :disabled="isCountingDown || isGameActive">
+                        <span v-if="isCountingDown">
+                            {{ countdownValue }}
+                        </span>
+                        <span v-else-if="isGameActive">
+                            {{ t('WhackAMole.go') }}
+                        </span>
+                        <span v-else>
+                            {{ t('WhackAMole.start') }}
+                        </span>
+                    </button>
+                    <div class="text-3xl font-bold">
+                        <div v-if="highestScore" class="text-nowrap">
+                            {{ t('WhackAMole.highest') }} {{ highestScore }}
+                        </div>
+                        <div class="text-nowrap">
+                            {{ t('WhackAMole.score') }} {{ currentScore }}
+                        </div>
+                    </div>
                 </div>
-            </template>
+                <template v-for="i in 4">
+                    <div class="flex mb-3 gap-3">
+                        <template v-for="j in 4">
+                            <button class="lg:p-16 md:p-10 p-7 rounded-md"
+                                :class="(currentActiveMole == ((i - 1) * 4 + j)) && isGameActive ? 'bg-red-400 cursor-pointer' : 'bg-gray-400'"
+                                :disabled="currentActiveMole != ((i - 1) * 4 + j) || !isGameActive" @click="hitMole">
+                            </button>
+                        </template>
+                    </div>
+                </template>
+            </div>
         </div>
     </div>
 </template>
