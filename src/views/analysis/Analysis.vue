@@ -142,6 +142,8 @@ interface TableCell {
 }
 
 const getCellStyle = ({ row, column, rowIndex, columnIndex }: TableCell) => {
+    rowIndex
+    columnIndex
     const value = Number(row[column.property]);
     if (column.property === 'date') return {};
 
@@ -159,6 +161,7 @@ interface RowProps {
 
 const getRowClass = ({ row, rowIndex }: RowProps) => {
     row
+    rowIndex
     return 'hover:bg-blue-50 transition-colors duration-200';
 };
 </script>
