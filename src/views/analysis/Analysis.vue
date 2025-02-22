@@ -39,9 +39,19 @@
                 <br>
                 <div class="">
                     <div class="pb-3 overflow-x-auto">
-                        <el-table :data="tableData" border class="w-full custom-table">
+                        <el-table :data="tableData" border class="w-full custom-table" :header-cell-style="{
+                            background: 'linear-gradient(to right, #93C5FD, #60A5FA)',
+                            color: '#1E3A8A',
+                            fontWeight: 'bold',
+                            fontSize: '0.7rem'  // 14px
+                        }" :cell-style="getCellStyle" :row-class-name="getRowClass">
                             <!-- 日期欄位 -->
-                            <el-table-column prop="date" :label="''" width="120" fixed="left" />
+                            <el-table-column prop="date" :label="''" width="120" fixed="left" :header-cell-style="{
+                                background: 'linear-gradient(to right, #A5B4FC, #818CF8)',
+                                color: '#312E81',
+                                fontWeight: 'bold',
+                                fontSize: '0.875rem'  // 14px
+                            }" />
 
                             <!-- 動態生成的日期欄位 -->
                             <template v-for="label in getBarChartLabelsByDisplayAnalyzeData(daysAgoToDate)"
@@ -121,25 +131,73 @@ const tableData = computed(() => {
         return rowData;
     });
 });
+
+interface TableCell {
+    row: Record<string, any>;
+    column: {
+        property: string;
+    };
+    rowIndex: number;
+    columnIndex: number;
+}
+
+const getCellStyle = ({ row, column, rowIndex, columnIndex }: TableCell) => {
+    const value = Number(row[column.property]);
+    if (column.property === 'date') return {};
+
+    const opacity = Math.min(value / 1000, 0.35);
+    return {
+        background: `rgba(147, 197, 253, ${opacity})`,
+        transition: 'all 0.3s ease'
+    };
+};
+
+interface RowProps {
+    row: Record<string, any>;
+    rowIndex: number;
+}
+
+const getRowClass = ({ row, rowIndex }: RowProps) => {
+    row
+    return 'hover:bg-blue-50 transition-colors duration-200';
+};
 </script>
 
-<style scoped>
+<style>
 .custom-table {
-    --el-table-bg-color: #1e3544;
-    --el-table-tr-bg-color: #3f6277;
-    --el-table-header-bg-color: #262626;
-    --el-table-border-color: #4a4a4a;
-    --el-table-text-color: #070707;
-    --el-table-header-text-color: #070707;
+    @apply rounded-lg overflow-hidden shadow-sm;
+    /* 更輕的陰影 */
 }
 
-.custom-table :deep(th.el-table__cell),
-.custom-table :deep(td.el-table__cell) {
-    background-color: #90d4df;
+.custom-table .el-table__header-wrapper {
+    @apply shadow-sm;
 }
 
-/* 懸停效果 */
-.custom-table :deep(tr:hover > td.el-table__cell) {
-    background-color: #1e388d !important;
+.custom-table .el-table__row:hover>td {
+    @apply bg-blue-50;
+}
+
+.custom-table .el-table__cell {
+    @apply align-middle;
+}
+
+/* 圓角設定 */
+.custom-table {
+    border-radius: 0.5rem;
+}
+
+.custom-table th:first-child {
+    border-top-left-radius: 0.5rem;
+}
+
+.custom-table th:last-child {
+    border-top-right-radius: 0.5rem;
+}
+
+/* 添加邊框顏色 */
+.custom-table td,
+.custom-table th {
+    border-color: #93C5FD !important;
+    /* blue-300 */
 }
 </style>
