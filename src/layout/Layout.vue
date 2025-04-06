@@ -13,7 +13,7 @@
                 <div class="w-full bg-theme-light rounded p-8 mb-6" :class="{ 'me-6': width > 750 }">
                     <RouterView />
                     <button v-show="showScrollButton" @click="scrollToTop"
-                        class="fixed bottom-4 right-4 bg-blue-500 text-white p-2 px-4 rounded-md shadow-lg"
+                        class="fixed bottom-4 right-4 bg-blue-500 text-white p-2 px-4 rounded-md shadow-lg z-50"
                         style="opacity: 0.7;">
                         <i class="fa-solid fa-arrow-up"></i>
                     </button>

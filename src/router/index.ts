@@ -68,18 +68,4 @@ router.beforeEach(async (to, from, next) => {
     next();
 })
 
-// 配置路由切換後向 GA4 發送事件
-router.afterEach((to) => {
-    // 確保 window.dataLayer 存在
-    window.dataLayer = window.dataLayer || [];
-    
-    // 發送頁面瀏覽事件到 GTM
-    window.dataLayer.push({
-        event: 'page_view',
-        page_title: document.title,
-        page_location: window.location.href,
-        page_path: to.fullPath
-    });
-});
-
 export default router;
