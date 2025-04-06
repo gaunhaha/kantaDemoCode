@@ -61,10 +61,10 @@
                     </el-sub-menu>
                 </el-menu>
 
-                <button @click="toggleThemeColor()" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
+                <button id="theme-color-button" @click="toggleThemeColor()" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
                     <i class="fas" :class="isLight ? 'fa-sun' : 'fa-moon'"></i>
                 </button>
-                <el-dropdown>
+                <el-dropdown id="language-dropdown">
                     <span class="el-dropdown-link">
                         <i class="fas fa-globe text-xl cursor-pointer"></i>
                     </span>

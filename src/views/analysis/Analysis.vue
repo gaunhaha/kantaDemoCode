@@ -17,7 +17,7 @@
             </div> -->
             <div class="w-full flex gap-3">
                 <vue-tailwind-datepicker :formatter="formatter" v-model="dateValue" readonly />
-                <button class="btn-light" :disabled="isDisabled()" @click="onClickSearch">
+                <button id="analysis-search-button" class="btn-light" :disabled="isDisabled()" @click="onClickSearch">
                     {{ t('Analysis.searchButton') }}
                 </button>
             </div>

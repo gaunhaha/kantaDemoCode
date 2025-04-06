@@ -28,7 +28,7 @@
         </div>
         <div
             class="bg-gradient-to-br from-cyan-500 via-teal-500 to-green-500 rounded-lg p-1 mb-8 transition-all duration-300 max-w-4xl mx-auto upTransition">
-            <div class="bg-gray-50 w-full rounded-lg cursor-pointer" @click="openYoutube">
+            <div id="university-graduation-project-competition-button" class="bg-gray-50 w-full rounded-lg cursor-pointer" @click="openYoutube">
                 <div class="card">
                     <p class="text-2xl font-bold mb-4">{{ t('Skill.University.3.title') }}</p>
                     <div class="border-b-2 border-gray-200 mb-4">

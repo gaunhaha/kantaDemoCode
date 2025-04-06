@@ -57,7 +57,7 @@
                         <!-- More button card -->
                         <div class="card w-full flex-shrink-0 rounded overflow-hidden shadow-lg bg-gradient-to-br from-yellow-500 via-green-500 to-teal-500">
                             <div class="p-1">
-                                <div class="p-6 bg-white rounded">
+                                <div class="p-6 bg-white rounded" id="more-button">
                                     <router-link to="/skill" class="text-blue-500 hover:text-blue-700 font-bold">
                                         {{ t('Home.AboutMe.more') }} →
                                     </router-link>
@@ -70,7 +70,7 @@
                             <div class="card flex-1 rounded overflow-hidden shadow-lg bg-gradient-to-br from-teal-500 via-cyan-500 to-blue-500">
                                 <div class="p-1">
                                     <div class="p-6 bg-white rounded">
-                                        <button class="w-full text-center" @click="goToGitHub">
+                                        <button id="github-button" class="w-full text-center" @click="goToGitHub">
                                             <i class="fa-brands fa-github text-3xl mb-2 text-gray-800"></i>
                                             <p class="text-gray-700">GitHub</p>
                                         </button>
@@ -81,7 +81,7 @@
                             <div class="card flex-1 rounded overflow-hidden shadow-lg bg-gradient-to-br from-blue-500 via-indigo-500 to-violet-500">
                                 <div class="p-1">
                                     <div class="p-6 bg-white rounded">
-                                        <button class="w-full text-center" @click="goToLinkedIn">
+                                        <button id="linkedin-button" class="w-full text-center" @click="goToLinkedIn">
                                             <i class="fa-brands fa-linkedin text-3xl mb-2 text-blue-500"></i>
                                             <p class="text-gray-700">LinkedIn</p>
                                         </button>

@@ -17,7 +17,7 @@
                     {{ t('MazeGame.completionCount') }} : {{ completionCount }} ,
                     {{ t('MazeGame.spendTime') }}: {{ spendTime.diff(moment().startOf('day'), 'seconds') }}s
                 </p>
-                <button class="btn mb-5 w-20 h-10" @click="startGame">
+                <button id="maze-game-start-button" class="btn mb-5 w-20 h-10" @click="startGame">
                     {{ t('MazeGame.startButton') }}
                 </button>
                 <template v-if="maze.length > 0">

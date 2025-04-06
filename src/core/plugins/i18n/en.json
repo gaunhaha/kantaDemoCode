@@ -30,8 +30,27 @@
         "games": "Games"
     },
     "Skill": {
+        "SkillList": {
+            "title": "Skill",
+            "backend": "Backend",
+            "frontend": "Frontend",
+            "database": "Database",
+            "versionControl": "Version Control",
+            "ciCd": "CI/CD",
+            "devOps": "DevOps",
+            "languageAbility": "Language Ability",
+            "languageAbilityText": "Chinese (Native), English (Intermediate), Japanese (N2)"
+        },
         "WorkExperience": {
             "title": "Work Experience",
+            "0": {
+                "position": "Freelance Software Engineer",
+                "company": "2020/11 ~ Present",
+                "text1": "Took on freelance projects during spare time to refine technical skills and explore new areas without affecting full-time work. Gained experience in frontend, backend, and full-stack development.",
+                "text2": "Worked on diverse industry needs, enhancing problem-solving and cross-team communication skills, while developing the ability to work independently and analyze requirements to provide the best technical solutions.",
+                "text3": "Stayed up to date with technology trends, expanding my perspective through freelance work and strengthening programming skills to remain competitive in the job market."
+                
+            },
             "1": {
                 "position": "Web Frontend Engineer",
                 "company": "Create AI Technology Co., Ltd.",
@@ -50,13 +69,29 @@
                         "item1": "Application deployment and management using PM2",
                         "item2": "Nginx configuration for reverse proxy and load balancing"
                     }
+                },
+                "achievementTitle": "Project Achievements",
+                "Achievement1": {
+                    "title": "New Taipei City Tourism Website (Temples Blessing)",
+                    "text1": "New Taipei Blessing Train is about to depart!",
+                    "text2": "Blessing Train Official Website",
+                    "text3": "Develop multi-language features for 5 languages (Chinese, English, Japanese, Korean, Thai), improving user experience"
+                },
+                "Achievement2": {
+                    "title": "Create AI Official Website",
+                    "text": "Responsible for website design and layout, ensuring responsive design and good UI/UX",
+                    "text2": "Optimize SEO to increase website visibility, improving the Lighthouse SEO score from 60 to over 90."
+                },
+                "Achievement3": {
+                    "title": "LINE CRM System",
+                    "text": "Participate in the front-end development of the LINE CRM system, mainly responsible for connecting to the back-end API, ensuring that the data is correctly displayed on the user interface."
                 }
             },
             "2": {
                 "position": "Full Stack Engineer",
-                "company": "Viainno Corporation",
+                "company": "Viainno Co., Ltd.",
                 "Responsibilities": {
-                    "1": "Responsible for full-stack development, focusing on the front-end (Vue 3, Tailwind CSS, Bootstrap 5) and back-end (.NET 8.0), adopting a front-end and back-end separated Web API design.",
+                    "1": "Responsible for full-stack development, focusing on the front-end (Vue 3, Tailwind CSS, Bootstrap 5) and back-end (ASP.NET Core), adopting a front-end and back-end separated Web API design.",
                     "2": "Design, build, and write databases using MS-SQL Server to ensure efficient data storage and querying, while maintaining database integrity and security.",
                     "3": "Work closely with business, UI/UX designers, and project managers to deeply understand requirements, evaluate work hours and costs, and effectively delegate tasks to two junior team members (recent graduates and current students).",
                     "4": "Collaborate cross-departmentally with app engineers to conduct integration testing and communicate requirements, responsible for creating and managing APIs to ensure seamless system integration.",
@@ -83,10 +118,10 @@
             },
             "3": {
                 "position": "Full Stack Engineer",
-                "company": "sundialts",
+                "company": "Sundialts Co., Ltd.",
                 "Achievement1": {
                     "title": "Fubon Travel Insurance",
-                    "text": "Use Eclipse and Spring Tool Suite for backend development, refactor the traditional SpringMVC architecture into a microservices architecture, improving the scalability and maintainability of the system. Design and implement a web application that can be embedded in a mobile APP, using Vue 2 as the front-end technology, and ensuring its effective integration with the backend Spring Boot."
+                    "text": "Use Eclipse and Spring Tool Suite for backend development, refactor the traditional SpringMVC architecture into a front-end and back-end separated microservices architecture, improving the scalability and maintainability of the system. Design and implement a web application that can be embedded in a mobile APP, using Vue 2 as the front-end technology, and ensuring its effective integration with the backend Spring Boot."
                 },
                 "Achievement2": {
                     "title": "Fubon Common Transfer Account",
@@ -99,7 +134,7 @@
             },
             "4": {
                 "position": "Frontend Engineer",
-                "company": "SYSTEX",
+                "company": "SYSTEX Co., Ltd.",
                 "Achievement1": {
                     "title": "Stock System",
                     "text": "Participate in the maintenance and development of the front-end applications of major securities companies, use C++ to write MFC applications for the Windows platform, and use HTML5 and jQuery to develop web applications, improving the user's operation experience. And use native CSS for layout and visual beautification, ensuring the overall aesthetics and usability of the application interface."
@@ -107,11 +142,47 @@
             },
             "5": {
                 "position": "Software Programmer",
-                "company": "ULVAC",
+                "company": "ULVAC Co., Ltd.",
                 "Responsibilities": {
                     "1": "PLC programming and development for photoelectric and semiconductor equipment machines",
                     "2": "Communicate with Japanese headquarters using Japanese, understand requirements and develop"
                 }
+            }
+        },
+        "Project": {
+            "title": "Project Achievements",
+            "1": {
+                "title": "New Taipei City Tourism Website (Temples Blessing)",
+                "text": "Design and develop multi-language features, implement i18n to switch between Chinese, English, Japanese, Korean, and Thai, and support responsive design to enhance user experience."
+            },
+            "2": {
+                "title": "Create AI Official Website",
+                "text": "Responsible for website design and layout, ensuring responsive design and good UI/UX, and optimizing SEO to improve the Lighthouse SEO score from 60 to over 90."  
+            },
+            "3": {
+                "title": "LINE CRM System",
+                "text": "Participate in the front-end development of the LINE CRM system, mainly responsible for connecting to the back-end API, ensuring that the data is correctly displayed on the user interface."
+            },
+            "4": {
+                "title": "Financial ERP System",
+                "text": "Design an automated financial report generation function, provide visual data statistics and analysis functions, reduce the workload of accountants and improve efficiency."
+            },
+            "other": {
+                "1": "Task Management System",
+                "2": "Survey Voting System",
+                "3": "Visitor Registration System",
+                "4": "Parcel Registration System",
+                "5": "Inventory Management System",
+                "6": "Facility Reservation System",
+                "7": "Fubon Travel Insurance",
+                "8": "Fubon Transfer Function",
+                "9": "Company Personnel Website",
+                "10": "Securities System Maintenance",
+                "11": "Logistics Management System",
+                "12": "Online Course Website (Frontend and Backend)",
+                "13": "Accounting APP",
+                "14": "Parking Lot Backend",
+                "15": "IoT Automatic Vending Machine"
             }
         },
         "SideProject": {
@@ -147,17 +218,6 @@
                 "text1": "Create an Android App",
                 "text2": "Can be used to calculate tips"
             }
-        },
-        "SkillList": {
-            "title": "Skill",
-            "backend": "Backend",
-            "frontend": "Frontend",
-            "database": "Database",
-            "versionControl": "Version Control",
-            "ciCd": "CI/CD",
-            "other": "Other",
-            "languageAbility": "Language Ability",
-            "languageAbilityText": "Chinese (Native), English (Intermediate), Japanese (N2)"
         },
         "OtherExperience": {
             "1": {

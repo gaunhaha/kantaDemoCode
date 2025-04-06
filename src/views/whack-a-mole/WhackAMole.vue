@@ -19,7 +19,7 @@
             </div>
             <div class="w-fit mx-auto">
                 <div class="flex justify-between mb-5">
-                    <button class="btn-light h-12 w-20"
+                    <button id="whack-a-mole-start-button" class="btn-light h-12 w-20"
                         :class="(isCountingDown || isGameActive) ? 'bg-primary-light-active' : 'bg-primary hover:bg-primary-active'"
                         @click="startGame" :disabled="isCountingDown || isGameActive">
                         <span v-if="isCountingDown">

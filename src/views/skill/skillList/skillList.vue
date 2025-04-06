@@ -32,8 +32,8 @@
 
                     <!-- 其他技能 -->
                     <div class="bg-white rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-                        <h3 class="text-xl font-bold mb-3">{{ t('Skill.SkillList.other') }}</h3>
-                        <p class="text-gray-700">Git Actions、Docker、PM2</p>
+                        <h3 class="text-xl font-bold mb-3">{{ t('Skill.SkillList.devOps') }}</h3>
+                        <p class="text-gray-700">Git Actions、Docker、PM2、Nginx</p>
                     </div>
 
                     <!-- 語言能力 -->
