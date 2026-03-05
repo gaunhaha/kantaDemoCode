@@ -52,6 +52,42 @@
                 
             },
             "1": {
+                "position": "Frontend Engineer",
+                "company": "Momentx",
+                "intro": "Joined as a core member from the early stage of the team, responsible for building the AI SaaS platform frontend architecture and core features from 0 to launch. The product is fully developed and about to go live.",
+                "techStackTitle": "Tech Stack",
+                "techStack": {
+                    "item1": "Built frontend architecture with Vue 3 + Nuxt.js + TypeScript",
+                    "item2": "State management with Pinia",
+                    "item3": "Adopted Nuxt UI as the design system foundation",
+                    "item4": "Established frontend project structure and development standards (Biome)",
+                    "item5": "Deployed on Vercel"
+                },
+                "achievementTitle": "Core Development Achievements",
+                "Achievement1": {
+                    "title": "Platform Development",
+                    "text": "Built a full AI management platform from scratch, including: multi-model integration, Prompt management system, Memory mechanism design, permission and role control, and Workspace architecture."
+                },
+                "Achievement2": {
+                    "title": "Auth & Payments",
+                    "text": "Designed and implemented Google OAuth login flow. Integrated Stripe (one-time payment + subscription), implemented Webhooks, handled payment failure retry logic, and designed plan upgrade and permission change flows."
+                },
+                "Achievement3": {
+                    "title": "Data & Forms",
+                    "text": "Established multi-tenant data isolation. Developed large-scale dynamic forms (quick-create feature)."
+                },
+                "Achievement4": {
+                    "title": "Performance & Architecture",
+                    "text": "Introduced WebSocket for real-time features. Optimized performance with lazy loading. Refactored existing React codebase to Vue 3 + Nuxt."
+                },
+                "teamRoleTitle": "Team Role",
+                "teamRole": {
+                    "item1": "Sole frontend engineer",
+                    "item2": "Collaborated with PM, designers, and backend",
+                    "item3": "Participated in Code Review and architecture discussions"
+                }
+            },
+            "2": {
                 "position": "Web Frontend Engineer",
                 "company": "Create AI Technology Co., Ltd.",
                 "Responsibilities": {
@@ -87,7 +123,7 @@
                     "text": "Participate in the front-end development of the LINE CRM system, mainly responsible for connecting to the back-end API, ensuring that the data is correctly displayed on the user interface."
                 }
             },
-            "2": {
+            "3": {
                 "position": "Full Stack Engineer",
                 "company": "Viainno Co., Ltd.",
                 "Responsibilities": {
@@ -116,7 +152,7 @@
                     "text": "Customers can edit and obtain a unique visitor registration QR code on the backend system, and visitors can enter the visitor registration page by scanning the QR code on their mobile phones, fill in the form, and complete the visitor registration. The backend system can view the visitor's data and analyze the visitor category, time, etc. It can implement the management of personnel entry and exit, enhancing security."
                 }
             },
-            "3": {
+            "4": {
                 "position": "Full Stack Engineer",
                 "company": "Sundialts Co., Ltd.",
                 "Achievement1": {
@@ -132,7 +168,7 @@
                     "text": "Design and develop the company's internal website, use React technology to implement attendance, leave, and workflow management functions, which not only improve the employee's satisfaction and work efficiency, but also allow managers to more conveniently manage the daily affairs of employees."
                 }
             },
-            "4": {
+            "5": {
                 "position": "Frontend Engineer",
                 "company": "SYSTEX Co., Ltd.",
                 "Achievement1": {
@@ -140,7 +176,7 @@
                     "text": "Participate in the maintenance and development of the front-end applications of major securities companies, use C++ to write MFC applications for the Windows platform, and use HTML5 and jQuery to develop web applications, improving the user's operation experience. And use native CSS for layout and visual beautification, ensuring the overall aesthetics and usability of the application interface."
                 }
             },
-            "5": {
+            "6": {
                 "position": "Software Programmer",
                 "company": "ULVAC Co., Ltd.",
                 "Responsibilities": {

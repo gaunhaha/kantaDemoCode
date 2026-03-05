@@ -52,6 +52,42 @@
                 
             },
             "1": {
+                "position": "前端工程師",
+                "company": "Momentx",
+                "intro": "作為團隊成立初期即加入的核心成員，負責從 0 到上線打造 AI SaaS 平台前端架構與核心功能，產品已完成開發並即將正式上線。",
+                "techStackTitle": "技術架構",
+                "techStack": {
+                    "item1": "使用 Vue 3 + Nuxt.js + TypeScript 建立前端架構",
+                    "item2": "採用 Pinia 進行狀態管理",
+                    "item3": "導入 Nuxt UI 作為設計系統基礎",
+                    "item4": "建立前端專案結構與開發規範（Biome）",
+                    "item5": "部署於 Vercel"
+                },
+                "achievementTitle": "核心開發成果",
+                "Achievement1": {
+                    "title": "平台開發",
+                    "text": "從 0 開發完整 AI 管理平台，包含：多模型串接、Prompt 管理系統、Memory 機制設計、權限角色控管、Workspace 架構。"
+                },
+                "Achievement2": {
+                    "title": "認證與金流",
+                    "text": "設計並實作 Google OAuth 登入流程。整合 Stripe（一次性付款 + 訂閱制），實作 Webhook，處理付款失敗重試機制，設計方案升級與權限變更邏輯。"
+                },
+                "Achievement3": {
+                    "title": "資料與表單",
+                    "text": "建立多使用者資料隔離機制。開發大型動態表單（快速建立功能）。"
+                },
+                "Achievement4": {
+                    "title": "效能與架構",
+                    "text": "導入 WebSocket 即時功能。透過懶加載優化效能表現。重構既有 React 架構為 Vue 3 + Nuxt 結構。"
+                },
+                "teamRoleTitle": "團隊角色",
+                "teamRole": {
+                    "item1": "唯一前端工程師",
+                    "item2": "與 PM、設計師、後端協作",
+                    "item3": "參與 Code Review 與架構討論"
+                }
+            },
+            "2": {
                 "position": "網頁前端工程師",
                 "company": "創造智能科技股份有限公司",
                 "Responsibilities": {
@@ -87,7 +123,7 @@
                     "text": "參與 LINE CRM 系統的前端開發，主要負責與後端 API 串接，確保數據能夠正確呈現在用戶界面上。"
                 }
             },
-            "2": {
+            "3": {
                 "position": "全端工程師",
                 "company": "勤禾科技服務股份有限公司",
                 "Responsibilities": {
@@ -116,7 +152,7 @@
                     "text": "客戶能在後台系統編輯並取得專有的訪客登記 QR code、訪客能經由手機上的掃描條碼進入訪客登記畫面，填答表單，完成訪客來訪登記。後台系統能供查看訪客的資料，並對訪客類別、時間等等進行分析。可落實出入人員的管理，加強安全性。"
                 }
             },
-            "3": {
+            "4": {
                 "position": "全端工程師",
                 "company": "日晷科技股份有限公司",
                 "Achievement1": {
@@ -132,7 +168,7 @@
                     "text": "設計開發公司人事網站，使用 React 建構打卡、請假和工作流程管理系統。包含設計權限、角色群組機制，另有開發行事曆功能。"
                 }
             },
-            "4": {
+            "5": {
                 "position": "前端工程師",
                 "company": "精誠資訊科技股份有限公司",
                 "Achievement1": {
@@ -140,7 +176,7 @@
                     "text": "參與維護和開發各大證券商的前端應用，使用 C++ 撰寫 MFC 應用於 Windows 平台，並使用 HTML5 和 jQuery 開發網頁應用，提升用戶操作體驗。並利用原生 CSS 進行切版和視覺美化，確保應用界面的整體美感與可用性。"
                 }
             },
-            "5": {
+            "6": {
                 "position": "軟體程式設計師",
                 "company": "優貝克軟體研發股份有限公司",
                 "Responsibilities": {
