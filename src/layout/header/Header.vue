@@ -4,7 +4,7 @@
             <div class="flex items-center">
                 <div class="me-3">
                     <img class="rounded-full transition-all duration-300" :class="[isScrolled ? 'h-8' : 'h-10']"
-                        id="profile-pic" src="@/assets/images/selfie.jpg" alt="profile-pic">
+                        id="profile-pic" src="@/assets/images/profilePhoto.png" alt="profile-pic">
                 </div>
                 <span class="transition-all duration-300" :class="[isScrolled ? 'text-base' : 'text-lg']">
                     Kanta
