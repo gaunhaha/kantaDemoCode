@@ -71,6 +71,9 @@
                             <li>{{ t('Skill.Project.other.13') }}</li>
                             <li>{{ t('Skill.Project.other.14') }}</li>
                             <li>{{ t('Skill.Project.other.15') }}</li>
+                            <li>{{ t('Skill.Project.other.16') }}</li>
+                            <li>{{ t('Skill.Project.other.17') }}</li>
+                            <li>{{ t('Skill.Project.other.18') }}</li>
                         </ul>
                     </div>
                 </div>
