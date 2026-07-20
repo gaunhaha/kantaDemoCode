@@ -29,12 +29,6 @@ export const routes: Array<RouteRecordRaw> = [
                     import("@/views/skill/Skill.vue"),
             },
             {
-                path: "/analysis",
-                name: "analysis",
-                component: () =>
-                    import("@/views/analysis/Analysis.vue"),
-            },
-            {
                 path: "/whack-a-mole",
                 name: "whackAMole",
                 component: () =>

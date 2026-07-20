@@ -70,7 +70,6 @@
     "Menu": {
         "home": "Home",
         "skill": "Skill",
-        "analysis": "Analysis",
         "whackAMole": "Whack A Mole",
         "mazeGame": "Maze Game",
         "games": "Games"
@@ -372,18 +371,6 @@
     },
     "LoadingMask": {
         "title": "Animation"
-    },
-    "Analysis": {
-        "title": "Analyze What Fruits I Ate",
-        "instruction": "Please select a date and click the search button to view the fruits I ate.",
-        "instructionDetail": "On this page, I demonstrate how to retrieve data from the backend, transform it through the service layer, and then pass it to the presentation layer, using Chart.js for visualization.",
-        "searchButton": "Search",
-        "DataName": {
-            "apples": "Apples",
-            "bananas": "Bananas",
-            "oranges": "Oranges",
-            "peaches": "Peaches"
-        }
     },
     "WhackAMole": {
         "title": "Whack A Mole Game",

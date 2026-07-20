@@ -133,7 +133,6 @@ const isGamesOpen = ref(false);
 const navItems = [
     { path: '/', label: 'Menu.home' },
     { path: '/skill', label: 'Menu.skill' },
-    { path: '/analysis', label: 'Menu.analysis' },
 ];
 
 const gameItems = [

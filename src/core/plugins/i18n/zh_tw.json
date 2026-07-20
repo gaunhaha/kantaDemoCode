@@ -70,7 +70,6 @@
     "Menu": {
         "home": "首頁",
         "skill": "技能",
-        "analysis": "分析",
         "whackAMole": "打地鼠",
         "mazeGame": "走迷宮",
         "games": "遊戲"
@@ -372,18 +371,6 @@
     },
     "LoadingMask": {
         "title": "動畫"
-    },
-    "Analysis": {
-        "title": "分析我吃了什麼水果",
-        "instruction": "請選擇日期，並點擊搜尋按鈕，即可查看我吃了什麼水果。",
-        "instructionDetail": "在這個頁面中，我展示了如何從後端獲取資料，經過服務層的類別轉換後，將資料傳遞至畫面層，並使用 Chart.js 進行視覺化呈現。",
-        "searchButton": "搜尋",
-        "DataName": {
-            "apples": "蘋果",
-            "bananas": "香蕉",
-            "oranges": "橘子",
-            "peaches": "桃子"
-        }
     },
     "WhackAMole": {
         "title": "打地鼠遊戲",
