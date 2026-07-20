@@ -1,301 +1,236 @@
 <template>
-    <header class="fixed w-full top-0 z-50 transition-all duration-300" :class="[isScrolled ? 'h-14' : 'h-20']">
-        <div class="flex justify-between items-center p-4 px-8 bg-white shadow-md h-full">
-            <div class="flex items-center">
-                <div class="me-3">
-                    <img class="rounded-full transition-all duration-300" :class="[isScrolled ? 'h-8' : 'h-10']"
-                        id="profile-pic" src="@/assets/images/profilePhoto.png" alt="profile-pic">
-                </div>
-                <span class="transition-all duration-300" :class="[isScrolled ? 'text-base' : 'text-lg']">
-                    Kanta
-                </span>
-            </div>
-            <!-- 桌面版選單 -->
-            <div class="hidden md:flex items-center gap-4">
-                <el-menu :default-active="activeIndex" class="el-menu-demo transition-all duration-300"
-                    :class="[isScrolled ? 'small-menu' : '']" mode="horizontal" :ellipsis="false"
-                    @select="handleSelect">
-                    <el-menu-item index="/">
-                        <template #title>
-                            <span class="transition-all duration-300" :class="[isScrolled ? 'text-base' : 'text-lg']">
-                                {{ t('Menu.home') }}
-                            </span>
-                        </template>
-                    </el-menu-item>
-                    <el-menu-item index="/skill">
-                        <template #title>
-                            <span class="transition-all duration-300" :class="[isScrolled ? 'text-base' : 'text-lg']">
-                                {{ t('Menu.skill') }}
-                            </span>
-                        </template>
-                    </el-menu-item>
-                    <el-menu-item index="/analysis">
-                        <template #title>
-                            <span class="transition-all duration-300" :class="[isScrolled ? 'text-base' : 'text-lg']">
-                                {{ t('Menu.analysis') }}
-                            </span>
-                        </template>
-                    </el-menu-item>
-                    <el-sub-menu index="games">
-                        <template #title>
-                            <span class="transition-all duration-300" :class="[isScrolled ? 'text-base' : 'text-lg']">
-                                {{ t('Menu.games') }}
-                            </span>
-                        </template>
-                        <el-menu-item index="/whack-a-mole">
-                            <span class="transition-all duration-300" :class="[isScrolled ? 'text-base' : 'text-lg']">
-                                {{ t('Menu.whackAMole') }}
-                            </span>
-                        </el-menu-item>
-                        <el-menu-item index="/maze-game">
-                            <span class="transition-all duration-300" :class="[isScrolled ? 'text-base' : 'text-lg']">
-                                {{ t('Menu.mazeGame') }}
-                            </span>
-                        </el-menu-item>
-                    </el-sub-menu>
-                </el-menu>
+    <header class="fixed inset-x-0 top-0 z-50 transition-transform duration-500 ease-smooth"
+        :class="[isHidden ? '-translate-y-full' : 'translate-y-0']">
+        <div class="nav-shell" :class="{ glass: isScrolled }">
+            <div class="shell flex items-center justify-between transition-all duration-500 ease-smooth"
+                :class="[isScrolled ? 'h-16' : 'h-20 md:h-24']">
 
-                <button @click="toggleThemeColor()" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700">
-                    <i class="fas" :class="isLight ? 'fa-sun' : 'fa-moon'"></i>
-                </button>
-                <el-dropdown>
-                    <span class="el-dropdown-link">
-                        <i class="fas fa-globe text-xl cursor-pointer"></i>
+                <!-- 品牌 -->
+                <RouterLink to="/" class="group flex items-center gap-3" @click="track('logo')">
+                    <span class="relative">
+                        <img src="@/assets/images/profilePhoto.png" alt="Kanta" id="profile-pic"
+                            class="rounded-full object-cover ring-1 ring-hairline/15 transition-all duration-500"
+                            :class="[isScrolled ? 'h-8 w-8' : 'h-10 w-10']">
+                        <span
+                            class="absolute -bottom-0.5 -right-0.5 h-2.5 w-2.5 rounded-full bg-accent ring-2 ring-ink-base"></span>
                     </span>
-                    <template #dropdown>
-                        <el-dropdown-menu>
-                            <el-dropdown-item @click="changeLanguage('en')">
-                                {{ t('Language.en') }}
-                            </el-dropdown-item>
-                            <el-dropdown-item @click="changeLanguage('zh_tw')">
-                                {{ t('Language.zh_tw') }}
-                            </el-dropdown-item>
-                        </el-dropdown-menu>
-                    </template>
-                </el-dropdown>
-            </div>
+                    <span class="flex flex-col leading-none">
+                        <span
+                            class="font-display font-semibold tracking-tight text-content-strong transition-all duration-500"
+                            :class="[isScrolled ? 'text-sm' : 'text-base']">Kanta</span>
+                        <span class="mt-1 font-mono text-[10px] uppercase tracking-[0.18em] text-content-faint">
+                            Engineer
+                        </span>
+                    </span>
+                </RouterLink>
 
-            <!-- 手機版漢堡選單 -->
-            <div class="md:hidden">
-                <button @click="handleMenuClick" class="p-2">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
+                <!-- 桌面版導覽 -->
+                <nav class="hidden items-center gap-1 md:flex">
+                    <RouterLink v-for="item in navItems" :key="item.path" :to="item.path"
+                        class="relative rounded-full px-4 py-2 text-sm transition-colors duration-300"
+                        :class="isActive(item.path) ? 'text-content-strong' : 'text-content-muted hover:text-content-strong'">
+                        <span v-if="isActive(item.path)"
+                            class="absolute inset-0 rounded-full border border-hairline/10 bg-hairline/5"></span>
+                        <span class="relative">{{ t(item.label) }}</span>
+                    </RouterLink>
 
-                <!-- 手機版選單內容 -->
-                <Transition name="slide-fade">
-                    <div v-if="isMenuOpen" class="fixed inset-0 z-50">
-                        <div class="absolute inset-0 bg-black bg-opacity-50" @click="isMenuOpen = false">
-                        </div>
-                        <div class="absolute right-0 top-0 h-full w-[80%] max-w-[300px] bg-theme-light text-primary 
-                                  transform transition-transform duration-300">
-                            <div class="flex justify-end p-4">
-                                <button @click="isMenuOpen = false" class="p-2 pr-6">
-                                    <i class="fas fa-times text-xl"></i>
-                                </button>
+                    <!-- 遊戲下拉 -->
+                    <div class="relative" @mouseenter="isGamesOpen = true" @mouseleave="isGamesOpen = false">
+                        <button
+                            class="flex items-center gap-1.5 rounded-full px-4 py-2 text-sm transition-colors duration-300"
+                            :class="isGamesActive ? 'text-content-strong' : 'text-content-muted hover:text-content-strong'">
+                            {{ t('Menu.games') }}
+                            <i class="fa-solid fa-chevron-down text-[9px] transition-transform duration-300"
+                                :class="{ 'rotate-180': isGamesOpen }"></i>
+                        </button>
+
+                        <Transition name="dropdown">
+                            <div v-if="isGamesOpen"
+                                class="absolute right-0 top-full w-52 overflow-hidden rounded-2xl border border-hairline/10 bg-ink-surface/95 p-1.5 backdrop-blur-xl shadow-lift">
+                                <RouterLink v-for="game in gameItems" :key="game.path" :to="game.path"
+                                    @click="isGamesOpen = false"
+                                    class="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm text-content-muted transition-colors duration-200 hover:bg-hairline/5 hover:text-accent">
+                                    <i :class="game.icon" class="w-4 text-center text-xs"></i>
+                                    {{ t(game.label) }}
+                                </RouterLink>
                             </div>
-                            <div class="px-4 pr-8">
-                                <div class="flex flex-col space-y-4">
-                                    <div class="bg-white text-black rounded-md p-2 px-4 h-14 flex items-center"
-                                        @click="handleMobileNav('/')">
-                                        <a class="py-2">{{ t('Menu.home') }}</a>
-                                    </div>
-                                    <div class="bg-white text-black rounded-md p-2 px-4 h-14 flex items-center"
-                                        @click="handleMobileNav('/skill')">
-                                        <a class="py-2">{{ t('Menu.skill') }}</a>
-                                    </div>
-                                    <div class="bg-white text-black rounded-md p-2 px-4 h-14 flex items-center"
-                                        @click="handleMobileNav('/analysis')">
-                                        <a class="py-2">
-                                            {{ t('Menu.analysis') }}
-                                        </a>
-                                    </div>
-                                    <div class="bg-white text-black rounded-md p-2 px-4 w-full flex items-center justify-between transition-all duration-300"
-                                        :class="[isGamesOpen ? 'h-auto' : 'min-h-14']">
-                                        <div class="py-2 w-full">
-                                            <div @click="isGamesOpen = !isGamesOpen"
-                                                class="flex justify-between items-center transition-all duration-300"
-                                                :class="[isGamesOpen ? 'mb-2' : '']">
-                                                <span>{{ t('Menu.games') }}</span>
-                                                <i class="fas transition-transform duration-300"
-                                                    :class="isGamesOpen ? 'fa-chevron-up rotate-0' : 'fa-chevron-down rotate-0'"></i>
-                                            </div>
-                                            <transition name="games-dropdown"
-                                                enter-active-class="transition-all duration-300 ease-out"
-                                                leave-active-class="transition-all duration-300 ease-in"
-                                                enter-from-class="opacity-0 max-h-0 overflow-hidden"
-                                                enter-to-class="opacity-100 max-h-20 overflow-hidden"
-                                                leave-from-class="opacity-100 max-h-20 overflow-hidden"
-                                                leave-to-class="opacity-0 max-h-0 overflow-hidden">
-                                                <div v-if="isGamesOpen" class="pl-4 space-y-2">
-                                                    <a @click="handleMobileNav('/whack-a-mole')" class="block py-1">
-                                                        {{ t('Menu.whackAMole') }}
-                                                    </a>
-                                                    <a @click="handleMobileNav('/maze-game')" class="block py-1">
-                                                        {{ t('Menu.mazeGame') }}
-                                                    </a>
-                                                </div>
-                                            </transition>
-                                        </div>
-                                    </div>
-                                    <div class="flex items-center gap-4 py-2">
-                                        <button @click="toggleThemeColor()" class="p-2 rounded-full">
-                                            <i class="fas" :class="isLight ? 'fa-sun' : 'fa-moon'"></i>
-                                        </button>
-                                        <el-dropdown>
-                                            <span class="el-dropdown-link">
-                                                <i class="fas fa-globe text-xl cursor-pointer text-primary"></i>
-                                            </span>
-                                            <template #dropdown>
-                                                <el-dropdown-menu>
-                                                    <el-dropdown-item @click="changeLanguage('en')">
-                                                        {{ t('Language.en') }}
-                                                    </el-dropdown-item>
-                                                    <el-dropdown-item @click="changeLanguage('zh_tw')">
-                                                        {{ t('Language.zh_tw') }}
-                                                    </el-dropdown-item>
-                                                </el-dropdown-menu>
-                                            </template>
-                                        </el-dropdown>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </Transition>
                     </div>
-                </Transition>
+                </nav>
+
+                <!-- 右側控制項 -->
+                <div class="flex items-center gap-1">
+                    <button @click="toggleThemeColor" :aria-label="t('Header.darkMode')"
+                        class="flex h-10 w-10 items-center justify-center rounded-full text-content-muted transition-all duration-300 hover:bg-hairline/6 hover:text-accent">
+                        <i class="fas text-sm" :class="isLight ? 'fa-moon' : 'fa-sun'"></i>
+                    </button>
+
+                    <el-dropdown trigger="click">
+                        <button :aria-label="t('Header.language')"
+                            class="flex h-10 w-10 items-center justify-center rounded-full text-content-muted transition-all duration-300 hover:bg-hairline/6 hover:text-accent">
+                            <i class="fas fa-globe text-sm"></i>
+                        </button>
+                        <template #dropdown>
+                            <el-dropdown-menu>
+                                <el-dropdown-item @click="changeLanguage('en')">{{ t('Language.en') }}</el-dropdown-item>
+                                <el-dropdown-item @click="changeLanguage('zh_tw')">{{ t('Language.zh_tw') }}</el-dropdown-item>
+                            </el-dropdown-menu>
+                        </template>
+                    </el-dropdown>
+
+                    <!-- 漢堡按鈕 -->
+                    <button @click="handleMenuClick" :aria-label="t('Header.menu')" :aria-expanded="isMenuOpen"
+                        class="ml-1 flex h-10 w-10 flex-col items-center justify-center gap-[5px] rounded-full transition-colors duration-300 hover:bg-hairline/6 md:hidden">
+                        <span class="block h-px w-5 bg-content-strong transition-all duration-300"
+                            :class="{ 'translate-y-[3px] rotate-45': isMenuOpen }"></span>
+                        <span class="block h-px w-5 bg-content-strong transition-all duration-300"
+                            :class="{ '-translate-y-[3px] -rotate-45': isMenuOpen }"></span>
+                    </button>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- 添加一個占位元素，防止內容被 fixed header 遮擋 -->
-    <div :class="[isScrolled ? 'h-14' : 'h-20']"></div>
+    <!-- 手機版全螢幕選單 -->
+    <Teleport to="body">
+        <Transition name="overlay">
+            <div v-if="isMenuOpen" class="fixed inset-0 z-[55] md:hidden">
+                <div class="absolute inset-0 bg-ink-base/95 backdrop-blur-2xl" @click="isMenuOpen = false"></div>
+
+                <nav class="relative flex h-full flex-col justify-center px-8">
+                    <RouterLink v-for="(item, i) in allMobileItems" :key="item.path" :to="item.path"
+                        @click="handleMobileNav(item.path)"
+                        class="mobile-link group flex items-baseline gap-4 border-b border-hairline/8 py-5"
+                        :style="{ '--i': i }">
+                        <span class="font-mono text-xs text-accent">{{ String(i + 1).padStart(2, '0') }}</span>
+                        <span
+                            class="font-display text-3xl font-semibold transition-colors duration-300"
+                            :class="isActive(item.path) ? 'text-accent' : 'text-content-strong group-hover:text-accent'">
+                            {{ t(item.label) }}
+                        </span>
+                    </RouterLink>
+                </nav>
+            </div>
+        </Transition>
+    </Teleport>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue';
-import { useRouter } from 'vue-router';
-import i18n from "@/core/plugins/i18n/i18n";
+import { ref, computed, watch } from 'vue';
+import { useRouter, useRoute, RouterLink } from 'vue-router';
+import i18n from '@/core/plugins/i18n/i18n';
+import { useScroll } from '@/composables/useScroll';
 
 const router = useRouter();
+const route = useRoute();
 const { t } = i18n.global;
-const isLight = ref<boolean>(document.documentElement.getAttribute('themeColor') == 'light');
+const { scrollY, isScrolled, isScrollingUp } = useScroll();
 
-const activeIndex = computed(() => {
-    const fullPath = router.currentRoute.value.fullPath;
-    return fullPath.replace(/^.*#/, '');
-});
-
+const isLight = ref<boolean>(document.documentElement.getAttribute('themeColor') === 'light');
 const isMenuOpen = ref(false);
 const isGamesOpen = ref(false);
 
-const isScrolled = ref(false);
+const navItems = [
+    { path: '/', label: 'Menu.home' },
+    { path: '/skill', label: 'Menu.skill' },
+    { path: '/analysis', label: 'Menu.analysis' },
+];
+
+const gameItems = [
+    { path: '/whack-a-mole', label: 'Menu.whackAMole', icon: 'fa-solid fa-hammer' },
+    { path: '/maze-game', label: 'Menu.mazeGame', icon: 'fa-solid fa-diagram-project' },
+];
+
+const allMobileItems = [...navItems, ...gameItems];
+
+// 往下捲時收起導覽列，往上捲立刻回來
+const isHidden = computed(() => scrollY.value > 220 && !isScrollingUp.value && !isMenuOpen.value);
+
+const isActive = (path: string) => route.path === path;
+const isGamesActive = computed(() => gameItems.some((g) => g.path === route.path));
+
+// 選單開啟時鎖住背景捲動
+watch(isMenuOpen, (open) => {
+    document.body.style.overflow = open ? 'hidden' : '';
+});
 
 const handleMenuClick = () => {
     isMenuOpen.value = !isMenuOpen.value;
     window.dataLayer.push({
         event: 'menu_click',
-        menu: isMenuOpen.value ? 'open' : 'close'
+        menu: isMenuOpen.value ? 'open' : 'close',
     });
 };
-
-const handleSelect = (key: string) => {
-    router.push(key);
-};
-
-function toggleThemeColor() {
-    isLight.value = !isLight.value;
-    if (isLight.value) document.documentElement.setAttribute('themeColor', 'light');
-    else document.documentElement.setAttribute('themeColor', 'dark');
-    localStorage.setItem("theme_color", isLight.value ? 'light' : 'dark');
-    window.dataLayer.push({
-        event: 'theme_color_change',
-        theme_color: isLight.value ? 'light' : 'dark'
-    });
-}
-
-function changeLanguage(lang: 'en' | 'zh_tw') {
-    i18n.global.locale.value = lang;
-    localStorage.setItem('language', lang);
-    window.dataLayer.push({
-        event: 'language_change',
-        language: lang
-    });
-}
 
 const handleMobileNav = (path: string) => {
     router.push(path);
     isMenuOpen.value = false;
 };
 
-const handleScroll = () => {
-    isScrolled.value = window.scrollY > 50;
-};
+function track(target: string) {
+    window.dataLayer.push({ event: 'nav_click', target });
+}
 
-onMounted(() => {
-    window.addEventListener('scroll', handleScroll);
-});
+function toggleThemeColor() {
+    isLight.value = !isLight.value;
+    document.documentElement.setAttribute('themeColor', isLight.value ? 'light' : 'dark');
+    localStorage.setItem('theme_color', isLight.value ? 'light' : 'dark');
+    window.dataLayer.push({
+        event: 'theme_color_change',
+        theme_color: isLight.value ? 'light' : 'dark',
+    });
+}
 
-onUnmounted(() => {
-    window.removeEventListener('scroll', handleScroll);
-});
+function changeLanguage(lang: 'en' | 'zh_tw') {
+    i18n.global.locale.value = lang;
+    localStorage.setItem('language', lang);
+    document.documentElement.setAttribute('lang', lang);
+    window.dataLayer.push({ event: 'language_change', language: lang });
+}
 </script>
 
 <style scoped>
-.el-menu {
-    border-bottom: none;
-    height: 100%;
+.dropdown-enter-active,
+.dropdown-leave-active {
+    transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.el-menu-demo {
-    padding-right: 20px;
+.dropdown-enter-from,
+.dropdown-leave-to {
+    opacity: 0;
+    transform: translateY(-8px);
 }
 
-/* 縮小時的選單樣式 */
-.small-menu {
-    line-height: 3.5rem !important;
+.overlay-enter-active,
+.overlay-leave-active {
+    transition: opacity 0.4s ease;
 }
 
-.small-menu :deep(.el-menu-item),
-.small-menu :deep(.el-sub-menu__title) {
-    height: 3.5rem !important;
-    line-height: 3.5rem !important;
-}
-
-:deep(.el-sub-menu__title) {
-    font-size: 1.125rem;
-    transition: all 0.3s ease;
-}
-
-/* 手機版選單樣式 */
-.mobile-menu-item {
-    @apply py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer;
-}
-
-/* 滑動動畫 */
-.slide-fade-enter-active,
-.slide-fade-leave-active {
-    transition: all 0.3s ease;
-}
-
-.slide-fade-enter-from {
+.overlay-enter-from,
+.overlay-leave-to {
     opacity: 0;
 }
 
-.slide-fade-enter-from .transform {
-    transform: translateX(100%);
+/* 選單項目依序滑入 */
+.overlay-enter-active .mobile-link {
+    animation: link-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+    animation-delay: calc(var(--i) * 70ms + 120ms);
 }
 
-.slide-fade-leave-to {
-    opacity: 0;
+@keyframes link-in {
+    from {
+        opacity: 0;
+        transform: translateX(28px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
-.slide-fade-leave-to .transform {
-    transform: translateX(100%);
-}
-
-/* 確保過渡動畫平滑 */
-.transition-all {
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 300ms;
+@media (prefers-reduced-motion: reduce) {
+    .overlay-enter-active .mobile-link {
+        animation: none;
+    }
 }
 </style>

@@ -1,0 +1,82 @@
+/* ============================================================
+   Element Plus 佈景對齊
+   el-table / el-dropdown / datepicker 預設是亮色硬編碼，
+   這裡改用設計 token，讓它們跟著 themeColor 一起切換。
+   ============================================================ */
+
+:root {
+    --el-color-primary: rgb(var(--c-accent));
+    --el-bg-color: rgb(var(--c-surface));
+    --el-bg-color-overlay: rgb(var(--c-surface));
+    --el-text-color-primary: rgb(var(--c-text-strong));
+    --el-text-color-regular: rgb(var(--c-text));
+    --el-text-color-secondary: rgb(var(--c-text-muted));
+    --el-border-color: rgb(var(--c-line) / 0.12);
+    --el-border-color-light: rgb(var(--c-line) / 0.08);
+    --el-border-color-lighter: rgb(var(--c-line) / 0.06);
+    --el-fill-color-blank: rgb(var(--c-surface));
+    --el-fill-color-light: rgb(var(--c-line) / 0.04);
+    --el-mask-color: rgb(var(--c-base) / 0.8);
+}
+
+.el-dropdown-menu {
+    background: rgb(var(--c-surface));
+    border: 1px solid rgb(var(--c-line) / 0.1);
+}
+
+.el-dropdown-menu__item {
+    color: rgb(var(--c-text));
+
+    &:hover,
+    &:focus {
+        background: rgb(var(--c-accent) / 0.12);
+        color: rgb(var(--c-accent));
+    }
+}
+
+.el-popper.is-light {
+    background: rgb(var(--c-surface));
+    border: 1px solid rgb(var(--c-line) / 0.1);
+
+    .el-popper__arrow::before {
+        background: rgb(var(--c-surface));
+        border-color: rgb(var(--c-line) / 0.1);
+    }
+}
+
+.el-table {
+    --el-table-bg-color: transparent;
+    --el-table-tr-bg-color: transparent;
+    --el-table-header-bg-color: transparent;
+    --el-table-border-color: rgb(var(--c-line) / 0.08);
+    --el-table-text-color: rgb(var(--c-text));
+    --el-table-header-text-color: rgb(var(--c-text-strong));
+    --el-table-row-hover-bg-color: rgb(var(--c-line) / 0.04);
+    background: transparent;
+}
+
+.el-table__inner-wrapper::before {
+    background-color: rgb(var(--c-line) / 0.08);
+}
+
+.el-input__wrapper {
+    background: rgb(var(--c-line) / 0.04);
+    box-shadow: 0 0 0 1px rgb(var(--c-line) / 0.12) inset;
+}
+
+.el-input__inner {
+    color: rgb(var(--c-text));
+}
+
+/* SweetAlert2 */
+.swal2-popup {
+    background: rgb(var(--c-surface)) !important;
+    color: rgb(var(--c-text)) !important;
+    border: 1px solid rgb(var(--c-line) / 0.1);
+    border-radius: 1.25rem !important;
+}
+
+.swal2-title,
+.swal2-html-container {
+    color: rgb(var(--c-text-strong)) !important;
+}

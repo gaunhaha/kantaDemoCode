@@ -1,79 +1,60 @@
 <template>
-    <div class="flex justify-center mb-10">
-        <p class="text-2xl font-bold text-primary">{{ t('Skill.University.title') }}</p>
-    </div>
-    <div class="flex flex-wrap gap-10 justify-center items-center">
-        <div
-            class="bg-gradient-to-br from-violet-500 via-purple-500 to-indigo-500 rounded-lg p-1 mb-8 transition-all duration-300 max-w-4xl mx-auto">
-            <div class="bg-gray-50 w-full rounded-lg">
-                <div class="card">
-                    <p class="text-2xl font-bold mb-4">{{ t('Skill.University.1.title') }}</p>
-                    <div class="border-b-2 border-gray-200 mb-4">
-                        <img class="w-full h-28 object-cover" src="@/assets/images/Wanbao.png" alt="Wanbao Picture">
-                    </div>
+    <section class="shell">
+        <SectionHeading eyebrow="University" index="05" :title="t('Skill.University.title')" />
+
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            <component v-for="(award, i) in awards" :key="award.key" :is="award.onClick ? 'button' : 'div'"
+                :id="award.id" @click="award.onClick" v-reveal="{ delay: i * 80, variant: 'scale' }"
+                class="surface-interactive group block overflow-hidden text-left">
+
+                <div class="relative h-36 overflow-hidden">
+                    <img :src="award.image" :alt="t(`Skill.University.${award.key}.title`)"
+                        class="h-full w-full object-cover transition-transform duration-700 ease-smooth group-hover:scale-105" />
+                    <div class="absolute inset-0 bg-ink-base/20 transition-colors duration-500 group-hover:bg-transparent"></div>
+
+                    <!-- 可點擊的那張顯示播放提示 -->
+                    <span v-if="award.onClick"
+                        class="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                        <span class="flex h-11 w-11 items-center justify-center rounded-full bg-accent text-accent-contrast">
+                            <i class="fa-solid fa-play text-xs"></i>
+                        </span>
+                    </span>
                 </div>
-            </div>
-        </div>
-        <div
-            class="bg-gradient-to-br from-indigo-500 via-blue-500 to-cyan-500 rounded-lg p-1 mb-8 transition-all duration-300 max-w-4xl mx-auto">
-            <div class="bg-gray-50 w-full rounded-lg">
-                <div class="card">
-                    <p class="text-2xl font-bold mb-4">{{ t('Skill.University.2.title') }}</p>
-                    <div class="border-b-2 border-gray-200 mb-4">
-                        <img class="w-full h-28 object-cover" src="@/assets/images/institution.jpg"
-                            alt="Institution Picture">
-                    </div>
+
+                <div class="p-5">
+                    <h3 class="text-sm font-semibold leading-snug text-content-strong transition-colors duration-300"
+                        :class="{ 'group-hover:text-accent': award.onClick }">
+                        {{ t(`Skill.University.${award.key}.title`) }}
+                    </h3>
                 </div>
-            </div>
+            </component>
         </div>
-        <div
-            class="bg-gradient-to-br from-cyan-500 via-teal-500 to-green-500 rounded-lg p-1 mb-8 transition-all duration-300 max-w-4xl mx-auto upTransition">
-            <div id="university-graduation-project-competition-button" class="bg-gray-50 w-full rounded-lg cursor-pointer" @click="openYoutube">
-                <div class="card">
-                    <p class="text-2xl font-bold mb-4">{{ t('Skill.University.3.title') }}</p>
-                    <div class="border-b-2 border-gray-200 mb-4">
-                        <img class="w-full h-28 object-cover" src="@/assets/images/Graduation.png" alt="Graduation Picture">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div
-            class="bg-gradient-to-br from-green-500 via-lime-500 to-yellow-500 rounded-lg p-1 mb-8 transition-all duration-300 max-w-4xl mx-auto">
-            <div class="bg-gray-50 w-full rounded-lg">
-                <div class="card">
-                    <p class="text-2xl font-bold mb-4">{{ t('Skill.University.4.title') }}</p>
-                    <div class="border-b-2 border-gray-200 mb-4">
-                        <img class="w-full h-28 object-cover" src="@/assets/images/presentation.png"
-                            alt="Presentation Picture">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    </section>
 </template>
+
 <script setup lang="ts">
-import i18n from "@/core/plugins/i18n/i18n.ts";
+import i18n from '@/core/plugins/i18n/i18n.ts';
+import SectionHeading from '@/components/ui/SectionHeading.vue';
+import wanbaoImg from '@/assets/images/Wanbao.png';
+import institutionImg from '@/assets/images/institution.jpg';
+import graduationImg from '@/assets/images/Graduation.png';
+import presentationImg from '@/assets/images/presentation.png';
+
 const { t } = i18n.global;
+
 function openYoutube() {
-    window.open('https://www.youtube.com/shorts/IHdd5cXa4FM', '_blank');
+    window.open('https://www.youtube.com/shorts/IHdd5cXa4FM', '_blank', 'noopener');
 }
+
+const awards = [
+    { key: '1', image: wanbaoImg },
+    { key: '2', image: institutionImg },
+    {
+        key: '3',
+        image: graduationImg,
+        onClick: openYoutube,
+        id: 'university-graduation-project-competition-button',
+    },
+    { key: '4', image: presentationImg },
+];
 </script>
-<style scoped>
-.card {
-    width: 300px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    box-sizing: border-box;
-}
-
-.upTransition {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.upTransition:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-</style>

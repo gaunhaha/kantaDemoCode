@@ -1,206 +1,112 @@
 <template>
-    <div
-        class="bg-gradient-to-br from-purple-600 via-violet-500 to-blue-500 rounded-lg p-1 mb-8 transition-all duration-300 max-w-4xl mx-auto">
-        <div class=" bg-gray-50 w-full rounded-lg">
-            <div class=" p-5 rounded-t-lg shadow-md">
-                <h2 class="text-3xl font-bold mb-5 text-center">{{ t('Skill.WorkExperience.title') }}</h2>
+    <section class="shell">
+        <SectionHeading eyebrow="Career" index="02" :title="t('Skill.WorkExperience.title')" />
 
-                <!-- 第零份工作 -->
-                <div class="bg-white rounded p-6 mb-6 shadow-sm hover:shadow-md transition-shadow">
-                    <h3 class="text-2xl font-bold mb-1">{{ t('Skill.WorkExperience.0.position') }}</h3>
-                    <p class="text-lg text-gray-600 mb-4">{{ t('Skill.WorkExperience.0.company') }}</p>
-                    <ul class="list-disc pl-5 space-y-2">
-                        <li>
-                            {{ t('Skill.WorkExperience.0.text1') }}
-                        </li>
-                        <li>
-                            {{ t('Skill.WorkExperience.0.text2') }}
-                        </li>
-                        <li>
-                            {{ t('Skill.WorkExperience.0.text3') }}
-                        </li>
-                    </ul>
-                </div>
+        <!-- 時間軸：左側一條貫穿的線，每份工作是線上的一個節點 -->
+        <div class="relative">
+            <span class="absolute left-[7px] top-2 bottom-2 w-px bg-hairline/10 md:left-[9px]" aria-hidden="true"></span>
 
-                <!-- Momentx -->
-                <div class="bg-white rounded p-6 mb-6 shadow-sm hover:shadow-md transition-shadow">
-                    <h3 class="text-2xl font-bold mb-1">{{ t('Skill.WorkExperience.1.position') }}</h3>
-                    <p class="text-lg text-gray-600 mb-4">{{ t('Skill.WorkExperience.1.company') }}</p>
-                    <p class="mb-4">{{ t('Skill.WorkExperience.1.intro') }}</p>
-                    <h4 class="text-lg font-semibold mb-2">{{ t('Skill.WorkExperience.1.techStackTitle') }}</h4>
-                    <ul class="list-disc pl-5 space-y-1 mb-4">
-                        <li>{{ t('Skill.WorkExperience.1.techStack.item1') }}</li>
-                        <li>{{ t('Skill.WorkExperience.1.techStack.item2') }}</li>
-                        <li>{{ t('Skill.WorkExperience.1.techStack.item3') }}</li>
-                        <li>{{ t('Skill.WorkExperience.1.techStack.item4') }}</li>
-                        <li>{{ t('Skill.WorkExperience.1.techStack.item5') }}</li>
-                    </ul>
-                    <h4 class="text-lg font-semibold mb-2">{{ t('Skill.WorkExperience.1.achievementTitle') }}</h4>
-                    <ul class="list-disc pl-5 space-y-2 mb-4">
-                        <li>
-                            <strong>{{ t('Skill.WorkExperience.1.Achievement1.title') }}</strong>
-                            <p class="mt-1">{{ t('Skill.WorkExperience.1.Achievement1.text') }}</p>
-                        </li>
-                        <li>
-                            <strong>{{ t('Skill.WorkExperience.1.Achievement2.title') }}</strong>
-                            <p class="mt-1">{{ t('Skill.WorkExperience.1.Achievement2.text') }}</p>
-                        </li>
-                        <li>
-                            <strong>{{ t('Skill.WorkExperience.1.Achievement3.title') }}</strong>
-                            <p class="mt-1">{{ t('Skill.WorkExperience.1.Achievement3.text') }}</p>
-                        </li>
-                        <li>
-                            <strong>{{ t('Skill.WorkExperience.1.Achievement4.title') }}</strong>
-                            <p class="mt-1">{{ t('Skill.WorkExperience.1.Achievement4.text') }}</p>
-                        </li>
-                    </ul>
-                    <h4 class="text-lg font-semibold mb-2">{{ t('Skill.WorkExperience.1.teamRoleTitle') }}</h4>
-                    <ul class="list-disc pl-5 space-y-1">
-                        <li>{{ t('Skill.WorkExperience.1.teamRole.item1') }}</li>
-                        <li>{{ t('Skill.WorkExperience.1.teamRole.item2') }}</li>
-                        <li>{{ t('Skill.WorkExperience.1.teamRole.item3') }}</li>
-                    </ul>
-                </div>
+            <article v-for="job in jobs" :key="job.key" v-reveal="{ delay: 40 }"
+                class="relative pl-8 pb-12 last:pb-0 md:pl-14">
 
-                <!-- 第二份工作 -->
-                <div class="bg-white rounded p-6 mb-6 shadow-sm hover:shadow-md transition-shadow">
-                    <h3 class="text-2xl font-bold mb-1">{{ t('Skill.WorkExperience.2.position') }}</h3>
-                    <p class="text-lg text-gray-600 mb-4">{{ t('Skill.WorkExperience.2.company') }}</p>
-                    <ul class="list-disc pl-5 space-y-2 mb-8">
-                        <li>
-                            {{ t('Skill.WorkExperience.2.Responsibilities.frontend.title') }}：
-                            <ul class="list-circle pl-5 mt-2 space-y-1">
-                                <li>{{ t('Skill.WorkExperience.2.Responsibilities.frontend.item1') }}</li>
-                                <li>{{ t('Skill.WorkExperience.2.Responsibilities.frontend.item2') }}</li>
-                                <li>{{ t('Skill.WorkExperience.2.Responsibilities.frontend.item3') }}</li>
-                                <li>{{ t('Skill.WorkExperience.2.Responsibilities.frontend.item4') }}</li>
-                                <li>{{ t('Skill.WorkExperience.2.Responsibilities.frontend.item5') }}</li>
-                                <li>{{ t('Skill.WorkExperience.2.Responsibilities.frontend.item6') }}</li>
-                            </ul>
-                        </li>
-                        <li>
-                            {{ t('Skill.WorkExperience.2.Responsibilities.devops.title') }}：
-                            <ul class="list-circle pl-5 mt-2 space-y-1">
-                                <li>{{ t('Skill.WorkExperience.2.Responsibilities.devops.item1') }}</li>
-                                <li>{{ t('Skill.WorkExperience.2.Responsibilities.devops.item2') }}</li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <h3 class="text-xl font-bold mb-4">{{ t('Skill.WorkExperience.2.achievementTitle') }}</h3>
-                    <ul class="list-disc pl-5 space-y-4">
-                        <li>
-                            <strong>{{ t('Skill.WorkExperience.2.Achievement1.title') }}</strong>
-                            <p class="mt-1 text-blue-500">
-                                <a id="work-experience-ntpc-button" href="https://www.ntpc.gov.tw/ch/home.jsp?id=e8ca970cde5c00e1&dataserno=22ebd8830714b0d622280be4dfc913be"
-                                    target="_blank">
-                                    {{ t('Skill.WorkExperience.2.Achievement1.text1') }}
-                                </a>
+                <!-- 節點 -->
+                <span class="absolute left-0 top-1.5 flex h-[15px] w-[15px] items-center justify-center md:h-[19px] md:w-[19px]">
+                    <span v-if="job.current"
+                        class="absolute inline-flex h-full w-full animate-pulse-ring rounded-full bg-accent"></span>
+                    <span class="relative h-2.5 w-2.5 rounded-full ring-4 ring-ink-base md:h-3 md:w-3"
+                        :class="job.current ? 'bg-accent' : 'bg-hairline/25'"></span>
+                </span>
+
+                <div class="group surface-interactive p-6 md:p-8">
+                    <!-- 職稱、公司、期間 -->
+                    <header class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
+                        <div>
+                            <h3 class="font-display text-xl font-semibold text-content-strong md:text-2xl">
+                                {{ t(`Skill.WorkExperience.${job.key}.position`) }}
+                            </h3>
+                            <p class="mt-1.5 text-sm text-accent">
+                                {{ t(`Skill.WorkExperience.${job.key}.company`) }}
                             </p>
-                            <p class="mt-1 text-blue-500">
-                                <a id="work-experience-ntpcluckytemple-button" href="https://www.ntpcluckytemple.tw/zh-TW" target="_blank">
-                                    {{ t('Skill.WorkExperience.2.Achievement1.text2') }}
-                                </a>
-                            </p>
-                            <p class="mt-1">
-                                {{ t('Skill.WorkExperience.2.Achievement1.text3') }}
-                            </p>
-                        </li>
-                        <li>
-                            <strong class="text-blue-500">
-                                <a id="work-experience-aicreate360-button" href="https://www.aicreate360.com/" target="_blank">
-                                    {{ t('Skill.WorkExperience.2.Achievement2.title') }}
-                                </a>
-                            </strong>
-                            <p class="mt-1">{{ t('Skill.WorkExperience.2.Achievement2.text') }}</p>
-                            <p class="mt-1">{{ t('Skill.WorkExperience.2.Achievement2.text2') }}</p>
-                        </li>
-                        <li>
-                            <strong>{{ t('Skill.WorkExperience.2.Achievement3.title') }}</strong>
-                            <p class="mt-1">{{ t('Skill.WorkExperience.2.Achievement3.text') }}</p>
-                        </li>
-                    </ul>
-                </div>
+                        </div>
 
-                <!-- 第三份工作 -->
-                <div class="bg-white rounded p-6 mb-6 shadow-sm hover:shadow-md transition-shadow">
-                    <h3 class="text-2xl font-bold mb-1">{{ t('Skill.WorkExperience.3.position') }}</h3>
-                    <p class="text-lg text-gray-600 mb-4">{{ t('Skill.WorkExperience.3.company') }}</p>
-                    <ul class="list-disc pl-5 space-y-2 mb-8">
-                        <li>{{ t('Skill.WorkExperience.3.Responsibilities.1') }}</li>
-                        <li>{{ t('Skill.WorkExperience.3.Responsibilities.2') }}</li>
-                        <li>{{ t('Skill.WorkExperience.3.Responsibilities.3') }}</li>
-                        <li>{{ t('Skill.WorkExperience.3.Responsibilities.4') }}</li>
-                        <li>{{ t('Skill.WorkExperience.3.Responsibilities.5') }}</li>
-                        <li>{{ t('Skill.WorkExperience.3.Responsibilities.6') }}</li>
-                    </ul>
-                    <h3 class="text-xl font-bold mb-4">{{ t('Skill.WorkExperience.3.achievementTitle') }}</h3>
-                    <ul class="list-disc pl-5 space-y-4">
-                        <li>
-                            <strong>{{ t('Skill.WorkExperience.3.Achievement1.title') }}</strong>
-                            <p class="mt-1">{{ t('Skill.WorkExperience.3.Achievement1.text') }}</p>
-                        </li>
-                        <li>
-                            <strong>{{ t('Skill.WorkExperience.3.Achievement2.title') }}</strong>
-                            <p class="mt-1">{{ t('Skill.WorkExperience.3.Achievement2.text') }}</p>
-                        </li>
-                        <li>
-                            <strong>{{ t('Skill.WorkExperience.3.Achievement3.title') }}</strong>
-                            <p class="mt-1">{{ t('Skill.WorkExperience.3.Achievement3.text') }}</p>
-                        </li>
-                        <li>
-                            <strong>{{ t('Skill.WorkExperience.3.Achievement4.title') }}</strong>
-                            <p class="mt-1">{{ t('Skill.WorkExperience.3.Achievement4.text') }}</p>
-                        </li>
-                    </ul>
-                </div>
+                        <div class="text-right">
+                            <span v-if="has(job.key, 'period')"
+                                class="block font-mono text-xs text-content-muted">
+                                {{ t(`Skill.WorkExperience.${job.key}.period`) }}
+                            </span>
+                            <span v-if="has(job.key, 'location')"
+                                class="mt-1 block text-xs text-content-faint">
+                                {{ t(`Skill.WorkExperience.${job.key}.location`) }}
+                            </span>
+                        </div>
+                    </header>
 
-                <!-- 第四份工作 -->
-                <div class="bg-white rounded p-6 mb-6 shadow-sm hover:shadow-md transition-shadow">
-                    <h3 class="text-2xl font-bold mb-1">{{ t('Skill.WorkExperience.4.position') }}</h3>
-                    <p class="text-lg text-gray-600 mb-4">{{ t('Skill.WorkExperience.4.company') }}</p>
-                    <ul class="list-disc pl-5 space-y-4">
-                        <li>
-                            <strong>{{ t('Skill.WorkExperience.4.Achievement1.title') }}</strong>
-                            <p class="mt-1">{{ t('Skill.WorkExperience.4.Achievement1.text') }}</p>
-                        </li>
-                        <li>
-                            <strong>{{ t('Skill.WorkExperience.4.Achievement2.title') }}</strong>
-                            <p class="mt-1">{{ t('Skill.WorkExperience.4.Achievement2.text') }}</p>
-                        </li>
-                        <li>
-                            <strong>{{ t('Skill.WorkExperience.4.Achievement3.title') }}</strong>
-                            <p class="mt-1">{{ t('Skill.WorkExperience.4.Achievement3.text') }}</p>
-                        </li>
-                    </ul>
-                </div>
+                    <p v-if="job.introKey" class="mt-5 leading-relaxed text-content-muted">
+                        {{ t(job.introKey) }}
+                    </p>
 
-                <!-- 第五份工作 -->
-                <div class="bg-white rounded p-6 mb-6 shadow-sm hover:shadow-md transition-shadow">
-                    <h3 class="text-2xl font-bold mb-1">{{ t('Skill.WorkExperience.5.position') }}</h3>
-                    <p class="text-lg text-gray-600 mb-4">{{ t('Skill.WorkExperience.5.company') }}</p>
-                    <ul class="list-disc pl-5 space-y-4">
-                        <li>
-                            <strong>{{ t('Skill.WorkExperience.5.Achievement1.title') }}</strong>
-                            <p class="mt-1">{{ t('Skill.WorkExperience.5.Achievement1.text') }}</p>
-                        </li>
-                    </ul>
-                </div>
+                    <!-- 各小節 -->
+                    <div v-for="(section, si) in job.sections" :key="si" class="mt-7 first:mt-6">
+                        <h4 v-if="section.headingKey"
+                            class="mb-4 font-mono text-[11px] uppercase tracking-[0.16em] text-content-faint">
+                            {{ t(section.headingKey) }}
+                        </h4>
 
-                <!-- 第六份工作 -->
-                <div class="bg-white rounded p-6 shadow-sm hover:shadow-md transition-shadow">
-                    <h3 class="text-2xl font-bold mb-1">{{ t('Skill.WorkExperience.6.position') }}</h3>
-                    <p class="text-lg text-gray-600 mb-4">{{ t('Skill.WorkExperience.6.company') }}</p>
-                    <ul class="list-disc pl-5">
-                        <li>{{ t('Skill.WorkExperience.6.Responsibilities.1') }}</li>
-                        <li>{{ t('Skill.WorkExperience.6.Responsibilities.2') }}</li>
-                    </ul>
+                        <div class="space-y-4">
+                            <div v-for="(entry, ei) in section.entries" :key="ei">
+                                <!-- 有標題的項目（成就） -->
+                                <template v-if="entry.titleKey">
+                                    <h5 class="text-[15px] font-semibold text-content-strong">
+                                        <a v-if="entry.titleLink" :id="entry.titleLink.id" :href="entry.titleLink.href"
+                                            target="_blank" rel="noopener noreferrer" class="link-underline text-accent">
+                                            {{ t(entry.titleKey) }}
+                                            <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[9px]"></i>
+                                        </a>
+                                        <template v-else>{{ t(entry.titleKey) }}</template>
+                                    </h5>
+
+                                    <p v-for="(text, ti) in entry.texts" :key="ti"
+                                        class="mt-2 text-sm leading-relaxed text-content-muted">
+                                        <a v-if="typeof text !== 'string'" :id="text.id" :href="text.href"
+                                            target="_blank" rel="noopener noreferrer" class="link-underline text-accent">
+                                            {{ t(text.key) }}
+                                            <i class="fa-solid fa-arrow-up-right-from-square ml-1 text-[9px]"></i>
+                                        </a>
+                                        <template v-else>{{ t(text) }}</template>
+                                    </p>
+                                </template>
+
+                                <!-- 沒有標題的項目：條列 -->
+                                <ul v-else class="space-y-2.5">
+                                    <li v-for="(text, ti) in entry.texts" :key="ti"
+                                        class="flex gap-3 text-sm leading-relaxed text-content-muted">
+                                        <span class="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-accent/60"></span>
+                                        <span>
+                                            <a v-if="typeof text !== 'string'" :id="text.id" :href="text.href"
+                                                target="_blank" rel="noopener noreferrer"
+                                                class="link-underline text-accent">
+                                                {{ t(text.key) }}
+                                            </a>
+                                            <template v-else>{{ t(text) }}</template>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </article>
         </div>
-    </div>
+    </section>
 </template>
 
 <script setup lang="ts">
-import i18n from "@/core/plugins/i18n/i18n";
-const { t } = i18n.global;
+import i18n from '@/core/plugins/i18n/i18n';
+import SectionHeading from '@/components/ui/SectionHeading.vue';
+import { jobs } from './jobs';
+
+const { t, te } = i18n.global;
+
+/** 期間、地點並非每份工作都有（例如早期經歷），沒有就不渲染 */
+const has = (jobKey: string, field: string) => te(`Skill.WorkExperience.${jobKey}.${field}`);
 </script>

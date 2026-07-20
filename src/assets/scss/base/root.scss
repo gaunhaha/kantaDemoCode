@@ -1,15 +1,139 @@
-:root {
-    --theme-light: #e4f2f4;
-    --background-color: #90c5dc;
-    --text-color: #172029;
-    --text-primary: #1d2d3e;
+/* ============================================================
+   設計 token
+   顏色一律以「空格分隔的 RGB 通道」定義，
+   讓 Tailwind 的 <alpha-value> 語法可以套用透明度，
+   例如 bg-ink-surface/60、border-hairline/10。
+   ============================================================ */
 
-    background: var(--background-color);
-    color: var(--text-color);
+:root,
+[themeColor="dark"] {
+    color-scheme: dark;
+
+    --c-base: 10 10 11; /* 頁面最底層 */
+    --c-surface: 18 18 21; /* 卡片 */
+    --c-raised: 26 26 30; /* 卡片上的小區塊 */
+
+    --c-text-strong: 250 250 252;
+    --c-text: 226 226 232;
+    --c-text-muted: 148 148 159;
+    --c-text-faint: 102 102 113;
+
+    --c-accent: 72 193 227;
+    --c-accent-soft: 30 84 103;
+    --c-accent-contrast: 6 18 24;
+
+    --c-line: 255 255 255; /* 分隔線用，永遠搭配透明度使用 */
+
+    --glow-a: rgb(72 193 227 / 0.16);
+    --glow-b: rgb(120 96 220 / 0.12);
+    --noise-opacity: 0.035;
+
+    /* 舊有變數：保留給尚未改版的頁面 */
+    --theme-light: #121215;
+    --background-color: #0a0a0b;
+    --text-color: #e2e2e8;
+    --text-primary: #fafafc;
 }
 
-[themeColor="dark"] {
-    --theme-light: #2c3e50;
-    --background-color: #507191;
-    --text-primary: #ffffff;
+[themeColor="light"] {
+    color-scheme: light;
+
+    --c-base: 250 250 248;
+    --c-surface: 255 255 255;
+    --c-raised: 244 244 241;
+
+    --c-text-strong: 11 11 15;
+    --c-text: 33 33 39;
+    --c-text-muted: 92 92 103;
+    --c-text-faint: 141 141 151;
+
+    --c-accent: 11 134 166;
+    --c-accent-soft: 200 236 245;
+    --c-accent-contrast: 255 255 255;
+
+    --c-line: 11 11 15;
+
+    --glow-a: rgb(11 134 166 / 0.10);
+    --glow-b: rgb(120 96 220 / 0.07);
+    --noise-opacity: 0.02;
+
+    --theme-light: #ffffff;
+    --background-color: #fafaf8;
+    --text-color: #212127;
+    --text-primary: #0b0b0f;
+}
+
+html {
+    background: rgb(var(--c-base));
+    color: rgb(var(--c-text));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', 'Noto Sans TC', system-ui, sans-serif;
+    background: rgb(var(--c-base));
+    color: rgb(var(--c-text));
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Sora', 'Noto Sans TC', system-ui, sans-serif;
+    color: rgb(var(--c-text-strong));
+    font-weight: 600;
+}
+
+::selection {
+    background: rgb(var(--c-accent) / 0.28);
+    color: rgb(var(--c-text-strong));
+}
+
+:focus-visible {
+    outline: 2px solid rgb(var(--c-accent));
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* 捲軸 */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgb(var(--c-line) / 0.18) transparent;
+}
+
+*::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: rgb(var(--c-line) / 0.16);
+    border-radius: 99px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--c-line) / 0.28);
+    background-clip: content-box;
+}
+
+/* 尊重系統的「減少動態效果」設定 */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }

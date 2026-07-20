@@ -7,18 +7,19 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AtmosphereBackground: typeof import('./src/components/ui/AtmosphereBackground.vue')['default']
+    CountUp: typeof import('./src/components/ui/CountUp.vue')['default']
     ElDropdown: typeof import('element-plus/es')['ElDropdown']
     ElDropdownItem: typeof import('element-plus/es')['ElDropdownItem']
     ElDropdownMenu: typeof import('element-plus/es')['ElDropdownMenu']
-    ElMenu: typeof import('element-plus/es')['ElMenu']
-    ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
-    ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     ElTable: typeof import('element-plus/es')['ElTable']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     GroupBarChartKanta: typeof import('./src/components/chart/GroupBarChartKanta.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    MarqueeRow: typeof import('./src/components/ui/MarqueeRow.vue')['default']
     PieChart: typeof import('./src/components/chart/PieChart.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SectionHeading: typeof import('./src/components/ui/SectionHeading.vue')['default']
   }
 }

@@ -1,15 +1,61 @@
 {
     "Home": {
-        "Stack": {
-            "title": "Stack",
-            "text": "This is a website built with the following technologies:"
+        "Hero": {
+            "available": "Available for freelance & full-time",
+            "name": "Kanta Chen",
+            "role": "Senior Frontend Engineer",
+            "line1": "Most products reach 80%",
+            "line2": "I focus on the last 20%",
+            "tagline": "Senior frontend engineer at Momentx. I break abstract or complex requirements into clear architecture and actionable plans, then keep refining structure, performance and interaction until a product goes from usable to excellent.",
+            "ctaWork": "View my work",
+            "ctaContact": "Get in touch",
+            "scroll": "Scroll"
         },
         "AboutMe": {
             "title": "About Me",
-            "text1": "Hello, I'm Kanta, a graduate of the Mechanical Engineering department. During my time at university, I was introduced to programming, with C++ being a required course. I also learned about automation and IoT technologies. Compared to the fields of mechanical and electronic engineering, I have a deep passion for programming.I enjoy the process of building a complete system from scratch, step by step, and the sense of accomplishment it brings. As Hayao Miyazaki once said, \"The important things in life are often troublesome. If we lived in a world without troubles, even 'troubles' would become enviable.\"For me, programming feels like solving puzzles and unraveling mysteries, full of challenges and excitement.",
-            "text2": "I possess a strong curiosity about new technologies and often take the initiative to self-study in myspare time. I am optimistic and have high self-expectations. I am also able to incorporate and unify mycolleagues' opinions while offering suggestions as needed. I enjoy teamwork, and I am proactive andresponsible in my work.",
-            "text3": "In my role as a software engineer, I believe my strengths lie in quickly understanding requirements andformulating effective solutions. I excel at transforming complex logic or concepts into clear,comprehensible text or visuals, which I then break down further into structured to-do lists. Thisapproach helps me proceed with development in an organized manner, ensuring each step has clearobjectives and timelines, which ultimately enables me to complete projects efficiently and accurately,meeting all requirements.",
-            "more": "More About Me"
+            "more": "More About Me",
+            "text1": "I graduated in **mechanical engineering**, where I first met **C++** and studied **automation** and **IoT**. Compared with mechanical or electronic work, I fell for **programming**. I love building a complete system from scratch, one step at a time, and the satisfaction that brings. As Hayao Miyazaki put it: \"The important things in life are often troublesome. If we lived in a world without troubles, even 'troubles' would become enviable.\" To me, programming feels like **solving puzzles** — full of challenge and delight.",
+            "text2": "I care about **code quality** — **cleanliness**, **readability** and **maintainability** — and keep exploring how the field evolves. In development I am good at **grasping requirements quickly**, breaking abstract or complex problems into **clear logical architecture** and **actionable strategy**, so projects stay on schedule.",
+            "text3": "On a team I **listen** and **synthesise** different viewpoints, using **structured thinking** and **clear communication** to help everyone focus on the core problem and land solutions that are both **practical** and **extensible**. I believe good working culture comes from clear **architecture** and a sustainable **development rhythm**.",
+            "text4": "Most products get to **80%**; what really separates them is the final **20%** of detail and experience. I keep polishing **architecture**, **performance** and **interaction** until a product feels smoother, more intuitive and more professional — taking it from \"usable\" to \"**excellent**\"."
+        },
+        "Stats": {
+            "years": "Years building",
+            "projects": "Shipped projects",
+            "stacks": "Core technologies",
+            "langs": "Languages spoken"
+        },
+        "Sections": {
+            "aboutEyebrow": "About",
+            "aboutTitle": "Who I am, and how I work",
+            "focusEyebrow": "Focus",
+            "focusTitle": "What I have been building",
+            "focusDesc": "Sole frontend engineer at Momentx, owning architecture and core development across these three product lines.",
+            "stackEyebrow": "Stack",
+            "stackTitle": "What this site is built with",
+            "stackDesc": "This site is a portfolio piece in itself: a hand-rolled design system, scroll choreography and full bilingual support.",
+            "contactEyebrow": "Contact",
+            "contactTitle": "Got something in mind? Let us talk.",
+            "contactDesc": "Freelance work, full-time roles, or just a good technical conversation — my inbox is open.",
+            "contactCta": "Send me an email"
+        },
+        "Focus": {
+            "1": {
+                "title": "AI Agent SaaS platform",
+                "text": "A SaaS platform for customisable AI agents built with Vue 3, Nuxt.js and TypeScript — agent / prompt / memory management, multi-model LLM integration, SSE streaming, Stripe subscriptions and multi-tenant permissions."
+            },
+            "2": {
+                "title": "Cross-platform AI collaboration app",
+                "text": "A Flutter app combining chat and canvas across iOS, Android, macOS, Windows and Web, with context-aware AI responses and real-time multi-user collaboration."
+            },
+            "3": {
+                "title": "Frontend architecture & performance",
+                "text": "Led a React → Vue 3 + Nuxt rewrite, introduced SSR and SEO optimisation, and built CI/CD pipelines covering unit tests and Playwright E2E."
+            }
+        },
+        "Stack": {
+            "title": "Stack",
+            "text": "This is a website built with the following technologies:"
         }
     },
     "Language": {
@@ -31,149 +77,173 @@
     },
     "Skill": {
         "SkillList": {
-            "title": "Skill",
-            "backend": "Backend",
-            "frontend": "Frontend",
-            "database": "Database",
-            "versionControl": "Version Control",
-            "ciCd": "CI/CD",
-            "devOps": "DevOps",
-            "languageAbility": "Language Ability",
-            "languageAbilityText": "Chinese (Native), English (Intermediate), Japanese (N2)"
+            "title": "Skills",
+            "frontendFramework": "Frontend Frameworks",
+            "languages": "Programming Languages",
+            "frontendDev": "Frontend Development",
+            "api": "API Integration",
+            "devops": "Version Control & DevOps",
+            "otherFrontend": "Other Frontend",
+            "backend": "Backend Fundamentals",
+            "database": "Databases",
+            "tracking": "Analytics",
+            "languageAbility": "Languages",
+            "languageAbilityText": "Chinese (native) · Japanese (fluent, JLPT N2) · English (intermediate)"
         },
         "WorkExperience": {
-            "title": "Work Experience",
             "0": {
                 "position": "Freelance Software Engineer",
-                "company": "2020/11 ~ Present",
-                "text1": "Took on freelance projects during spare time to refine technical skills and explore new areas without affecting full-time work. Gained experience in frontend, backend, and full-stack development.",
-                "text2": "Worked on diverse industry needs, enhancing problem-solving and cross-team communication skills, while developing the ability to work independently and analyze requirements to provide the best technical solutions.",
-                "text3": "Stayed up to date with technology trends, expanding my perspective through freelance work and strengthening programming skills to remain competitive in the job market."
-                
+                "company": "Freelance",
+                "period": "2020/11 - Present",
+                "text1": "Inventory management system, company HR portal, logistics management system",
+                "text2": "Scheduled auto-posting, algorithmic trading bot, automated Thread replies",
+                "text3": "Online course platform (front & back office), expense-tracking app, parking admin, IoT vending machine"
             },
             "1": {
-                "position": "Frontend Engineer",
+                "position": "Senior Frontend Engineer",
                 "company": "Momentx",
-                "intro": "Joined as a core member from the early stage of the team, responsible for building the AI SaaS platform frontend architecture and core features from 0 to launch. The product is fully developed and about to go live.",
-                "techStackTitle": "Tech Stack",
-                "techStack": {
-                    "item1": "Built frontend architecture with Vue 3 + Nuxt.js + TypeScript",
-                    "item2": "State management with Pinia",
-                    "item3": "Adopted Nuxt UI as the design system foundation",
-                    "item4": "Established frontend project structure and development standards (Biome)",
-                    "item5": "Deployed on Vercel"
+                "period": "2025/5 - Present",
+                "location": "Da-an, Taipei",
+                "intro": "A 1–30 person software company. Sole frontend engineer, owning frontend architecture, core development and CI/CD across several products.",
+                "projectsTitle": "Projects",
+                "p1": {
+                    "title": "AI Agent SaaS platform (Nuxt.js / TypeScript)",
+                    "item1": "Built a SaaS platform for customisable AI agents, owning frontend architecture and core features",
+                    "item2": "Vue 3 + Nuxt.js + TypeScript + Pinia, deployed on Vercel, with CI/CD covering unit tests and Playwright E2E",
+                    "item3": "Implemented agent / prompt / memory management, multi-model LLM integration and streaming responses (SSE)",
+                    "item4": "Integrated Google OAuth, Stripe subscriptions, webhooks and multi-tenant permission control",
+                    "item5": "Designed the workspace architecture and large dynamic forms; led the React → Vue 3 + Nuxt rewrite"
                 },
-                "achievementTitle": "Core Development Achievements",
-                "Achievement1": {
-                    "title": "Platform Development",
-                    "text": "Built a full AI management platform from scratch, including: multi-model integration, Prompt management system, Memory mechanism design, permission and role control, and Workspace architecture."
+                "p2": {
+                    "title": "AI collaboration tool — Chat + Canvas (Flutter)",
+                    "item1": "Built a cross-platform AI collaboration app (iOS / Android / macOS / Windows / Web)",
+                    "item2": "Combined chat and canvas with context-aware AI responses and real-time multi-user collaboration",
+                    "item3": "Integrated FCM push notifications; ran on-device testing across platforms and shipped the web build"
                 },
-                "Achievement2": {
-                    "title": "Auth & Payments",
-                    "text": "Designed and implemented Google OAuth login flow. Integrated Stripe (one-time payment + subscription), implemented Webhooks, handled payment failure retry logic, and designed plan upgrade and permission change flows."
+                "p3": {
+                    "title": "Corporate site SEO optimisation (Next.js)",
+                    "item1": "Introduced an SSR architecture, improving meta tags, structured data and Lighthouse scores",
+                    "item2": "Supported product funnels and marketing page development"
                 },
-                "Achievement3": {
-                    "title": "Data & Forms",
-                    "text": "Established multi-tenant data isolation. Developed large-scale dynamic forms (quick-create feature)."
+                "p4": {
+                    "title": "Internal project management system (Golang + Vue, full-stack)",
+                    "item1": "Golang RESTful API + Vue 3 SPA on a decoupled architecture",
+                    "item2": "Owned frontend architecture, core development and real-time data sync",
+                    "item3": "Set up CI/CD pipelines and led technology selection and code review"
                 },
-                "Achievement4": {
-                    "title": "Performance & Architecture",
-                    "text": "Introduced WebSocket for real-time features. Optimized performance with lazy loading. Refactored existing React codebase to Vue 3 + Nuxt."
-                },
-                "teamRoleTitle": "Team Role",
+                "teamRoleTitle": "Role in the team",
                 "teamRole": {
-                    "item1": "Sole frontend engineer",
-                    "item2": "Collaborated with PM, designers, and backend",
-                    "item3": "Participated in Code Review and architecture discussions"
+                    "item1": "Sole frontend engineer across multiple projects — architecture, development and CI/CD",
+                    "item2": "Partnered with PM, designers and backend on product planning and delivery",
+                    "item3": "Contributed to technology selection, architecture design and code review"
                 }
             },
             "2": {
-                "position": "Web Frontend Engineer",
-                "company": "Create AI Technology Co., Ltd.",
-                "Responsibilities": {
-                    "frontend": {
-                        "title": "Frontend Development Workflow",
-                        "item1": "Layout design using Tailwind CSS / Element Plus",
-                        "item2": "Frontend architecture planning",
-                        "item3": "Development with Vue 3 + TypeScript",
-                        "item4": "Unit testing and deployment",
-                        "item5": "SEO optimization using Nuxt.js",
-                        "item6": "Building applications with Firebase"
-                    },
-                    "devops": {
-                        "title": "Deployment & Operations",
-                        "item1": "Application deployment and management using PM2",
-                        "item2": "Nginx configuration for reverse proxy and load balancing"
-                    }
+                "position": "Frontend Engineer",
+                "company": "Create Intelligence Technology",
+                "period": "2025/1 - 2025/5 (5 months)",
+                "location": "Neihu, Taipei · managed a team of up to 4",
+                "respTitle": "End-to-end frontend ownership",
+                "resp": {
+                    "item1": "Selected the tech stack and planned the frontend architecture",
+                    "item2": "Built layouts and UI/UX with Tailwind CSS and Element Plus",
+                    "item3": "Developed with Vue 3 + TypeScript + Composition API",
+                    "item4": "Handled SEO optimisation with Nuxt.js",
+                    "item5": "Introduced GA and GTM to track user behaviour",
+                    "item6": "Used Firebase to store site enquiry data",
+                    "item7": "Wrote unit tests and handled deployment",
+                    "item8": "Mentored junior engineers on development and collaboration"
                 },
-                "achievementTitle": "Project Achievements",
-                "Achievement1": {
-                    "title": "New Taipei City Tourism Website (Temples Blessing)",
-                    "text1": "New Taipei Blessing Train is about to depart!",
-                    "text2": "Blessing Train Official Website",
-                    "text3": "Develop multi-language features for 5 languages (Chinese, English, Japanese, Korean, Thai), improving user experience"
+                "opsTitle": "Deployment & operations",
+                "ops": {
+                    "item1": "Deployed and managed applications with PM2",
+                    "item2": "Configured Nginx for reverse proxy and load balancing",
+                    "item3": "Tracked user behaviour with Google Analytics and Google Tag Manager"
                 },
-                "Achievement2": {
-                    "title": "Create AI Official Website",
-                    "text": "Responsible for website design and layout, ensuring responsive design and good UI/UX",
-                    "text2": "Optimize SEO to increase website visibility, improving the Lighthouse SEO score from 60 to over 90."
+                "projectsTitle": "Projects",
+                "p1": {
+                    "title": "New Taipei City Tourism — Temple Blessing",
+                    "text": "Built multilingual support across five languages (Chinese, English, Japanese, Korean, Thai) to improve the user experience."
                 },
-                "Achievement3": {
-                    "title": "LINE CRM System",
-                    "text": "Participate in the front-end development of the LINE CRM system, mainly responsible for connecting to the back-end API, ensuring that the data is correctly displayed on the user interface."
+                "p2": {
+                    "title": "Create Intelligence corporate site",
+                    "text": "Owned site design and markup with responsive layout and solid UI/UX; raised the Lighthouse SEO score from 60 to over 90, and introduced GTM and GA tracking for the SPA."
+                },
+                "p3": {
+                    "title": "LINE CRM system",
+                    "text": "Contributed to frontend development, primarily backend API integration, ensuring data rendered correctly in the interface."
+                },
+                "p4": {
+                    "title": "Taipei City Tourism site"
                 }
             },
             "3": {
-                "position": "Full Stack Engineer",
-                "company": "Viainno Co., Ltd.",
-                "Responsibilities": {
-                    "1": "Responsible for full-stack development, focusing on the front-end (Vue 3, Tailwind CSS, Bootstrap 5) and back-end (ASP.NET Core), adopting a front-end and back-end separated Web API design.",
-                    "2": "Design, build, and write databases using MS-SQL Server to ensure efficient data storage and querying, while maintaining database integrity and security.",
-                    "3": "Work closely with business, UI/UX designers, and project managers to deeply understand requirements, evaluate work hours and costs, and effectively delegate tasks to two junior team members (recent graduates and current students).",
-                    "4": "Collaborate cross-departmentally with app engineers to conduct integration testing and communicate requirements, responsible for creating and managing APIs to ensure seamless system integration.",
-                    "5": "Guide junior engineers, share known technologies to enhance their skill levels, and continuously track new technologies, willingly sharing learning resources and experiences.",
-                    "6": "Adopting an agile development process, we conduct brief 5-10 minute meetings daily to promptly communicate work progress and needed assistance, effectively tracking team progress and enhancing overall efficiency."
+                "position": "Full-Stack Engineer",
+                "company": "Viainno Technology Services",
+                "period": "2023/2 - 2024/11 (1 yr 10 mo)",
+                "location": "Tamsui, New Taipei · managed a team of up to 4",
+                "respTitle": "Stack & responsibilities",
+                "resp": {
+                    "item1": "Frontend with Vite + Vue 3 + Tailwind CSS / Bootstrap 5",
+                    "item2": "Backend with ASP.NET Core + RESTful Web API on a decoupled architecture",
+                    "item3": "MS SQL Server schema design, query optimisation and maintenance",
+                    "item4": "Owned API design and cross-platform (web + app) integration testing",
+                    "item5": "Agile development, mentoring junior engineers and code review"
                 },
-                "achievementTitle": "Project Achievements",
-                "Achievement1": {
-                    "title": "Financial ERP System",
-                    "text": "Users can follow standard processes to apply for spending/income, invoice, and approve, after integrating financial data into the system, financial assets and liability statements, profit and loss statements, cash flow statements, and other financial standard reports can be generated. Additionally, data can be aggregated or analyzed, and visualized in the form of charts, such as the annual growth chart of income/expenses and the future budget forecast table. This system can automate the generation of accounting reports, simplify the work of accountants, and reduce the possibility of human errors."
+                "projectsTitle": "Projects",
+                "p1": {
+                    "title": "Finance ERP — Vue 3 + ASP.NET Core + MS SQL",
+                    "text": "Multi-level approval flows, permission control, automated financial reporting and data visualisation."
                 },
-                "Achievement2": {
-                    "title": "Task Assignment System",
-                    "text": "Design a system that allows users to use it on the Web or APP, similar to the Line chat function. Users can add groups and manage group members, chat, assign tasks, and upload files. Managers can set todo lists in tasks to easily track and manage task progress. Additionally, hyperlinks can be added to pages to remind staff of pending tasks, allowing staff to quickly focus on tasks that are not yet completed after seeing the assigned tasks."
+                "p2": {
+                    "title": "Task assignment system — Vue 3 + ASP.NET Core + App",
+                    "text": "WebSocket real-time chat, group management, file upload, to-do lists and deep linking."
                 },
-                "Achievement3": {
-                    "title": "Voting Function",
-                    "text": "Similar to the Survey Cake function, users can create questions (including single-choice, multiple-choice, and questions), determine the answer process (whether it is mandatory to fill in, such as filling in option A and jumping to the second question), and decide the object or time for filling in. Special analysis and statistical functions are provided for the results of filling in, and the results can be visualized in the form of data, providing professional analysis such as the results of specific objects and the results of filling in at specific times. Additionally, there is a mobile APP that can be filled in on the APP, and the results can be viewed."
+                "p3": {
+                    "title": "Survey & voting system — Vue 3 + ASP.NET Core + App",
+                    "text": "Dynamic form engine, conditional branching, response analytics and dual web/app APIs."
                 },
-                "Achievement4": {
-                    "title": "Visitor Registration Function",
-                    "text": "Customers can edit and obtain a unique visitor registration QR code on the backend system, and visitors can enter the visitor registration page by scanning the QR code on their mobile phones, fill in the form, and complete the visitor registration. The backend system can view the visitor's data and analyze the visitor category, time, etc. It can implement the management of personnel entry and exit, enhancing security."
+                "p4": {
+                    "title": "Visitor registration system — Vue 3 + ASP.NET Core + QR Code",
+                    "text": "Dynamic forms, QR code generation, responsive submission flow and visitor data analytics."
                 }
             },
             "4": {
-                "position": "Full Stack Engineer",
-                "company": "Sundialts Co., Ltd.",
-                "Achievement1": {
-                    "title": "Fubon Travel Insurance",
-                    "text": "Use Eclipse and Spring Tool Suite for backend development, refactor the traditional SpringMVC architecture into a front-end and back-end separated microservices architecture, improving the scalability and maintainability of the system. Design and implement a web application that can be embedded in a mobile APP, using Vue 2 as the front-end technology, and ensuring its effective integration with the backend Spring Boot."
+                "position": "Software Engineer",
+                "company": "Sundialts Technology",
+                "period": "2022/9 - 2023/2 (6 months)",
+                "location": "Datong, Taipei",
+                "respTitle": "Stack & responsibilities",
+                "resp": {
+                    "item1": "Frontend: Vue 2, Angular, React",
+                    "item2": "Backend: Spring Boot, Spring MVC",
+                    "item3": "Tooling: Eclipse, Spring Tool Suite",
+                    "item4": "Decoupled architecture, microservice refactoring and unit testing"
                 },
-                "Achievement2": {
-                    "title": "Fubon Common Transfer Account",
-                    "text": "Use angular to refactor the old common transfer account management system, rewrite the original system, cut the version, add new functions, and write unit tests."
+                "projectsTitle": "Projects",
+                "p1": {
+                    "title": "Fubon travel insurance (Vue 2 + Spring Boot)",
+                    "text": "Refactored Spring MVC into a decoupled microservice architecture; built a Vue 2 SPA embedded in a mobile app WebView, and designed the Spring Boot RESTful APIs — improving scalability and maintainability."
                 },
-                "Achievement3": {
-                    "title": "Project",
-                    "text": "Design and develop the company's internal website, use React technology to implement attendance, leave, and workflow management functions, which not only improve the employee's satisfaction and work efficiency, but also allow managers to more conveniently manage the daily affairs of employees."
+                "p2": {
+                    "title": "Fubon saved transfer accounts (Angular)",
+                    "text": "Rewrote a legacy system in Angular, re-implementing the frontend and adding new feature modules, with unit tests to safeguard the refactor."
+                },
+                "p3": {
+                    "title": "Company HR portal (React)",
+                    "text": "React SPA covering attendance, leave and workflow modules; designed RBAC permissions and role groups, and implemented the calendar feature with API integration."
                 }
             },
             "5": {
-                "position": "Frontend Engineer",
-                "company": "SYSTEX Co., Ltd.",
-                "Achievement1": {
-                    "title": "Stock System",
-                    "text": "Participate in the maintenance and development of the front-end applications of major securities companies, use C++ to write MFC applications for the Windows platform, and use HTML5 and jQuery to develop web applications, improving the user's operation experience. And use native CSS for layout and visual beautification, ensuring the overall aesthetics and usability of the application interface."
+                "position": "Programmer",
+                "company": "SYSTEX Corporation",
+                "period": "2021/3 - 2022/9 (1 yr 7 mo)",
+                "location": "Neihu, Taipei",
+                "respTitle": "Stack & responsibilities",
+                "resp": {
+                    "item1": "Maintained and developed C++ MFC desktop applications on Windows",
+                    "item2": "Built web modules with HTML5, jQuery and CSS",
+                    "item3": "Developed and refined frontend features and UI for securities brokerage systems"
                 }
             },
             "6": {
@@ -183,49 +253,46 @@
                     "1": "PLC programming and development for photoelectric and semiconductor equipment machines",
                     "2": "Communicate with Japanese headquarters using Japanese, understand requirements and develop"
                 }
-            }
+            },
+            "title": "Work Experience"
         },
         "Project": {
-            "title": "Project Achievements",
             "1": {
-                "title": "New Taipei City Tourism Website (Temples Blessing)",
-                "text": "Design and develop multi-language features, implement i18n to switch between Chinese, English, Japanese, Korean, and Thai, and support responsive design to enhance user experience."
+                "title": "Momentx corporate site",
+                "text": "SEO optimisation with Next.js and an SSR architecture — improving meta tags, structured data and Lighthouse scores, and supporting product funnels and marketing pages."
             },
             "2": {
-                "title": "Create AI Official Website",
-                "text": "Responsible for website design and layout, ensuring responsive design and good UI/UX, and optimizing SEO to improve the Lighthouse SEO score from 60 to over 90."  
+                "title": "New Taipei City tourism rewards campaign",
+                "text": "Implemented five-language switching (Chinese, English, Japanese, Korean, Thai) with i18n, plus responsive design for a better user experience."
             },
             "3": {
-                "title": "LINE CRM System",
-                "text": "Participate in the front-end development of the LINE CRM system, mainly responsible for connecting to the back-end API, ensuring that the data is correctly displayed on the user interface."
+                "title": "Create Intelligence corporate site",
+                "text": "Owned site design and markup with responsive layout and solid UI/UX; raised the Lighthouse SEO score from 60 to over 90, and introduced GTM and GA tracking for the SPA."
             },
             "4": {
-                "title": "Financial ERP System",
-                "text": "Design an automated financial report generation function, provide visual data statistics and analysis functions, reduce the workload of accountants and improve efficiency."
+                "title": "LINE CRM system",
+                "text": "Contributed to frontend development, handling API integration and interface changes to keep data presentation and user experience to a high standard."
             },
+            "5": {
+                "title": "Finance ERP system",
+                "text": "Designed automated financial report generation with visual statistics and analysis, cutting accountants’ workload and improving efficiency."
+            },
+            "title": "Selected Work",
+            "otherTitle": "Freelance projects",
             "other": {
-                "1": "Task Management System",
-                "2": "Survey Voting System",
-                "3": "Visitor Registration System",
-                "4": "Parcel Registration System",
-                "5": "Inventory Management System",
-                "6": "Facility Reservation System",
-                "7": "Fubon Travel Insurance",
-                "8": "Fubon Transfer Function",
-                "9": "Company Personnel Website",
-                "10": "Securities System Maintenance",
-                "11": "Logistics Management System",
-                "12": "Online Course Website (Frontend and Backend)",
-                "13": "Accounting APP",
-                "14": "Parking Lot Backend",
-                "15": "IoT Automatic Vending Machine",
-                "16": "Scheduled Auto Posting",
-                "17": "Automated Trading Program",
-                "18": "Thread Auto Reply"
+                "1": "Inventory management",
+                "2": "HR portal",
+                "3": "Logistics management",
+                "4": "Scheduled auto-posting",
+                "5": "Algorithmic trading",
+                "6": "Automated Thread replies",
+                "7": "Online course platform",
+                "8": "Expense tracking app",
+                "9": "Parking lot admin",
+                "10": "IoT vending machine"
             }
         },
         "SideProject": {
-            "videoLink": "Video Link",
             "1": {
                 "title": "IoT Automatic Vending Machine",
                 "text1": "Use ESP32 development",
@@ -256,7 +323,8 @@
                 "title": "Android App",
                 "text1": "Create an Android App",
                 "text2": "Can be used to calculate tips"
-            }
+            },
+            "videoLink": "Video Link"
         },
         "OtherExperience": {
             "1": {
@@ -270,10 +338,10 @@
                 "text1": "Chinese Red Cross Association - Lifesaving Team",
                 "text2": "Lifeguard : 2016/7 - 2019/7",
                 "text3": "Stationed at the Dayaosan Patrol Station to ensure the safety of swimmers"
-            }
+            },
+            "title": "Other Experience"
         },
         "University": {
-            "title": "University Experience",
             "1": {
                 "title": "Wanbao Scholarship"
             },
@@ -285,7 +353,8 @@
             },
             "4": {
                 "title": "First Place in University Internal Presentation Competition"
-            }
+            },
+            "title": "University Experience"
         }
     },
     "AlertService": {

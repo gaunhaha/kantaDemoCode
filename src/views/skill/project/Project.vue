@@ -1,88 +1,57 @@
 <template>
-    <div
-        class="bg-gradient-to-br from-purple-600 via-violet-500 to-blue-500 rounded-lg p-1 mb-8 transition-all duration-300 max-w-4xl mx-auto">
-        <div class="bg-gray-50 w-full rounded-lg">
-            <div class="p-5 rounded-t-lg shadow-md">
-                <h2 class="text-3xl font-bold mb-5 text-center">{{ t('Skill.Project.title') }}</h2>
+    <section class="shell">
+        <SectionHeading eyebrow="Selected work" index="03" :title="t('Skill.Project.title')" />
 
-                <!-- 網站開發項目 -->
-                <div class="bg-white rounded p-6 mb-6 shadow-sm hover:shadow-md transition-shadow">
-                    <ul class="list-disc pl-5 space-y-4 mb-8">
-                        <li>
-                            <strong>
-                                <p class="mt-1 text-blue-500 font-bold text-lg">
-                                    <a id="project-ntpcluckytemple-button" href="https://www.ntpcluckytemple.tw/" target="_blank">
-                                        {{ t('Skill.Project.1.title') }}
-                                    </a>
-                                </p>
-                            </strong>
-                            <p class="mt-1">{{ t('Skill.Project.1.text') }}</p>
-                        </li>
+        <!-- 主要專案 -->
+        <div class="grid gap-5 md:grid-cols-2">
+            <component v-for="(project, i) in featured" :key="project.key"
+                :is="project.href ? 'a' : 'div'" :id="project.id" :href="project.href"
+                :target="project.href ? '_blank' : undefined"
+                :rel="project.href ? 'noopener noreferrer' : undefined"
+                v-reveal="{ delay: i * 90, variant: 'blur' }" class="surface-interactive group block p-7 md:p-9">
 
-                        <li>
-                            <strong>
-                                <p class="mt-1 text-blue-500 font-bold text-lg">
-                                    <a id="project-aicreate360-button" href="https://www.aicreate360.com/" target="_blank">
-                                        {{ t('Skill.Project.2.title') }}
-                                    </a>
-                                </p>
-                            </strong>
-                            <p class="mt-1">{{ t('Skill.Project.2.text') }}</p>
-                        </li>
-
-                        <li>
-                            <strong>
-                                <p class="mt-1 font-bold text-lg">
-                                    {{ t('Skill.Project.3.title') }}
-                                </p>
-                            </strong>
-                            <p class="mt-1">{{ t('Skill.Project.3.text') }}</p>
-                        </li>
-
-                        <li>
-                            <strong>
-                                <p class="mt-1 font-bold text-lg">
-                                    {{ t('Skill.Project.4.title') }}
-                                </p>
-                            </strong>
-                            <p class="mt-1">{{ t('Skill.Project.4.text') }}</p>
-                        </li>
-                    </ul>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
-                        <ul class="list-disc pl-5 space-y-2">
-                            <li>{{ t('Skill.Project.other.1') }}</li>
-                            <li>{{ t('Skill.Project.other.2') }}</li>
-                            <li>{{ t('Skill.Project.other.3') }}</li>
-                            <li>{{ t('Skill.Project.other.4') }}</li>
-                        </ul>
-                        <ul class="list-disc pl-5 space-y-2">
-                            <li>{{ t('Skill.Project.other.5') }}</li>
-                            <li>{{ t('Skill.Project.other.6') }}</li>
-                            <li>{{ t('Skill.Project.other.7') }}</li>
-                            <li>{{ t('Skill.Project.other.8') }}</li>
-                        </ul>
-                        <ul class="list-disc pl-5 space-y-2">
-                            <li>{{ t('Skill.Project.other.9') }}</li>
-                            <li>{{ t('Skill.Project.other.10') }}</li>
-                            <li>{{ t('Skill.Project.other.11') }}</li>
-                            <li>{{ t('Skill.Project.other.12') }}</li>
-                        </ul>
-                        <ul class="list-disc pl-5 space-y-2">
-                            <li>{{ t('Skill.Project.other.13') }}</li>
-                            <li>{{ t('Skill.Project.other.14') }}</li>
-                            <li>{{ t('Skill.Project.other.15') }}</li>
-                            <li>{{ t('Skill.Project.other.16') }}</li>
-                            <li>{{ t('Skill.Project.other.17') }}</li>
-                            <li>{{ t('Skill.Project.other.18') }}</li>
-                        </ul>
-                    </div>
+                <div class="flex items-start justify-between gap-4">
+                    <span class="font-mono text-xs text-accent">{{ String(i + 1).padStart(2, '0') }}</span>
+                    <i v-if="project.href"
+                        class="fa-solid fa-arrow-up-right-from-square text-xs text-content-faint transition-all duration-300 group-hover:-translate-y-0.5 group-hover:text-accent"></i>
                 </div>
-            </div>
+
+                <h3 class="mt-5 font-display text-xl font-semibold transition-colors duration-300"
+                    :class="project.href ? 'text-content-strong group-hover:text-accent' : 'text-content-strong'">
+                    {{ t(`Skill.Project.${project.key}.title`) }}
+                </h3>
+                <p class="mt-3 text-sm leading-relaxed text-content-muted">
+                    {{ t(`Skill.Project.${project.key}.text`) }}
+                </p>
+            </component>
         </div>
-    </div>
+
+        <!-- 接案專案 -->
+        <h3 v-reveal="'fade'" class="mb-4 mt-12 font-mono text-[11px] uppercase tracking-[0.16em] text-content-faint">
+            {{ t('Skill.Project.otherTitle') }}
+        </h3>
+        <div v-reveal="{ stagger: 40 }" class="flex flex-wrap gap-2.5">
+            <span v-for="n in otherCount" :key="n"
+                class="rounded-full border border-hairline/10 px-4 py-2 text-sm text-content-muted transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:text-content-strong">
+                {{ t(`Skill.Project.other.${n}`) }}
+            </span>
+        </div>
+    </section>
 </template>
 
 <script setup lang="ts">
-import i18n from "@/core/plugins/i18n/i18n";
+import i18n from '@/core/plugins/i18n/i18n';
+import SectionHeading from '@/components/ui/SectionHeading.vue';
+
 const { t } = i18n.global;
+
+const featured = [
+    { key: '1', href: 'https://www.momentx.ai/', id: 'project-momentx-button' },
+    { key: '2', href: 'https://www.ntpcluckytemple.tw/', id: 'project-ntpcluckytemple-button' },
+    { key: '3', href: 'https://www.aicreate360.com/', id: 'project-aicreate360-button' },
+    { key: '4' },
+    { key: '5' },
+];
+
+const otherCount = 10;
 </script>

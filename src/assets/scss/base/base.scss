@@ -1,88 +1,212 @@
 @use "./root.scss";
 
-// theme
-$theme: #5aaec4;
+/* ============================================================
+   舊有樣式相容層
+   Analysis / 小遊戲等尚未改版的頁面仍在用這些 class，
+   這裡把它們重新指向新的設計 token，讓佈景切換一致生效。
+   ============================================================ */
 
 .bg-theme {
-    background: $theme;
+    background: rgb(var(--c-surface));
 }
 
 .bg-theme-light {
-    background: var(--theme-light);
+    background: rgb(var(--c-surface));
 }
 
-// primary
-$primary: #48c1e3;
-$primary-light: #b3eaf5;
-$primary-active: #3a8ba0;
-$primary-light-active: #8fd7e4;
-
 .bg-primary {
-    background: $primary;
+    background: rgb(var(--c-accent));
 }
 
 .bg-primary-light {
-    background: $primary-light;
+    background: rgb(var(--c-accent-soft));
 }
 
 .bg-primary-active {
-    background: $primary-active;
+    background: rgb(var(--c-accent) / 0.85);
 }
 
 .bg-primary-light-active {
-    background: $primary-light-active;
+    background: rgb(var(--c-accent-soft) / 0.7);
 }
 
 .text-primary {
-    color: var(--text-primary);
+    color: rgb(var(--c-text-strong));
 }
 
 .text-primary-light {
-    color: $primary-light;
+    color: rgb(var(--c-accent));
 }
 
 .text-primary-active {
-    color: $primary-active;
+    color: rgb(var(--c-accent));
 }
 
 .text-primary-light-active {
-    color: $primary-light-active;
-}
-
-a {
-    &:hover {
-        color: $primary-light;
-    }
-}
-
-@mixin button-styles {
-    @apply text-sm bg-sky-600 px-3 py-1 rounded-md text-white text-nowrap;
+    color: rgb(var(--c-accent) / 0.8);
 }
 
 .btn {
-    @include button-styles;
+    @apply text-sm px-4 py-2 rounded-full font-medium whitespace-nowrap transition-all duration-300;
+    background: rgb(var(--c-accent));
+    color: rgb(var(--c-accent-contrast));
 
     &:hover {
-        background: $primary-active;
+        background: rgb(var(--c-accent) / 0.88);
+        transform: translateY(-1px);
     }
 
     &:disabled {
-        background: $primary-light-active;
+        background: rgb(var(--c-line) / 0.12);
+        color: rgb(var(--c-text-faint));
+        transform: none;
     }
-}
-
-@mixin button-light-styles {
-    @apply bg-primary text-primary font-bold rounded py-2 px-4 text-nowrap;
 }
 
 .btn-light {
-    @include button-light-styles;
+    @apply font-medium rounded-full py-2 px-4 whitespace-nowrap transition-all duration-300;
+    background: rgb(var(--c-line) / 0.06);
+    color: rgb(var(--c-text-strong));
+    border: 1px solid rgb(var(--c-line) / 0.12);
 
     &:hover {
-        background: $primary-active;
+        background: rgb(var(--c-line) / 0.1);
+        transform: translateY(-1px);
     }
 
     &:disabled {
-        background: $primary-light-active;
+        opacity: 0.5;
+        transform: none;
     }
+}
+
+/* ============================================================
+   設計系統：可重複使用的樣式基元
+   ============================================================ */
+
+/* 內容置中的外框寬度 */
+.shell {
+    @apply w-full mx-auto px-6 md:px-10;
+    max-width: 78rem;
+}
+
+/* 標準卡片 */
+.surface {
+    background: rgb(var(--c-surface));
+    border: 1px solid rgb(var(--c-line) / 0.08);
+    @apply rounded-card;
+}
+
+/* 帶 hover 抬升與光暈的卡片 */
+.surface-interactive {
+    background: rgb(var(--c-surface));
+    border: 1px solid rgb(var(--c-line) / 0.08);
+    @apply rounded-card transition-all duration-500 ease-smooth;
+
+    &:hover {
+        border-color: rgb(var(--c-accent) / 0.32);
+        transform: translateY(-4px);
+        box-shadow:
+            0 2px 4px rgb(0 0 0 / 0.05),
+            0 24px 48px -20px rgb(var(--c-accent) / 0.3);
+    }
+}
+
+/* 導覽列外殼
+   底線的寬度「一直存在」，只有顏色在變。
+   Tailwind 的 preflight 會把所有元素的 border-color 設成 #e5e7eb（淺灰），
+   若讓 border-width 從 0 過渡到 1px，第一幀會閃出一條灰白色的線。
+   這裡固定 1px + transparent 起點，並限制只過渡顏色與背景。 */
+.nav-shell {
+    border-bottom: 1px solid transparent;
+    transition:
+        background-color 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+        backdrop-filter 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* 玻璃感表面（導覽列捲動後） */
+.nav-shell.glass {
+    background: rgb(var(--c-base) / 0.72);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom-color: rgb(var(--c-line) / 0.08);
+}
+
+/* 區塊上方的小標籤：── 01 / 經歷 */
+.eyebrow {
+    @apply inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[0.22em];
+    color: rgb(var(--c-text-muted));
+
+    &::before {
+        content: "";
+        width: 2rem;
+        height: 1px;
+        background: rgb(var(--c-accent));
+    }
+}
+
+/* 技能 / 標籤藥丸 */
+.pill {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-xs font-medium transition-colors duration-300;
+    background: rgb(var(--c-line) / 0.05);
+    border: 1px solid rgb(var(--c-line) / 0.09);
+    color: rgb(var(--c-text-muted));
+
+    &:hover {
+        border-color: rgb(var(--c-accent) / 0.4);
+        color: rgb(var(--c-text-strong));
+    }
+}
+
+.pill-accent {
+    background: rgb(var(--c-accent) / 0.1);
+    border-color: rgb(var(--c-accent) / 0.28);
+    color: rgb(var(--c-accent));
+}
+
+/* 漸層文字 */
+.text-gradient {
+    background: linear-gradient(
+        100deg,
+        rgb(var(--c-text-strong)) 0%,
+        rgb(var(--c-text-strong)) 40%,
+        rgb(var(--c-accent)) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* 連結底線由左至右展開 */
+.link-underline {
+    position: relative;
+    color: rgb(var(--c-text-strong));
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        width: 100%;
+        height: 1px;
+        background: rgb(var(--c-accent));
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    &:hover::after {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+}
+
+a {
+    transition: color 0.3s ease;
+}
+
+/* 細分隔線 */
+.hairline {
+    border-color: rgb(var(--c-line) / 0.08);
 }

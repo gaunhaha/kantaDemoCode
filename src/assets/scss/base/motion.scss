@@ -1,0 +1,87 @@
+/* ============================================================
+   捲動進場動畫
+   搭配 src/directives/reveal.ts 使用：
+   元素預設為 [data-reveal] 的初始狀態，進入視窗後由指令加上
+   .is-revealed 觸發。指令未載入或 JS 失效時，元素仍會顯示。
+   ============================================================ */
+
+[data-reveal] {
+    opacity: 0;
+    will-change: opacity, transform;
+    transition:
+        opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+}
+
+[data-reveal="up"] {
+    transform: translate3d(0, 34px, 0);
+}
+
+[data-reveal="down"] {
+    transform: translate3d(0, -28px, 0);
+}
+
+[data-reveal="left"] {
+    transform: translate3d(38px, 0, 0);
+}
+
+[data-reveal="right"] {
+    transform: translate3d(-38px, 0, 0);
+}
+
+[data-reveal="scale"] {
+    transform: scale(0.94);
+}
+
+[data-reveal="blur"] {
+    filter: blur(14px);
+    transform: translate3d(0, 20px, 0);
+}
+
+[data-reveal="fade"] {
+    transform: none;
+}
+
+[data-reveal].is-revealed {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+    filter: blur(0);
+}
+
+/* 動畫結束後卸掉 will-change，避免長頁面持續佔用合成層 */
+[data-reveal].is-revealed.reveal-done {
+    will-change: auto;
+}
+
+/* 逐字進場（Hero 標題用） */
+.reveal-line {
+    display: block;
+    overflow: hidden;
+}
+
+.reveal-line > span {
+    display: block;
+    transform: translate3d(0, 110%, 0);
+    transition: transform 1.05s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--line-delay, 0ms);
+}
+
+.is-revealed .reveal-line > span,
+.reveal-line.is-revealed > span {
+    transform: translate3d(0, 0, 0);
+}
+
+/* 無障礙：關閉動態效果時，直接顯示最終狀態 */
+@media (prefers-reduced-motion: reduce) {
+    [data-reveal] {
+        opacity: 1 !important;
+        transform: none !important;
+        filter: none !important;
+    }
+
+    .reveal-line > span {
+        transform: none !important;
+    }
+}

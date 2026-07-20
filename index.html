@@ -1,14 +1,40 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" themeColor="dark">
 
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/logo.svg" />
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Kanta Chen — Software Engineer</title>
+  <meta name="description"
+    content="Kanta Chen — 全端工程師。打造自動交易、排程發文與資料視覺化系統。Vue / TypeScript / .NET / Python。" />
+  <meta name="theme-color" content="#0a0a0b" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Kanta Chen — Software Engineer" />
+  <meta property="og:description" content="全端工程師。打造自動交易、排程發文與資料視覺化系統。" />
+
+  <!-- 字體：Sora 標題 / Inter 內文 / Noto Sans TC 中文 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <title>Kanta Demo</title>
+
+  <!-- 進場前先套用使用者的佈景偏好，避免閃白 -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme_color');
+        if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        document.documentElement.setAttribute('themeColor', t);
+      } catch (e) { }
+    })();
+  </script>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YH0N5GZ4T5"></script>

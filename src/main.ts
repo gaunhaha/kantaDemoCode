@@ -6,6 +6,7 @@ import { createPinia } from 'pinia';
 import i18n from "@/core/plugins/i18n/i18n.ts";
 import ElementPlus from 'element-plus';
 import 'element-plus/dist/index.css';
+import { vReveal } from '@/directives/reveal';
 
 const app = createApp(App);
 const pinia = createPinia();
@@ -15,7 +16,8 @@ if (document.documentElement) {
     // 主題色彩設定
     var themeColor = localStorage.getItem("theme_color");
     if (!themeColor) {
-        themeColor = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        // 設計以暗色為主，只有在使用者明確偏好亮色時才走亮色
+        themeColor = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
     }
     document.documentElement.setAttribute("themeColor", themeColor);
 
@@ -36,5 +38,6 @@ app.use(pinia);
 app.use(i18n);
 app.use(router);
 app.use(ElementPlus);
+app.directive('reveal', vReveal);
 
 app.mount("#app");
