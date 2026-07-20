@@ -49,8 +49,6 @@ const featured = [
     { key: '1', href: 'https://www.momentx.ai/', id: 'project-momentx-button' },
     { key: '2', href: 'https://www.ntpcluckytemple.tw/', id: 'project-ntpcluckytemple-button' },
     { key: '3', href: 'https://www.aicreate360.com/', id: 'project-aicreate360-button' },
-    { key: '4' },
-    { key: '5' },
 ];
 
 const otherCount = 10;
