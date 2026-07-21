@@ -383,7 +383,7 @@
     },
     "MazeGame": {
         "title": "走迷宮遊戲",
-        "instruction": "請使用方向鍵來移動",
+        "instruction": "請使用方向鍵或 WASD 來移動",
         "instructionDetail": "我採用了深度優先搜索（Depth-First Search, DFS）演算法來生成迷宮。從終點開始，沿著一條路徑不斷深入，直到無法前進為止，然後回溯到最近的分岔點繼續生成其他路徑。這種方法能夠有效地生成一個隨機且可解的迷宮。",
         "startButton": "開始",
         "spendTime": "花費時間",

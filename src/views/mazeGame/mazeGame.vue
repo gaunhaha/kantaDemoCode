@@ -92,7 +92,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, computed, watch, onMounted, onUnmounted } from 'vue';
 import i18n from "@/core/plugins/i18n/i18n.ts";
 import moment, { Moment } from 'moment';
 import confetti from 'canvas-confetti';
@@ -109,8 +109,18 @@ const pointSound = ref<HTMLAudioElement>(new Audio('./gotPointSoundEffect.mp3'))
 const showInstruction = ref<boolean>(true);
 const moveInterval = ref<ReturnType<typeof setInterval> | null>(null);
 
+// 只有在遊戲進行中（迷宮已產生且尚未抵達終點）才需要接管鍵盤
+const isPlaying = computed(() => maze.value.length > 0 && !checkCompletion());
+
+watch(isPlaying, (playing) => {
+    if (playing) {
+        window.addEventListener('keydown', handleKeyPress);
+    } else {
+        window.removeEventListener('keydown', handleKeyPress);
+    }
+});
+
 onMounted(() => {
-    window.addEventListener('keydown', handleKeyPress);
     const metaViewport = document.querySelector('meta[name=viewport]');
     if (metaViewport) {
         metaViewport.setAttribute('content', 'width=device-width, initial-scale=1.0, user-scalable=no');
@@ -185,9 +195,27 @@ function generateRandomMaze() {
     return maze;
 }
 
+// 方向鍵與 WASD 皆可操作，統一轉換成方向鍵的表示法
+const keyDirectionMap: Record<string, string> = {
+    ArrowUp: 'ArrowUp', w: 'ArrowUp', W: 'ArrowUp',
+    ArrowDown: 'ArrowDown', s: 'ArrowDown', S: 'ArrowDown',
+    ArrowLeft: 'ArrowLeft', a: 'ArrowLeft', A: 'ArrowLeft',
+    ArrowRight: 'ArrowRight', d: 'ArrowRight', D: 'ArrowRight',
+};
+
 function handleKeyPress(event: KeyboardEvent | { key: string }) {
+    const direction = keyDirectionMap[event.key];
+    if (!direction) return;
+
+    // 避免方向鍵捲動頁面；輸入框內打字時不攔截
+    if (event instanceof KeyboardEvent) {
+        const target = event.target as HTMLElement | null;
+        if (target?.closest('input, textarea, select, [contenteditable="true"]')) return;
+        event.preventDefault();
+    }
+
     if (checkCompletion()) return;
-    switch (event.key) {
+    switch (direction) {
         case 'ArrowUp':
             if (playerPosition.value.y > 0 && maze.value[playerPosition.value.y - 1][playerPosition.value.x] === 1) {
                 playerPosition.value.y--;
@@ -291,5 +319,10 @@ function stopContinuousMove() {
 // 在組件卸載時清理
 onUnmounted(() => {
     stopContinuousMove();
+    window.removeEventListener('keydown', handleKeyPress);
+    if (timeoutId.value !== null) {
+        clearInterval(timeoutId.value);
+        timeoutId.value = null;
+    }
 });
 </script>

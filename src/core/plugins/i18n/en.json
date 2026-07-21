@@ -383,7 +383,7 @@
     },
     "MazeGame": {
         "title": "Maze Game",
-        "instruction": "Please use the direction keys to move",
+        "instruction": "Please use the arrow keys or WASD to move",
         "instructionDetail": "I used the Depth-First Search (DFS) algorithm to generate the maze. Starting from the star, it continuously delves along a path until it can no longer proceed, then backtracks to the nearest branching point to continue generating other paths. This method effectively creates a random and solvable maze.",
         "startButton": "Start",
         "spendTime": "Spend Time",
